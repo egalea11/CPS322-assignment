@@ -1,19 +1,26 @@
 /**
  * Created by Sterling Ryan on 25/11/2016.
  */
-public class Affiliate extends AdPlatform {
+public class Affiliate {
     private int id;
     private String name;
     private AffiliateType type;
-    private long balance;
+    private double balance;
 
+    // Constructor
+    public Affiliate(String name, int id) {
+        this.name = name;
+        this.type = AffiliateType.BRONZE;
+        balance = 0;
+        this.id = id;
+    }
+
+    // Getters and Setters
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) {this.id = id;}
 
     public String getName() {
         return name;
@@ -31,11 +38,11 @@ public class Affiliate extends AdPlatform {
         this.type = type;
     }
 
-    public long getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(long balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 }

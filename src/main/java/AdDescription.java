@@ -1,17 +1,17 @@
-import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 /**
  * Created by Sterling Ryan on 25/11/2016.
  */
 public class AdDescription {
-    private Keywords keywords;
+    private ArrayList<String> keywords;
     private AdFormat format;
 
-    public Keywords getKeywords() {
+    public ArrayList<String> getKeywords() {
         return keywords;
     }
 
-    public void setKeywords(Keywords keywords) {
+    public void setKeywords(ArrayList<String> keywords) {
         this.keywords = keywords;
     }
 

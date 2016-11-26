@@ -1,10 +1,12 @@
+import java.util.ArrayList;
+
 /**
  * Created by Sterling Ryan on 25/11/2016.
  */
 public class AdFormat {
     private MediaType mediaType;
     private Dimensions dimensions;
-    private Keywords keywords;
+    private String keywords;
 
     public MediaType getMediaType() {
         return mediaType;
@@ -22,11 +24,11 @@ public class AdFormat {
         this.dimensions = dimensions;
     }
 
-    public Keywords getKeywords() {
+    public String getKeywords() {
         return keywords;
     }
 
-    public void setKeywords(Keywords keywords) {
+    public void setKeywords(String keywords) {
         this.keywords = keywords;
     }
 }

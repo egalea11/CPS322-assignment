@@ -3,13 +3,39 @@
  */
 public class Advert implements AdProvider {
     private int id;
+    private String name;
+    private AdFormat adFormat;
 
-    public void setName(String name) {
+    //Constructor
+    public Advert(int id, String name, AdFormat adFormat) {
+        this.id = id;
+        this.name = name;
+        this.adFormat = adFormat;
+    }
 
+    //Getters and Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
-        return null;
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public AdFormat getAdFormat() {
+        return adFormat;
+    }
+
+    public void setAdFormat(AdFormat adFormat) {
+        this.adFormat = adFormat;
     }
 
     public Advert serveAdvert(AdDescription adDescription) {

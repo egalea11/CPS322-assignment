@@ -5,6 +5,5 @@ public interface AdProvider {
 
     void setName(String name);
     String getName();
-
     Advert serveAdvert(AdDescription adDescription);
 }
