@@ -13,15 +13,14 @@ public class AdPlatform implements PaymentProvider{
     private HashMap<Integer, Affiliate> affiliatesDatabase;
     private HashMap<Integer, Advert> advertDatabase;
 
-    public void addAdProvider(Advert a){
-        advertDatabase.put(a.getId(), a);
-    }
 
+    // Create new Affiliate
     public boolean registerAffiliate(Affiliate affiliate){
         affiliatesDatabase.put(affiliate.getId(), affiliate);
         return true;
     }
 
+    // Settle Affiliate Balance
     public boolean settleAffiliateBalance(Affiliate affiliate){
         if (affiliate.getBalance() < 5){
             if(affiliate.getType() == AffiliateType.BRONZE){
