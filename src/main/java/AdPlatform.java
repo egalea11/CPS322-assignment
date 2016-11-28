@@ -22,22 +22,23 @@ public class AdPlatform implements PaymentProvider{
 
     // Settle Affiliate Balance
     public boolean settleAffiliateBalance(Affiliate affiliate){
-        if (affiliate.getBalance() < 5){
+        if (affiliate.getBalance() < 5.0){
             if(affiliate.getType() == AffiliateType.BRONZE){
-                makePayment("AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 10)/ 100));
-                makePayment("AdPlatformAccount",(affiliate.getBalance() * 10)/ 100);
+                makePayment("AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 10)/ 100)); // adProvider payment
+                makePayment("AdPlatformAccount",(affiliate.getBalance() * 10)/ 100);    // commission
                 affiliate.setBalance(0.0);
             }
             else if(affiliate.getType() == AffiliateType.SILVER){
-                makePayment("AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 10)/ 100));
-                makePayment("AdPlatformAccount",(affiliate.getBalance() * 7.5)/ 100);
+                makePayment("AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 10)/ 100)); // adProvider payment
+                makePayment("AdPlatformAccount",(affiliate.getBalance() * 7.5)/ 100);   // commission
                 affiliate.setBalance(0.0);
             }
             else if(affiliate.getType() == AffiliateType.GOLD){
-                makePayment("AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 10)/ 100));
-                makePayment("AdPlatformAccount",(affiliate.getBalance() * 5)/ 100);
+                makePayment("AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 10)/ 100)); // adProvider payment
+                makePayment("AdPlatformAccount",(affiliate.getBalance() * 5)/ 100);     // commission
                 affiliate.setBalance(0.0);
             }
+            affiliate.setType(AffiliateType.BRONZE);
             return true;
         }
         else{
@@ -47,7 +48,7 @@ public class AdPlatform implements PaymentProvider{
 
     // Serve an advert according to the description provided by an affiliate
     public Advert serveAdvert(AdDescription adDescription){
-        ArrayList<Advert> potentialAdvert = new ArrayList<Advert>();
+        ArrayList<Advert> potentialAdverts = new ArrayList<Advert>();
 
         // Get a list of potential adverts with matching keywords and format
         for(Advert advert: advertDatabase.values()){
@@ -58,7 +59,7 @@ public class AdPlatform implements PaymentProvider{
             ArrayList<String> keywordList = adDescription.getKeywords();
             for(int i = 0; i < keywordList.size(); i++){
                 if(keywordRequest.equals(keywordList.get(i))){
-                    potentialAdvert.add(advert);
+                    potentialAdverts.add(advert);
                     break;
                 }
             }
@@ -66,7 +67,7 @@ public class AdPlatform implements PaymentProvider{
 
         // Choose one advert randomly from a list of adverts
         Random random = new Random();
-        return potentialAdvert.get(random.nextInt(potentialAdvert.size()));
+        return potentialAdverts.get(random.nextInt(potentialAdverts.size()));
     }
 
     // Increase affiliate's balance and change type if needed.

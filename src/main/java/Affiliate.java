@@ -11,7 +11,7 @@ public class Affiliate {
     public Affiliate(String name, int id) {
         this.name = name;
         this.type = AffiliateType.BRONZE;
-        balance = 0;
+        this.balance = 0;
         this.id = id;
     }
 
