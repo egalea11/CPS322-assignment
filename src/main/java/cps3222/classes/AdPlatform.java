@@ -1,3 +1,5 @@
+package cps3222.classes;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -14,13 +16,13 @@ public class AdPlatform implements PaymentProvider{
     private HashMap<Integer, Advert> advertDatabase;
 
 
-    // Create new Affiliate
+    // Create new cps3222.classes.Affiliate
     public boolean registerAffiliate(Affiliate affiliate){
         affiliatesDatabase.put(affiliate.getId(), affiliate);
         return true;
     }
 
-    // Settle Affiliate Balance
+    // Settle cps3222.classes.Affiliate Balance
     public boolean settleAffiliateBalance(Affiliate affiliate){
         if (affiliate.getBalance() < 5.0){
             if(affiliate.getType() == AffiliateType.BRONZE){
