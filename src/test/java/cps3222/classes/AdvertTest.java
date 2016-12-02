@@ -16,7 +16,8 @@ public class AdvertTest {
 
     @Before
     public void setUp() throws Exception {
-        advert = new Advert("123456", "John Doe", );
+        AdFormat adFormat = new AdFormat(MediaType.IMAGE, Dimensions.LARGE, "Business");
+        advert = new Advert(123456, "John Doe", adFormat);
     }
 
     @After
@@ -24,20 +25,24 @@ public class AdvertTest {
         advert = null;
     }
 
-
     @Test
     public void getSetId() throws Exception {
-
+        advert.setId(999999);
+        assertEquals(999999, advert.getId());
     }
 
     @Test
     public void getSetName() throws Exception {
-
+        advert.setName("Jane De Lemur");
+        assertEquals("Jane De Lemur", advert.getName());
     }
 
     @Test
     public void getSetAdFormat() throws Exception {
+        AdFormat newFormat = new AdFormat(MediaType.VIDEO, Dimensions.SMALL, "Games");
+        advert.setAdFormat(newFormat);
 
+        assertEquals(newFormat, advert.getAdFormat());
     }
 
     @Test

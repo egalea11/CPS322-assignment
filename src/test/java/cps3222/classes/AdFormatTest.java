@@ -24,7 +24,7 @@ public class AdFormatTest {
 
     @Before
     public void setUp(){
-        adFormat = new AdFormat();
+        adFormat = new AdFormat(MediaType.IMAGE, Dimensions.LARGE, "business");
     }
 
     @After

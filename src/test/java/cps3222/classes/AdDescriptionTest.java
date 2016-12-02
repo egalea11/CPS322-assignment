@@ -44,7 +44,7 @@ public class AdDescriptionTest {
     @Test
     public void getSetFormat() throws Exception {
         // setup
-        AdFormat adFormat = new AdFormat();
+        AdFormat adFormat = new AdFormat(MediaType.IMAGE, Dimensions.LARGE, "Business");
 
         adDesc.setFormat(adFormat);
 
