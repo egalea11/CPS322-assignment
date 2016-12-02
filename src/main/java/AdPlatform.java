@@ -10,14 +10,34 @@ public class AdPlatform implements PaymentProvider{
 
 
     // Change from collection to use of HashMap
-    private HashMap<Integer, Affiliate> affiliatesDatabase;
-    private HashMap<Integer, Advert> advertDatabase;
+    private HashMap<Integer, Affiliate> affiliatesDatabase = new HashMap<Integer, Affiliate>();
+    private HashMap<Integer, Advert> advertDatabase = new HashMap<Integer, Advert>();
 
+    public HashMap<Integer, Affiliate> getAffiliatesDatabase() {
+        return affiliatesDatabase;
+    }
+
+    public void setAffiliatesDatabase(HashMap<Integer, Affiliate> affiliatesDatabase) {
+        this.affiliatesDatabase = affiliatesDatabase;
+    }
+
+    public HashMap<Integer, Advert> getAdvertDatabase() {
+        return advertDatabase;
+    }
+
+    public void setAdvertDatabase(HashMap<Integer, Advert> advertDatabase) {
+        this.advertDatabase = advertDatabase;
+    }
 
     // Create new Affiliate
     public boolean registerAffiliate(Affiliate affiliate){
-        affiliatesDatabase.put(affiliate.getId(), affiliate);
-        return true;
+        if(affiliatesDatabase.get(affiliate.getId()) != null){
+            return false;
+        }
+        else{
+            affiliatesDatabase.put(affiliate.getId(), affiliate);
+            return true;
+        }
     }
 
     // Settle Affiliate Balance
@@ -29,12 +49,12 @@ public class AdPlatform implements PaymentProvider{
                 affiliate.setBalance(0.0);
             }
             else if(affiliate.getType() == AffiliateType.SILVER){
-                makePayment("AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 10)/ 100)); // adProvider payment
+                makePayment("AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 7.5)/ 100)); // adProvider payment
                 makePayment("AdPlatformAccount",(affiliate.getBalance() * 7.5)/ 100);   // commission
                 affiliate.setBalance(0.0);
             }
             else if(affiliate.getType() == AffiliateType.GOLD){
-                makePayment("AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 10)/ 100)); // adProvider payment
+                makePayment("AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 5)/ 100)); // adProvider payment
                 makePayment("AdPlatformAccount",(affiliate.getBalance() * 5)/ 100);     // commission
                 affiliate.setBalance(0.0);
             }

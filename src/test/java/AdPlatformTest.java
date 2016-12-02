@@ -3,6 +3,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Collection;
+
 import static org.junit.Assert.*;
 
 /**
@@ -22,22 +24,62 @@ public class AdPlatformTest {
     }
 
     @Test
-    public void registerAffiliate() throws Exception {
-        
+    public void simpleRegisterAffiliate() {
+
+        // Setup
+        Affiliate affiliate = new Affiliate(1,"Hello");
+        adPlatform.registerAffiliate(affiliate);
+
+        //Exercise
+        Affiliate returnedAffliate = adPlatform.getAffiliatesDatabase().get(1);
+
+        //Test
+        assertEquals(returnedAffliate, affiliate);
     }
 
     @Test
-    public void settleAffiliateBalance() throws Exception {
+    public void insertSameIdAffiliate(){
+
+        // Setup
+        Affiliate affiliate1 = new Affiliate(1,"Hello");
+        Affiliate affiliate2 = new Affiliate(1,"Trump");
+        adPlatform.registerAffiliate(affiliate1);
+        adPlatform.registerAffiliate(affiliate2);
+
+        //Exercise
+        Affiliate returnedAffliate = adPlatform.getAffiliatesDatabase().get(1);
+
+        //Test
+        assertEquals(returnedAffliate.getName(),"Hello");
 
     }
 
     @Test
-    public void serveAdvert() throws Exception {
+    public void noSettlingOfBalanceBelowFive(){
+
+        //Setup
+        Affiliate affiliate = new Affiliate(1,"HelpMe");
+
+        //Exercise
+        affiliate.setBalance(4.99);
+
+        //Test
+        assertEquals(4.99, affiliate.getBalance(), 0.01);
 
     }
 
     @Test
-    public void adClicked() throws Exception {
+    public void testCommissionBronze(){
+
+    }
+
+    @Test
+    public void serveAdvert()  {
+
+    }
+
+    @Test
+    public void adClicked() {
 
     }
 
