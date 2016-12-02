@@ -40,4 +40,5 @@ public class Advert{
     public void setAdFormat(AdFormat adFormat) {
         this.adFormat = adFormat;
     }
+
 }
