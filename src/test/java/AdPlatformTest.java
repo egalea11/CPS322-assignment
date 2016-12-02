@@ -1,6 +1,9 @@
 import cps3222.classes.AdPlatform;
 
+import cps3222.classes.*;
 import org.junit.*;
+
+import static org.junit.Assert.assertEquals;
 
 
 /**
