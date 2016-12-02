@@ -62,6 +62,8 @@ public class AdPlatformTest {
 
         //Exercise
         affiliate.setBalance(4.99);
+        adPlatform.registerAffiliate(affiliate);
+        adPlatform.settleAffiliateBalance(affiliate);
 
         //Test
         assertEquals(4.99, affiliate.getBalance(), 0.01);
@@ -69,7 +71,40 @@ public class AdPlatformTest {
     }
 
     @Test
-    public void testCommissionBronze(){
+    public void changeInAffiliateTypeSilverToBronze(){
+        //Setup
+        Affiliate affiliate = new Affiliate(1,"HelpMe");
+        affiliate.setBalance(50.00);
+        affiliate.setType(AffiliateType.SILVER);
+
+        //Exercise
+        adPlatform.settleAffiliateBalance(affiliate);
+
+        //Test
+        assertEquals(AffiliateType.BRONZE, affiliate.getType());
+    }
+
+    @Test
+    public void changeInAffiliateTypeGoldToBronze(){
+        //Setup
+        Affiliate affiliate = new Affiliate(1,"HelpMe");
+        affiliate.setBalance(500.0);
+        affiliate.setType(AffiliateType.GOLD);
+
+        //Exercise
+        adPlatform.settleAffiliateBalance(affiliate);
+
+        //Test
+        assertEquals(AffiliateType.BRONZE, affiliate.getType());
+    }
+
+
+    @Test
+    public void keywordFoundInServeAdvert(){
+
+        //Setup
+//        AdFormat adFormat = new AdFormat();
+//        Advert advert = new Advert(1,"Hello",);
 
     }
 

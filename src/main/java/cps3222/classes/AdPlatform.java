@@ -31,7 +31,7 @@ public class AdPlatform implements PaymentProvider{
         this.advertDatabase = advertDatabase;
     }
 
-    // Create new cps3222.classes.Affiliate
+    // Create new Affiliate
     public boolean registerAffiliate(Affiliate affiliate){
         if(affiliatesDatabase.get(affiliate.getId()) != null){
             return false;
@@ -42,9 +42,9 @@ public class AdPlatform implements PaymentProvider{
         }
     }
 
-    // Settle cps3222.classes.Affiliate Balance
+    // Settle Balance
     public boolean settleAffiliateBalance(Affiliate affiliate){
-        if (affiliate.getBalance() < 5.0){
+        if (affiliate.getBalance() > 5.0){
             if(affiliate.getType() == AffiliateType.BRONZE){
                 makePayment("AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 10)/ 100)); // adProvider payment
                 makePayment("AdPlatformAccount",(affiliate.getBalance() * 10)/ 100);    // commission
@@ -85,6 +85,10 @@ public class AdPlatform implements PaymentProvider{
                     break;
                 }
             }
+        }
+
+        if(potentialAdverts.size() == 0){
+            return null;
         }
 
         // Choose one advert randomly from a list of adverts
