@@ -42,6 +42,17 @@ public class AdPlatform implements PaymentProvider{
         }
     }
 
+    // Create new Advert
+    public boolean registerAdvert(Advert advert){
+        if(advertDatabase.get(advert.getId()) != null){
+            return false;
+        }
+        else{
+            advertDatabase.put(advert.getId(), advert);
+            return true;
+        }
+    }
+
     // Settle Balance
     public boolean settleAffiliateBalance(Affiliate affiliate){
         if (affiliate.getBalance() > 5.0){
