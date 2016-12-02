@@ -5,6 +5,8 @@ import cps3222.classes.AdPlatform;
 import cps3222.classes.*;
 import org.junit.*;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 
@@ -105,9 +107,20 @@ public class AdPlatformTest {
     public void keywordFoundInServeAdvert(){
 
         //Setup
-//        AdFormat adFormat = new AdFormat();
-//        Advert advert = new Advert(1,"Hello",);
+        AdFormat adFormat = new AdFormat(MediaType.IMAGE,Dimensions.LARGE,"VideoGame");
+        Advert advert = new Advert(1,"Hello",adFormat);
+        adPlatform.registerAdvert(advert);
+        ArrayList<String> keywords = new ArrayList<String>();
+        keywords.add("Video");
+        keywords.add("VideoGame");
+        keywords.add("");
+        AdDescription adDescription = new AdDescription(keywords,adFormat);
 
+
+        // Exercise
+        Advert returnedAdvert = adPlatform.serveAdvert(adDescription);
+
+        assertEquals(returnedAdvert, advert);
     }
 
     @Test
