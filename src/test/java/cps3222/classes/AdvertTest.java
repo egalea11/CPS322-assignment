@@ -17,7 +17,7 @@ public class AdvertTest {
     @Before
     public void setUp() throws Exception {
         AdFormat adFormat = new AdFormat(MediaType.IMAGE, Dimensions.LARGE, "Business");
-        advert = new Advert(123456, "John Doe", adFormat);
+        advert = new Advert(0, null, null);
     }
 
     @After
