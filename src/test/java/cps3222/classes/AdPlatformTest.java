@@ -51,10 +51,10 @@ public class AdPlatformTest {
         adPlatform.registerAffiliate(affiliate2);
 
         //Exercise
-        Affiliate returnedAffliate = adPlatform.getAffiliatesDatabase().get(1);
+        Affiliate returnedAffiliate = adPlatform.getAffiliatesDatabase().get(1);
 
         //Test
-        assertEquals(returnedAffliate.getName(),"Hello");
+        assertEquals(returnedAffiliate.getName(),"Hello");
 
     }
 
@@ -120,17 +120,58 @@ public class AdPlatformTest {
         // Exercise
         Advert returnedAdvert = adPlatform.serveAdvert(adDescription);
 
+        // Test
         assertEquals(returnedAdvert, advert);
     }
 
     @Test
-    public void serveAdvert()  {
+    public void keywordNotFoundInServeAdvert(){
 
+        //Setup
+        AdFormat adFormat = new AdFormat(MediaType.IMAGE,Dimensions.LARGE,"VideoGame");
+        Advert advert = new Advert(1,"Hello",adFormat);
+        adPlatform.registerAdvert(advert);
+        ArrayList<String> keywords = new ArrayList<String>();
+        keywords.add("Video");
+        keywords.add("Doctor");
+        keywords.add("");
+        AdDescription adDescription = new AdDescription(keywords,adFormat);
+
+
+        // Exercise
+        Advert returnedAdvert = adPlatform.serveAdvert(adDescription);
+
+        // Test
+        assertEquals(returnedAdvert, null);
     }
 
     @Test
-    public void adClicked() {
+    public void adClickedChangeToSilver() {
+        //Setup
+        Affiliate affiliate = new Affiliate(1,"HelpMe");
+        affiliate.setBalance(49.95);
+        adPlatform.registerAffiliate(affiliate);
 
+        //Exercise
+        adPlatform.AdClicked(1);
+
+        //Test
+        assertEquals(AffiliateType.SILVER, affiliate.getType());
+    }
+
+    @Test
+    public void adClickedChangeToGold() {
+        //Setup
+        Affiliate affiliate = new Affiliate(1,"HelpMe");
+        affiliate.setBalance(499.95);
+        affiliate.setType(AffiliateType.SILVER);
+        adPlatform.registerAffiliate(affiliate);
+
+        //Exercise
+        adPlatform.AdClicked(1);
+
+        //Test
+        assertEquals(AffiliateType.GOLD, affiliate.getType());
     }
 
 }

@@ -8,7 +8,7 @@ import java.util.Random;
 /**
  * Created by Sterling Ryan on 25/11/2016.
  */
-public class AdPlatform implements PaymentProvider{
+public class AdPlatform implements PaymentProvider, AdProvider{
 
 
     // Change from collection to use of HashMap
