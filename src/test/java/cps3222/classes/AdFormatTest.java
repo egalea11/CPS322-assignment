@@ -24,7 +24,7 @@ public class AdFormatTest {
 
     @Before
     public void setUp(){
-        adFormat = new AdFormat(MediaType.IMAGE, Dimensions.LARGE, "business");
+        adFormat = new AdFormat(null, null, null);
     }
 
     @After
@@ -33,7 +33,7 @@ public class AdFormatTest {
     }
 
     @Test
-    public void getSetMediaType(){
+    public void getSetMediaType() {
         // setup
         MediaType image = MediaType.IMAGE;
 
@@ -41,12 +41,7 @@ public class AdFormatTest {
         adFormat.setMediaType(image);
 
         // verify
-        assertEquals(MediaType.IMAGE ,adFormat.getMediaType());
-    }
-
-    @Test
-    public void nullMediaType(){
-
+        assertEquals(MediaType.IMAGE, adFormat.getMediaType());
     }
 
     @Test

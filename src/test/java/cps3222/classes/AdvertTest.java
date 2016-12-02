@@ -28,12 +28,14 @@ public class AdvertTest {
     @Test
     public void getSetId() throws Exception {
         advert.setId(999999);
+
         assertEquals(999999, advert.getId());
     }
 
     @Test
     public void getSetName() throws Exception {
         advert.setName("Jane De Lemur");
+
         assertEquals("Jane De Lemur", advert.getName());
     }
 
@@ -43,10 +45,5 @@ public class AdvertTest {
         advert.setAdFormat(newFormat);
 
         assertEquals(newFormat, advert.getAdFormat());
-    }
-
-    @Test
-    public void serveAdvert() throws Exception {
-
     }
 }

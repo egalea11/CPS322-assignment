@@ -19,7 +19,7 @@ public class AdDescriptionTest {
 
     @Before
     public void setUp() throws Exception {
-        adDesc = new AdDescription();
+        adDesc = new AdDescription(null, null);
     }
 
     @After
