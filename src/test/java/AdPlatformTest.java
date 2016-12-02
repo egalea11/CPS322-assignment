@@ -1,15 +1,12 @@
-import cucumber.deps.com.thoughtworks.xstream.mapper.Mapper;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import cps3222.classes.AdPlatform;
 
-import java.util.Collection;
+import org.junit.*;
 
-import static org.junit.Assert.*;
 
 /**
  * Created by SterlingRyan on 02/12/2016.
  */
+
 public class AdPlatformTest {
     AdPlatform adPlatform;
 
