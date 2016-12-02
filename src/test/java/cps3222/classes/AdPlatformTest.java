@@ -1,3 +1,5 @@
+package cps3222.classes;
+
 import cps3222.classes.AdPlatform;
 
 import cps3222.classes.*;

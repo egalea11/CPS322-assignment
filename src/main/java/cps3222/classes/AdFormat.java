@@ -8,6 +8,8 @@ public class AdFormat {
     private Dimensions dimensions;
     private String keywords;
 
+
+
     public MediaType getMediaType() {
         return mediaType;
     }

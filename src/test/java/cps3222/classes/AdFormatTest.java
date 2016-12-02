@@ -1,3 +1,5 @@
+package cps3222.classes;
+
 import cps3222.classes.AdDescription;
 import cps3222.classes.AdFormat;
 import cps3222.classes.Dimensions;

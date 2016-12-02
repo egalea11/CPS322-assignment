@@ -1,4 +1,7 @@
+package cps3222.classes;
+
 import cps3222.classes.AdDescription;
+import cps3222.classes.AdFormat;
 import org.junit.*;
 
 import java.util.ArrayList;
@@ -41,6 +44,11 @@ public class AdDescriptionTest {
     @Test
     public void getSetFormat() throws Exception {
         // setup
+        AdFormat adFormat = new AdFormat();
+
+        adDesc.setFormat(adFormat);
+
+        assertEquals(adFormat, adDesc.getFormat());
     }
 
 
