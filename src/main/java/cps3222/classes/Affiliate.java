@@ -1,3 +1,5 @@
+package cps3222.classes;
+
 /**
  * Created by Sterling Ryan on 25/11/2016.
  */
@@ -8,11 +10,11 @@ public class Affiliate {
     private double balance;
 
     // Constructor
-    public Affiliate(String name, int id) {
+    public Affiliate(int id, String name) {
+        this.id = id;
         this.name = name;
         this.type = AffiliateType.BRONZE;
-        balance = 0;
-        this.id = id;
+        this.balance = 0;
     }
 
     // Getters and Setters

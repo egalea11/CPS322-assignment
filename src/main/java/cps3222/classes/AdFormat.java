@@ -1,12 +1,18 @@
-import java.util.ArrayList;
+package cps3222.classes;
 
 /**
- * Created by Sterling Ryan on 25/11/2016.
+ * Created by Euro Ryan on 25/11/2016.
  */
 public class AdFormat {
     private MediaType mediaType;
     private Dimensions dimensions;
     private String keywords;
+
+    public AdFormat(MediaType mediaType, Dimensions dimensions, String keywords) {
+        this.mediaType = mediaType;
+        this.dimensions = dimensions;
+        this.keywords = keywords;
+    }
 
     public MediaType getMediaType() {
         return mediaType;

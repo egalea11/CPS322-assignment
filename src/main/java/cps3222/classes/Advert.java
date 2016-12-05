@@ -1,7 +1,10 @@
+package cps3222.classes;
+
 /**
- * Created by Sterling Ryan on 25/11/2016.
+ * Created by Euro Ryan on 25/11/2016.
  */
-public class Advert implements AdProvider {
+
+public class Advert{
     private int id;
     private String name;
     private AdFormat adFormat;
@@ -38,7 +41,4 @@ public class Advert implements AdProvider {
         this.adFormat = adFormat;
     }
 
-    public Advert serveAdvert(AdDescription adDescription) {
-        return null;
-    }
 }
