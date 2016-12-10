@@ -21,19 +21,6 @@ public class StepDefinitions {
 
     WebDriver driver;
 
-
-//    @Before
-//    public void setUp() {
-//        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-//        driver = new ChromeDriver();
-//    }
-//
-//    @After
-//    public void tearDown() {
-//        driver.quit();
-//
-//    }
-
     @Given("^I am an affiliate trying to log in$")
     public void i_am_an_affiliate_trying_to_log_in() throws Throwable {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
@@ -52,7 +39,7 @@ public class StepDefinitions {
 
     @Then("^I should be taken to my account admin page$")
     public void i_should_be_taken_to_my_account_admin_page() throws Throwable {
-        assertEquals(1, driver.findElements(By.xpath("//td[@id='depCode' and text()='Rectorate']")).size());
+        assertEquals("Admin Account", driver.findElements(By.xpath("//title"));
     }
 
     @When("^I login using invalid credentials$")

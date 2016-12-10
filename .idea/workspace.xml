@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a491ffe2-d481-41cd-a818-99f6b9cc085f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/RunCucumberTests.class" afterPath="$PROJECT_DIR$/target/test-classes/RunCucumberTests.class" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/credentials.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/accountadmin.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/cps3222/cucumberDemo/StepDefinitions.class" afterPath="$PROJECT_DIR$/target/test-classes/cps3222/cucumberDemo/StepDefinitions.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/CPS3222_assignment/org/apache/jsp/index_jsp.class" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/CPS3222_assignment/org/apache/jsp/index_jsp.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/RunCucumberTests.java" afterPath="$PROJECT_DIR$/src/test/java/RunCucumberTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/cps3222/cucumberDemo/StepDefinitions.java" afterPath="$PROJECT_DIR$/src/test/java/cps3222/cucumberDemo/StepDefinitions.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cucumber-html-report/report.js" afterPath="$PROJECT_DIR$/target/cucumber-html-report/report.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/CPS3222_assignment/org/apache/jsp/index_jsp.java" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/CPS3222_assignment/org/apache/jsp/index_jsp.java" />
@@ -45,21 +44,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+            <state relative-caret-position="51">
+              <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="credentials.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/credentials.jsp">
+      <file leaf-file-name="accountadmin.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/accountadmin.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+            <state relative-caret-position="221">
+              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -75,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StepDefinitions.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StepDefinitions.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/cps3222/cucumberDemo/StepDefinitions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="49" column="45" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
+            <state relative-caret-position="241">
+              <caret line="41" column="75" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -114,12 +113,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/CPS3222assignment.iml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/credentials.jsp" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/cps3222/webtesting/WebTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/RunCucumberTests.java" />
-        <option value="$PROJECT_DIR$/src/test/java/cps3222/cucumberDemo/StepDefinitions.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/credentials.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/accountadmin.jsp" />
+        <option value="$PROJECT_DIR$/src/test/java/cps3222/cucumberDemo/StepDefinitions.java" />
       </list>
     </option>
   </component>
@@ -248,36 +248,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="cps3222" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CPS322-assignment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CPS322-assignment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cps3222" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cucumberDemo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -787,22 +757,17 @@
       <option name="project" value="LOCAL" />
       <updated>1481385215961</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Selenium fix">
+      <created>1481391764450</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1481391764450</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RunCucumberTests - 2016.12.10 at 18h 28m 56s.xml">
-      <configuration name="RunCucumberTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RunCucumberTests - 2016.12.10 at 18h 30m 45s.xml">
-      <configuration name="RunCucumberTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RunCucumberTests - 2016.12.10 at 18h 32m 16s.xml">
-      <configuration name="RunCucumberTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RunCucumberTests - 2016.12.10 at 18h 36m 11s.xml">
-      <configuration name="RunCucumberTests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="RunCucumberTests - 2016.12.10 at 18h 37m 49s.xml">
       <configuration name="RunCucumberTests" configurationId="JUnit" />
     </history-entry>
@@ -812,14 +777,26 @@
     <history-entry file="RunCucumberTests - 2016.12.10 at 18h 42m 06s.xml">
       <configuration name="RunCucumberTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WebTests_testAlfredVellaRector - 2016.12.10 at 16h 25m 32s.xml">
-      <configuration name="WebTests.testAlfredVellaRector" configurationId="JUnit" />
+    <history-entry file="RunCucumberTests - 2016.12.10 at 18h 55m 26s.xml">
+      <configuration name="RunCucumberTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WebTests_testAlfredVellaRector - 2016.12.10 at 16h 33m 11s.xml">
-      <configuration name="WebTests.testAlfredVellaRector" configurationId="JUnit" />
+    <history-entry file="RunCucumberTests - 2016.12.10 at 18h 57m 43s.xml">
+      <configuration name="RunCucumberTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WebTests_testAlfredVellaRector - 2016.12.10 at 16h 33m 55s.xml">
-      <configuration name="WebTests.testAlfredVellaRector" configurationId="JUnit" />
+    <history-entry file="RunCucumberTests - 2016.12.10 at 18h 58m 18s.xml">
+      <configuration name="RunCucumberTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RunCucumberTests - 2016.12.10 at 19h 05m 02s.xml">
+      <configuration name="RunCucumberTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RunCucumberTests - 2016.12.10 at 19h 13m 26s.xml">
+      <configuration name="RunCucumberTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RunCucumberTests - 2016.12.10 at 19h 14m 26s.xml">
+      <configuration name="RunCucumberTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RunCucumberTests - 2016.12.10 at 19h 16m 59s.xml">
+      <configuration name="RunCucumberTests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -833,7 +810,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42071882" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42475986" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -870,7 +847,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Integrate Chrome Driver" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integrate Chrome Driver" />
+    <MESSAGE value="Selenium fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Selenium fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -897,7 +875,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/credentials.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/accountadmin.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
@@ -929,7 +907,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/credentials.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/accountadmin.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
@@ -1105,18 +1083,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/credentials.jsp" />
     <entry file="file://$PROJECT_DIR$/src/test/java/cps3222/webtesting/WebTests.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/credentials.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
           <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -1129,18 +1107,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/cps3222/cucumberDemo/StepDefinitions.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/accountadmin.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="49" column="45" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
+        <state relative-caret-position="221">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+    <entry file="file://$PROJECT_DIR$/src/test/java/cps3222/cucumberDemo/StepDefinitions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        <state relative-caret-position="241">
+          <caret line="41" column="75" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
           <folding />
         </state>
       </provider>

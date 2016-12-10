@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Using GET Method to Read Form Data</title>
+<title id="title">Admin Account</title>
 </head>
 <body>
 <center>
