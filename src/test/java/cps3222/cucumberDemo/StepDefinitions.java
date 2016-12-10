@@ -10,6 +10,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by Etienne G on 05/12/2016.
  */
@@ -19,29 +21,25 @@ public class StepDefinitions {
 
     WebDriver driver;
 
-    public void sleep(int seconds) {
-        try {
-            sleep(seconds * 1000);
-        } catch (Exception e) {
-        }
-    }
 
-    @Before
-    public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-        driver = new ChromeDriver();
-    }
-
-    @After
-    public void tearDown() {
-        driver.quit();
-
-    }
+//    @Before
+//    public void setUp() {
+//        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+//        driver = new ChromeDriver();
+//    }
+//
+//    @After
+//    public void tearDown() {
+//        driver.quit();
+//
+//    }
 
     @Given("^I am an affiliate trying to log in$")
     public void i_am_an_affiliate_trying_to_log_in() throws Throwable {
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://localhost:8080/CPS3222_assignment/");
-        sleep(2);
     }
 
     @When("^I login using valid credentials$")
@@ -49,8 +47,7 @@ public class StepDefinitions {
 
         driver.findElement(By.name("username")).sendKeys("user123");
         driver.findElement(By.name("password")).sendKeys("faggot");
-        driver.findElement(By.name("login")).submit();
-        sleep(2);
+        driver.findElement(By.name("submitpls")).submit();
     }
 
     @Then("^I should be taken to my account admin page$")
