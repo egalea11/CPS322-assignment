@@ -33,7 +33,7 @@ formatter.match({
   "location": "StepDefinitions.i_am_an_affiliate_trying_to_log_in()"
 });
 formatter.result({
-  "duration": 644582577,
+  "duration": 424888286,
   "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat cps3222.cucumberDemo.StepDefinitions.i_am_an_affiliate_trying_to_log_in(StepDefinitions.java:17)\r\n\tat ✽.Given I am an affiliate trying to log in(feature/cps3222.feature:4)\r\n",
   "status": "pending"
 });
@@ -81,7 +81,7 @@ formatter.match({
   "location": "StepDefinitions.i_am_an_affiliate_trying_to_log_in()"
 });
 formatter.result({
-  "duration": 398575,
+  "duration": 1058873,
   "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat cps3222.cucumberDemo.StepDefinitions.i_am_an_affiliate_trying_to_log_in(StepDefinitions.java:17)\r\n\tat ✽.Given I am an affiliate trying to log in(feature/cps3222.feature:9)\r\n",
   "status": "pending"
 });
@@ -135,7 +135,7 @@ formatter.match({
   "location": "StepDefinitions.i_am_a_logged_in_affiliate()"
 });
 formatter.result({
-  "duration": 773200,
+  "duration": 668424,
   "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat cps3222.cucumberDemo.StepDefinitions.i_am_a_logged_in_affiliate(StepDefinitions.java:53)\r\n\tat ✽.Given I am a logged in affiliate(feature/cps3222.feature:15)\r\n",
   "status": "pending"
 });
@@ -203,7 +203,7 @@ formatter.match({
   "location": "StepDefinitions.i_am_a_logged_in_affiliate()"
 });
 formatter.result({
-  "duration": 512331,
+  "duration": 719314,
   "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat cps3222.cucumberDemo.StepDefinitions.i_am_a_logged_in_affiliate(StepDefinitions.java:53)\r\n\tat ✽.Given I am a logged in affiliate(feature/cps3222.feature:21)\r\n",
   "status": "pending"
 });
@@ -297,7 +297,7 @@ formatter.match({
   "location": "StepDefinitions.i_am_a_logged_in_affiliate()"
 });
 formatter.result({
-  "duration": 579900,
+  "duration": 613684,
   "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat cps3222.cucumberDemo.StepDefinitions.i_am_a_logged_in_affiliate(StepDefinitions.java:53)\r\n\tat ✽.Given I am a logged in affiliate(feature/cps3222.feature:21)\r\n",
   "status": "pending"
 });
@@ -391,7 +391,7 @@ formatter.match({
   "location": "StepDefinitions.i_am_a_logged_in_affiliate()"
 });
 formatter.result({
-  "duration": 486671,
+  "duration": 932287,
   "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat cps3222.cucumberDemo.StepDefinitions.i_am_a_logged_in_affiliate(StepDefinitions.java:53)\r\n\tat ✽.Given I am a logged in affiliate(feature/cps3222.feature:21)\r\n",
   "status": "pending"
 });
@@ -485,7 +485,7 @@ formatter.match({
   "location": "StepDefinitions.i_am_a_logged_in_affiliate()"
 });
 formatter.result({
-  "duration": 501639,
+  "duration": 739842,
   "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat cps3222.cucumberDemo.StepDefinitions.i_am_a_logged_in_affiliate(StepDefinitions.java:53)\r\n\tat ✽.Given I am a logged in affiliate(feature/cps3222.feature:21)\r\n",
   "status": "pending"
 });
