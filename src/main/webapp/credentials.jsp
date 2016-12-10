@@ -1,4 +1,4 @@
-html>
+<html>
 <head>
 <title>Using GET Method to Read Form Data</title>
 </head>
