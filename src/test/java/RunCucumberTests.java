@@ -15,18 +15,5 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class RunCucumberTests {
 
-    WebDriver driver;
-
-    @Before
-    public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-        driver = new ChromeDriver();
-    }
-
-    @After
-    public void tearDown() {
-        driver.quit();
-
-    }
 
 }

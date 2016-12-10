@@ -11,7 +11,7 @@
 
 			<div class="login-form">
 				<div class="control-group">
-				<form action="credentials.jsp" method="GET">
+				<form action="credentials.jsp" method="GET" name="submitpls">
 				<input type="text" class="login-field" value="" placeholder="username" id="login-name" name="username">
 				<label class="login-field-icon fui-user" for="login-name"></label>
 				</div>
@@ -21,7 +21,7 @@
 				<label class="login-field-icon fui-lock" for="login-pass"></label>
 				</div>
 
-				<input class="btn btn-primary btn-large btn-block" type="submit" value="login" />
+				<input class="btn btn-primary btn-large btn-block" type="submit" value="login"/>
 			</div>
 		</div>
 	</div>
