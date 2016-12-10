@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.*;
+import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
@@ -27,36 +28,34 @@ public class StepDefinitions {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:/Users/Etienne G/Google Drive/Downloads/chromedriver_win32/chromedriver.exe");
-        // chromedriver (web driver) - an open source tool for automated testing of webapps across many browsers
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
     }
 
+    @After
+    public void tearDown() {
+        driver.quit();
+
+    }
 
     @Given("^I am an affiliate trying to log in$")
     public void i_am_an_affiliate_trying_to_log_in() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-
-        driver.get("localhost:8080/CPS3222_assignment/");
+        driver.get("http://localhost:8080/CPS3222_assignment/");
         sleep(2);
-        driver.findElement(By.name("username")).sendKeys("faggot");
-        driver.findElement(By.name("password")).sendKeys("faggot");
-        driver.findElement(By.name("login")).submit();
-        sleep(2);
-        assertEquals(1, driver.findElements(By.xpath("//td[@id='depCode' and text()='Rectorate']")).size());
-
     }
 
     @When("^I login using valid credentials$")
     public void i_login_using_valid_credentials() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
+        driver.findElement(By.name("username")).sendKeys("user123");
+        driver.findElement(By.name("password")).sendKeys("faggot");
+        driver.findElement(By.name("login")).submit();
+        sleep(2);
     }
 
     @Then("^I should be taken to my account admin page$")
     public void i_should_be_taken_to_my_account_admin_page() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        assertEquals(1, driver.findElements(By.xpath("//td[@id='depCode' and text()='Rectorate']")).size());
     }
 
     @When("^I login using invalid credentials$")
