@@ -1,6 +1,10 @@
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(monochrome = true, format = {"html:target/cucumber-html-report"})
@@ -11,7 +15,18 @@ import org.junit.runner.RunWith;
 
 public class RunCucumberTests {
 
-    public class runTest {
+    WebDriver driver;
+
+    @Before
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        driver = new ChromeDriver();
+    }
+
+    @After
+    public void tearDown() {
+        driver.quit();
 
     }
+
 }
