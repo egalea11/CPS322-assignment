@@ -32,8 +32,8 @@ public class StepDefinitions {
     @When("^I login using valid credentials$")
     public void i_login_using_valid_credentials() throws Throwable {
 
-        driver.findElement(By.name("username")).sendKeys("user123");
-        driver.findElement(By.name("password")).sendKeys("faggot");
+        driver.findElement(By.name("username")).sendKeys("user");
+        driver.findElement(By.name("password")).sendKeys("123");
         driver.findElement(By.name("submitpls")).submit();
     }
 
@@ -45,7 +45,9 @@ public class StepDefinitions {
     @When("^I login using invalid credentials$")
     public void i_login_using_invalid_credentials() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        driver.findElement(By.name("username")).sendKeys("etienne");
+        driver.findElement(By.name("password")).sendKeys("123");
+        driver.findElement(By.name("submitpls")).submit();
     }
 
     @Then("^I should see an error message$")
@@ -57,7 +59,7 @@ public class StepDefinitions {
     @Then("^I should remain on the login page$")
     public void i_should_remain_on_the_login_page() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        assertEquals(1, driver.findElements(By.xpath("//title[text()='Login Form']")).size());
     }
 
     @Given("^I am a logged in affiliate$")
