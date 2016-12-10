@@ -39,7 +39,7 @@ public class StepDefinitions {
 
     @Then("^I should be taken to my account admin page$")
     public void i_should_be_taken_to_my_account_admin_page() throws Throwable {
-        assertEquals("Admin Account", driver.findElements(By.xpath("//title"));
+        assertEquals(1, driver.findElements(By.xpath("//title[text()='Admin Account']")).size());
     }
 
     @When("^I login using invalid credentials$")

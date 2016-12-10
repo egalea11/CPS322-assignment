@@ -6,13 +6,15 @@ package cps3222.classes;
 public class Affiliate {
     private int id;
     private String name;
+    private String password;
     private AffiliateType type;
     private double balance;
 
     // Constructor
-    public Affiliate(int id, String name) {
+    public Affiliate(int id, String name, String password) {
         this.id = id;
         this.name = name;
+        this.password = password;
         this.type = AffiliateType.BRONZE;
         this.balance = 0;
     }
@@ -30,6 +32,14 @@ public class Affiliate {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public AffiliateType getType() {

@@ -9,7 +9,7 @@
 	<div class="login">
 		<div class="login-screen">
 
-			<div class="login-form">
+			<div class="area">
 				<div class="control-group">
 				<form action="accountadmin.jsp" method="GET" name="submitpls">
 				<input type="text" class="login-field" value="" placeholder="username" id="login-name" name="username">
