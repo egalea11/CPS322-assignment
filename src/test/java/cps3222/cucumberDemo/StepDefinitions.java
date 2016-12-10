@@ -4,6 +4,10 @@ import static org.junit.Assert.*;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.*;
+import org.junit.Before;
+import org.openqa.selenium.*;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  * Created by Etienne G on 05/12/2016.
@@ -11,10 +15,36 @@ import cucumber.api.java.en.*;
 
 public class StepDefinitions {
 
+
+    WebDriver driver;
+
+    public void sleep(int seconds) {
+        try {
+            sleep(seconds * 1000);
+        } catch (Exception e) {
+        }
+    }
+
+    @Before
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "C:/Users/Etienne G/Google Drive/Downloads/chromedriver_win32/chromedriver.exe");
+        // chromedriver (web driver) - an open source tool for automated testing of webapps across many browsers
+        driver = new ChromeDriver();
+    }
+
+
     @Given("^I am an affiliate trying to log in$")
     public void i_am_an_affiliate_trying_to_log_in() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
+        driver.get("localhost:8080/CPS3222_assignment/");
+        sleep(2);
+        driver.findElement(By.name("username")).sendKeys("faggot");
+        driver.findElement(By.name("password")).sendKeys("faggot");
+        driver.findElement(By.name("login")).submit();
+        sleep(2);
+        assertEquals(1, driver.findElements(By.xpath("//td[@id='depCode' and text()='Rectorate']")).size());
+
     }
 
     @When("^I login using valid credentials$")
