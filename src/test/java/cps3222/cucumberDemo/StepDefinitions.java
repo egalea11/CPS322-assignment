@@ -45,7 +45,7 @@ public class StepDefinitions {
     @When("^I login using invalid credentials$")
     public void i_login_using_invalid_credentials() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        driver.findElement(By.name("username")).sendKeys("etienne");
+        driver.findElement(By.name("username")).sendKeys("user");
         driver.findElement(By.name("password")).sendKeys("123");
         driver.findElement(By.name("submitpls")).submit();
     }

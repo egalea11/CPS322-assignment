@@ -119,8 +119,14 @@ public class AdPlatform implements PaymentProvider, AdProvider{
         }
     }
 
-
     public boolean makePayment(String bankAccount, Double amount) {
         return false;
+    }
+
+    //create sample affiliates
+    public void initAffiliates(){
+        registerAffiliate(new Affiliate(111, "user", "123"));
+        registerAffiliate(new Affiliate(222, "etienne", "cactus"));
+        registerAffiliate(new Affiliate(333, "ryan", "hafnasuf"));
     }
 }

@@ -1,3 +1,11 @@
+<%@ page import="cps3222.classes.*" %>
+
+<%
+    AdPlatform adPlatform = new AdPlatform();
+    adPlatform.initAffiliates();
+%>
+
+
 <html>
 <head>
   <meta charset="UTF-8">
@@ -23,6 +31,8 @@
 
 				<input class="btn btn-primary btn-large btn-block" type="submit" value="login"/>
 			</div>
+
+			<% if(request.getParameter("username") != adPlatform.getAffiliatesDatabase().get(1);) %>
 		</div>
 	</div>
 </body>
