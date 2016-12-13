@@ -125,8 +125,8 @@ public class AdPlatform implements PaymentProvider, AdProvider{
 
     //create sample affiliates
     public void initAffiliates(){
-        registerAffiliate(new Affiliate(111, "user", "123"));
-        registerAffiliate(new Affiliate(222, "etienne", "cactus"));
-        registerAffiliate(new Affiliate(333, "ryan", "hafnasuf"));
+        Affiliate a1 = new Affiliate(111, "JohnDoe", "123");
+        a1.setBalance(49.5);
+        registerAffiliate(a1);
     }
 }

@@ -76,3 +76,20 @@ box-shadow: none;
   display: block;
 	margin-top: 12px;
 }
+
+
+/* --- account.jsp --- */
+
+.balance{
+    background-color: whitesmoke;
+    border-radius: 20px;
+    width: 50%;
+    height: 20%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.balance p{
+    margin: 0 auto;
+    padding: 15px;
+}
