@@ -35,15 +35,10 @@
         </dependency>
 
         <dependency>
+<<<<<<< HEAD
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>2.53.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>nz.ac.waikato.modeljunit</groupId>
-            <artifactId>modeljunit</artifactId>
-            <version>2.5</version>
         </dependency>
 
         <dependency>
@@ -53,6 +48,12 @@
             <scope>provided</scope>
         </dependency>
 
+=======
+            <groupId>nz.ac.waikato.modeljunit</groupId>
+            <artifactId>modeljunit</artifactId>
+            <version>2.5</version>
+        </dependency>
+>>>>>>> feature/Task3
     </dependencies>
 
   <build>
