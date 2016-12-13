@@ -8,6 +8,10 @@ public class Affiliate {
     private String name;
     private AffiliateType type;
     private double balance;
+    private double cumulativeBalance;
+
+    //TODO add commission gained
+
 
     // Constructor
     public Affiliate(int id, String name) {
@@ -15,6 +19,7 @@ public class Affiliate {
         this.name = name;
         this.type = AffiliateType.BRONZE;
         this.balance = 0;
+        this.cumulativeBalance = 0;
     }
 
     // Getters and Setters
@@ -46,5 +51,13 @@ public class Affiliate {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public double getCumulativeBalance() {
+        return cumulativeBalance;
+    }
+
+    public void setCumulativeBalance(double cumulativeBalance) {
+        this.cumulativeBalance = cumulativeBalance;
     }
 }

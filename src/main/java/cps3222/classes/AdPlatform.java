@@ -55,7 +55,7 @@ public class AdPlatform implements PaymentProvider, AdProvider{
 
     // Settle Balance
     public boolean settleAffiliateBalance(Affiliate affiliate){
-        if (affiliate.getBalance() > 5.0){
+        if (affiliate.getBalance() >= 5.0){
             if(affiliate.getType() == AffiliateType.BRONZE){
                 makePayment("AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 10)/ 100)); // adProvider payment
                 makePayment("AdPlatformAccount",(affiliate.getBalance() * 10)/ 100);    // commission
@@ -111,16 +111,18 @@ public class AdPlatform implements PaymentProvider, AdProvider{
         Affiliate affiliate = affiliatesDatabase.get(affiliateID);
         affiliate.setBalance(affiliate.getBalance() + 0.5);
         affiliate.setCumulativeBalance(affiliate.getCumulativeBalance() + 0.5);
-        if(affiliate.getType() == AffiliateType.BRONZE && affiliate.getCumulativeBalance() > 50.0){
+        if(affiliate.getType() == AffiliateType.BRONZE && affiliate.getCumulativeBalance() >= 50.0){
             affiliate.setType(AffiliateType.SILVER);
         }
-        else if(affiliate.getType() == AffiliateType.SILVER && affiliate.getCumulativeBalance()> 500.0){
+        else if(affiliate.getType() == AffiliateType.SILVER && affiliate.getCumulativeBalance() >= 500.0){
             affiliate.setType(AffiliateType.GOLD);
         }
     }
 
 
     public boolean makePayment(String bankAccount, Double amount) {
+        //TODO Track commision gained
         return false;
+
     }
 }
