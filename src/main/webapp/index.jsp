@@ -1,9 +1,5 @@
 <%@ page import="cps3222.classes.*" %>
-
-<%
-    AdPlatform adPlatform = new AdPlatform();
-    adPlatform.initAffiliates();
-%>
+<%@ page session="true" %>
 
 
 <html>
@@ -31,10 +27,9 @@
 					<input class="btn btn-primary btn-large btn-block" type="submit" value="login"/>
 				</form>
 
-                <% if(!request.getSession().getAttribute("errormsg").toString().equals("0")){ %>
-                        <p>Invalid Credentials!</p>
-                <% } %>
-			</div>
+                <p><%= session.getAttribute("errormsg") %></p>
+
+            </div>
 
 		</div>
 	</div>

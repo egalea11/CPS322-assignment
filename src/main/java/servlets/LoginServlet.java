@@ -21,6 +21,7 @@ public class LoginServlet extends HttpServlet{
         int errorCode = 0;  // no errors
         int id = Integer.parseInt(request.getParameter("id"));
         String pass = request.getParameter("password");
+        String errorMsg = "";
 
         AdPlatform adplatform = new AdPlatform();
 
@@ -60,6 +61,7 @@ public class LoginServlet extends HttpServlet{
 
         if(errorCode == 0){
             try {
+                errorMsg = "";
                 response.sendRedirect("accountadmin.jsp");
             } catch (IOException e) {
                 e.printStackTrace();
@@ -67,7 +69,8 @@ public class LoginServlet extends HttpServlet{
         }
         else{
             try {
-                request.getSession().setAttribute("errormsg", errorCode);
+                errorMsg = "Invalid Credentials!";
+                request.getSession().setAttribute("errormsg", errorMsg);
                 response.sendRedirect("index.jsp");
             } catch (IOException e) {
                 e.printStackTrace();
