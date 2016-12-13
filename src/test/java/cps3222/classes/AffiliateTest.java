@@ -15,7 +15,7 @@ public class AffiliateTest {
 
     @Before
     public void setUp() throws Exception {
-        affiliate = new Affiliate(0, null);
+        affiliate = new Affiliate(0, null, null);
     }
 
     @After
@@ -35,6 +35,13 @@ public class AffiliateTest {
         affiliate.setName("Jonah");
 
         assertEquals("Jonah", affiliate.getName());
+    }
+
+    @Test
+    public void getSetPassword() throws Exception {
+        affiliate.setPassword("123");
+
+        assertEquals("123", affiliate.getPassword());
     }
 
     @Test

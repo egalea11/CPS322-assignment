@@ -56,7 +56,7 @@ public class AdPlatformTest {
     public void simpleRegisterAffiliate() {
 
         // Setup
-        Affiliate affiliate = new Affiliate(1,"Hello");
+        Affiliate affiliate = new Affiliate(1,"Hello", "123");
         adPlatform.registerAffiliate(affiliate);
 
         //Exercise
@@ -70,8 +70,8 @@ public class AdPlatformTest {
     public void insertSameIdAffiliate(){
 
         // Setup
-        Affiliate affiliate1 = new Affiliate(1,"Hello");
-        Affiliate affiliate2 = new Affiliate(1,"Trump");
+        Affiliate affiliate1 = new Affiliate(1,"Hello", "123");
+        Affiliate affiliate2 = new Affiliate(1,"Trump", "123");
         adPlatform.registerAffiliate(affiliate1);
         adPlatform.registerAffiliate(affiliate2);
 
@@ -104,7 +104,7 @@ public class AdPlatformTest {
     public void noSettlingOfBalanceBelowFive(){
 
         //Setup
-        Affiliate affiliate = new Affiliate(1,"HelpMe");
+        Affiliate affiliate = new Affiliate(1, "HelpMe", "123");
 
         //Exercise
         affiliate.setBalance(4.99);
@@ -119,7 +119,7 @@ public class AdPlatformTest {
     @Test
     public void settlingBronzeAffiliate(){
         //Setup
-        Affiliate affiliate = new Affiliate(1,"HelpMe");
+        Affiliate affiliate = new Affiliate(1, "HelpMe", "123");
         affiliate.setBalance(30.00);
 
         //Exercise
@@ -132,7 +132,7 @@ public class AdPlatformTest {
     @Test
     public void changeInAffiliateTypeSilverToBronze(){
         //Setup
-        Affiliate affiliate = new Affiliate(1,"HelpMe");
+        Affiliate affiliate = new Affiliate(1, "HelpMe", "123");
         affiliate.setBalance(50.00);
         affiliate.setType(AffiliateType.SILVER);
 
@@ -146,7 +146,7 @@ public class AdPlatformTest {
     @Test
     public void changeInAffiliateTypeGoldToBronze(){
         //Setup
-        Affiliate affiliate = new Affiliate(1,"HelpMe");
+        Affiliate affiliate = new Affiliate(1, "HelpMe", "123");
         affiliate.setBalance(500.0);
         affiliate.setType(AffiliateType.GOLD);
 
@@ -220,7 +220,7 @@ public class AdPlatformTest {
     @Test
     public void adClickedChangeToSilver() {
         //Setup
-        Affiliate affiliate = new Affiliate(1,"HelpMe");
+        Affiliate affiliate = new Affiliate(1, "HelpMe", "123");
         affiliate.setBalance(49.95);
         adPlatform.registerAffiliate(affiliate);
 
@@ -234,7 +234,7 @@ public class AdPlatformTest {
     @Test
     public void adClickedChangeToGold() {
         //Setup
-        Affiliate affiliate = new Affiliate(1,"HelpMe");
+        Affiliate affiliate = new Affiliate(1, "HelpMe", "123");
         affiliate.setBalance(499.95);
         affiliate.setType(AffiliateType.SILVER);
         adPlatform.registerAffiliate(affiliate);

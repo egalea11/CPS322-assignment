@@ -1,0 +1,1443 @@
+From 65cdcd4a4694e2b159392484ee5d645781989595 Mon Sep 17 00:00:00 2001
+From: Etienne Galea <egalea.11@gmail.com>
+Date: Tue, 13 Dec 2016 22:29:31 +0100
+Subject: [PATCH] # jsp 3 cucumber tests work
+
+---
+ .idea/workspace.xml                                | 274 ++++++-----
+ src/main/java/servlets/LoginServlet.java           |   5 +-
+ src/main/webapp/css/style.css                      |   1 -
+ src/main/webapp/index.jsp                          |  13 +-
+ .../java/cps3222/cucumberDemo/StepDefinitions.java |  52 +--
+ target/cucumber-html-report/report.js              | 511 +++++++++++++++++++++
+ .../cps3222/cucumberDemo/StepDefinitions.class     | Bin 4817 -> 5013 bytes
+ .../org/apache/jsp/index_jsp.class                 | Bin 5617 -> 5312 bytes
+ .../org/apache/jsp/index_jsp.java                  |  18 +-
+ 9 files changed, 710 insertions(+), 164 deletions(-)
+
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+index 7ea81ad..d5a5951 100644
+--- a/.idea/workspace.xml
++++ b/.idea/workspace.xml
+@@ -2,21 +2,14 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="a491ffe2-d481-41cd-a818-99f6b9cc085f" name="Default" comment="">
+-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_0_1.xml" />
+-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/servlets/LoginServlet.java" />
+-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jstl_VERSION.xml" afterPath="" />
+-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/cps3222/classes/AdPlatform.class" afterPath="$PROJECT_DIR$/target/classes/cps3222/classes/AdPlatform.class" />
++      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/cps3222/cucumberDemo/StepDefinitions.class" afterPath="$PROJECT_DIR$/target/test-classes/cps3222/cucumberDemo/StepDefinitions.class" />
+       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/CPS3222_assignment/org/apache/jsp/index_jsp.class" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/CPS3222_assignment/org/apache/jsp/index_jsp.class" />
+-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPS3222assignment.iml" afterPath="$PROJECT_DIR$/CPS3222assignment.iml" />
+-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cps3222/classes/AdPlatform.java" afterPath="$PROJECT_DIR$/src/main/java/cps3222/classes/AdPlatform.java" />
+-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/accountadmin.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/accountadmin.jsp" />
++      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlets/LoginServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/LoginServlet.java" />
+       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" />
+       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" />
+       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/cps3222/cucumberDemo/StepDefinitions.java" afterPath="$PROJECT_DIR$/src/test/java/cps3222/cucumberDemo/StepDefinitions.java" />
++      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/cucumber-html-report/report.js" afterPath="$PROJECT_DIR$/target/cucumber-html-report/report.js" />
+       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/CPS3222_assignment/org/apache/jsp/index_jsp.java" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/CPS3222_assignment/org/apache/jsp/index_jsp.java" />
+     </list>
+@@ -49,18 +42,18 @@
+       <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+         <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="226">
+-              <caret line="33" column="88" lean-forward="true" selection-start-line="33" selection-start-column="88" selection-end-line="33" selection-end-column="88" />
++            <state relative-caret-position="476">
++              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+               <folding />
+             </state>
+           </provider>
+         </entry>
+       </file>
+-      <file leaf-file-name="accountadmin.jsp" pinned="false" current-in-tab="true">
++      <file leaf-file-name="accountadmin.jsp" pinned="false" current-in-tab="false">
+         <entry file="file://$PROJECT_DIR$/src/main/webapp/accountadmin.jsp">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="-51">
+-              <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
++            <state relative-caret-position="476">
++              <caret line="28" column="19" lean-forward="false" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+               <folding />
+             </state>
+           </provider>
+@@ -69,21 +62,21 @@
+       <file leaf-file-name="LoginServlet.java" pinned="false" current-in-tab="false">
+         <entry file="file://$PROJECT_DIR$/src/main/java/servlets/LoginServlet.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="214">
+-              <caret line="73" column="13" lean-forward="true" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
+-              <folding>
+-                <element signature="imports" expanded="true" />
+-              </folding>
++            <state relative-caret-position="1088">
++              <caret line="72" column="72" lean-forward="false" selection-start-line="72" selection-start-column="72" selection-end-line="72" selection-end-column="72" />
++              <folding />
+             </state>
+           </provider>
+         </entry>
+       </file>
+-      <file leaf-file-name="StepDefinitions.java" pinned="false" current-in-tab="false">
++      <file leaf-file-name="StepDefinitions.java" pinned="false" current-in-tab="true">
+         <entry file="file://$PROJECT_DIR$/src/test/java/cps3222/cucumberDemo/StepDefinitions.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="118">
+-              <caret line="54" column="54" lean-forward="false" selection-start-line="54" selection-start-column="54" selection-end-line="54" selection-end-column="54" />
+-              <folding />
++            <state relative-caret-position="308">
++              <caret line="111" column="77" lean-forward="true" selection-start-line="111" selection-start-column="77" selection-end-line="111" selection-end-column="77" />
++              <folding>
++                <element signature="imports" expanded="true" />
++              </folding>
+             </state>
+           </provider>
+         </entry>
+@@ -91,9 +84,19 @@
+       <file leaf-file-name="AdPlatform.java" pinned="false" current-in-tab="false">
+         <entry file="file://$PROJECT_DIR$/src/main/java/cps3222/classes/AdPlatform.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="427">
+-              <caret line="129" column="30" lean-forward="true" selection-start-line="129" selection-start-column="30" selection-end-line="129" selection-end-column="30" />
+-              <folding />
++            <state relative-caret-position="2006">
++              <caret line="128" column="28" lean-forward="false" selection-start-line="128" selection-start-column="28" selection-end-line="128" selection-end-column="28" />
++              <folding>
++                <element signature="imports" expanded="false" />
++                <element signature="e#518#519#0" expanded="false" />
++                <element signature="e#559#560#0" expanded="false" />
++                <element signature="e#767#768#0" expanded="false" />
++                <element signature="e#804#805#0" expanded="false" />
++                <element signature="e#882#883#0" expanded="false" />
++                <element signature="e#934#935#0" expanded="false" />
++                <element signature="e#4609#4610#0" expanded="false" />
++                <element signature="e#4637#4638#0" expanded="false" />
++              </folding>
+             </state>
+           </provider>
+         </entry>
+@@ -101,9 +104,28 @@
+       <file leaf-file-name="Affiliate.java" pinned="false" current-in-tab="false">
+         <entry file="file://$PROJECT_DIR$/src/main/java/cps3222/classes/Affiliate.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="313">
++            <state relative-caret-position="408">
+               <caret line="26" column="45" lean-forward="false" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+-              <folding />
++              <folding>
++                <element signature="e#524#525#0" expanded="false" />
++                <element signature="e#549#550#0" expanded="false" />
++                <element signature="e#627#628#0" expanded="false" />
++                <element signature="e#654#655#0" expanded="false" />
++                <element signature="e#694#695#0" expanded="false" />
++                <element signature="e#726#727#0" expanded="false" />
++                <element signature="e#761#762#0" expanded="false" />
++                <element signature="e#792#793#0" expanded="false" />
++                <element signature="e#840#841#0" expanded="false" />
++                <element signature="e#880#881#0" expanded="false" />
++                <element signature="e#918#919#0" expanded="false" />
++                <element signature="e#945#946#0" expanded="false" />
++                <element signature="e#992#993#0" expanded="false" />
++                <element signature="e#1024#1025#0" expanded="false" />
++                <element signature="e#1058#1059#0" expanded="false" />
++                <element signature="e#1088#1089#0" expanded="false" />
++                <element signature="e#1134#1135#0" expanded="false" />
++                <element signature="e#1172#1173#0" expanded="false" />
++              </folding>
+             </state>
+           </provider>
+         </entry>
+@@ -111,9 +133,11 @@
+       <file leaf-file-name="AffiliateTest.java" pinned="false" current-in-tab="false">
+         <entry file="file://$PROJECT_DIR$/src/test/java/cps3222/classes/AffiliateTest.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="466">
++            <state relative-caret-position="731">
+               <caret line="47" column="47" lean-forward="false" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
+-              <folding />
++              <folding>
++                <element signature="imports" expanded="false" />
++              </folding>
+             </state>
+           </provider>
+         </entry>
+@@ -135,9 +159,11 @@
+       <find>getAff</find>
+       <find>shared</find>
+       <find>init</find>
++      <find>password</find>
+     </findStrings>
+     <replaceStrings>
+       <replace>CPS3222_assignment</replace>
++      <replace>pass</replace>
+     </replaceStrings>
+   </component>
+   <component name="Git.Settings">
+@@ -163,10 +189,10 @@
+         <option value="$PROJECT_DIR$/src/main/java/servlets/AccountServlet.java" />
+         <option value="$PROJECT_DIR$/src/main/java/cps3222/classes/AdPlatform.java" />
+         <option value="$PROJECT_DIR$/src/main/webapp/accountadmin.jsp" />
+-        <option value="$PROJECT_DIR$/src/main/webapp/css/style.css" />
+-        <option value="$PROJECT_DIR$/src/test/java/cps3222/cucumberDemo/StepDefinitions.java" />
+         <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
+         <option value="$PROJECT_DIR$/src/main/java/servlets/LoginServlet.java" />
++        <option value="$PROJECT_DIR$/src/main/webapp/css/style.css" />
++        <option value="$PROJECT_DIR$/src/test/java/cps3222/cucumberDemo/StepDefinitions.java" />
+       </list>
+     </option>
+   </component>
+@@ -204,8 +230,6 @@
+       <foldersAlwaysOnTop value="true" />
+     </navigator>
+     <panes>
+-      <pane id="Scratches" />
+-      <pane id="PackagesPane" />
+       <pane id="Scope" />
+       <pane id="ProjectPane">
+         <subPane>
+@@ -461,10 +485,12 @@
+           </PATH>
+         </subPane>
+       </pane>
++      <pane id="Scratches" />
++      <pane id="PackagesPane" />
+     </panes>
+   </component>
+   <component name="PropertiesComponent">
+-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/Atlassian/SourceTree/git_local/bin/git.exe" />
++    <property name="last_opened_file_path" value="$USER_HOME$/Google Drive/B.Sc. in IT (Hons) Software Developing/Yr 3 Sem 1/CPS3222 - Fundamentals of Software Testing/webtesting/webtesting" />
+     <property name="project.structure.last.edited" value="Modules" />
+     <property name="project.structure.proportion" value="0.15" />
+     <property name="project.structure.side.proportion" value="0.2" />
+@@ -494,7 +520,7 @@
+       <recent name="C:\Users\Etienne G\IdeaProjects\CPS3222assignment\src" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Maven.Tomcat">
++  <component name="RunManager" selected="JUnit.RunCucumberTests">
+     <configuration default="false" name="All in CPS3222assignment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+       <module name="CPS3222assignment" />
+@@ -852,6 +878,7 @@
+       <setting name="passParentEnv" value="true" />
+       <setting name="launchBrowser" value="true" />
+       <setting name="launchBrowserUrl" value="" />
++      <setting name="depsClasspath" value="false" />
+       <method />
+     </configuration>
+     <configuration default="true" type="JUnit" factoryName="JUnit">
+@@ -995,6 +1022,12 @@
+       <method />
+     </configuration>
+     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
++      <node-interpreter>project</node-interpreter>
++      <node-options />
++      <gulpfile />
++      <tasks />
++      <arguments />
++      <envs />
+       <method />
+     </configuration>
+     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+@@ -1091,7 +1124,9 @@
+       <updated>1480947742741</updated>
+       <workItem from="1481547622837" duration="456000" />
+       <workItem from="1481548163328" duration="2433000" />
+-      <workItem from="1481573828055" duration="9974000" />
++      <workItem from="1481573828055" duration="10112000" />
++      <workItem from="1481636364325" duration="5640000" />
++      <workItem from="1481654925682" duration="3940000" />
+     </task>
+     <task id="LOCAL-00001" summary="Integrate Chrome Driver">
+       <created>1481385215961</created>
+@@ -1118,25 +1153,25 @@
+     <servers />
+   </component>
+   <component name="TestHistory">
+-    <history-entry file="All_in_CPS3222assignment - 2016.12.11 at 13h 21m 45s.xml">
+-      <configuration name="All in CPS3222assignment" configurationId="JUnit" />
++    <history-entry file="RunCucumberTests - 2016.12.13 at 18h 31m 12s.xml">
++      <configuration name="RunCucumberTests" configurationId="JUnit" />
+     </history-entry>
+-    <history-entry file="All_in_CPS3222assignment - 2016.12.11 at 13h 45m 10s.xml">
+-      <configuration name="All in CPS3222assignment" configurationId="JUnit" />
++    <history-entry file="RunCucumberTests - 2016.12.13 at 18h 34m 32s.xml">
++      <configuration name="RunCucumberTests" configurationId="JUnit" />
+     </history-entry>
+-    <history-entry file="All_in_CPS3222assignment - 2016.12.11 at 14h 08m 57s.xml">
+-      <configuration name="All in CPS3222assignment" configurationId="JUnit" />
++    <history-entry file="RunCucumberTests - 2016.12.13 at 19h 55m 01s.xml">
++      <configuration name="RunCucumberTests" configurationId="JUnit" />
+     </history-entry>
+-    <history-entry file="RunCucumberTests - 2016.12.10 at 19h 28m 27s.xml">
++    <history-entry file="RunCucumberTests - 2016.12.13 at 19h 56m 26s.xml">
+       <configuration name="RunCucumberTests" configurationId="JUnit" />
+     </history-entry>
+-    <history-entry file="RunCucumberTests - 2016.12.10 at 19h 29m 21s.xml">
++    <history-entry file="RunCucumberTests - 2016.12.13 at 20h 09m 07s.xml">
+       <configuration name="RunCucumberTests" configurationId="JUnit" />
+     </history-entry>
+-    <history-entry file="RunCucumberTests - 2016.12.11 at 16h 01m 18s.xml">
++    <history-entry file="RunCucumberTests - 2016.12.13 at 20h 13m 20s.xml">
+       <configuration name="RunCucumberTests" configurationId="JUnit" />
+     </history-entry>
+-    <history-entry file="RunCucumberTests - 2016.12.11 at 16h 04m 06s.xml">
++    <history-entry file="RunCucumberTests - 2016.12.13 at 21h 25m 03s.xml">
+       <configuration name="RunCucumberTests" configurationId="JUnit" />
+     </history-entry>
+     <history-entry file="cps3222_classes_in_CPS3222assignment - 2016.12.11 at 13h 24m 10s.xml">
+@@ -1150,7 +1185,7 @@
+     </history-entry>
+   </component>
+   <component name="TimeTrackingManager">
+-    <option name="totallyTimeSpent" value="12863000" />
++    <option name="totallyTimeSpent" value="22581000" />
+   </component>
+   <component name="ToolWindowManager">
+     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+@@ -1167,7 +1202,7 @@
+       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39747635" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
++      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39747635" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+@@ -1212,21 +1247,7 @@
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+-      <breakpoints>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/main/webapp/index.jsp</url>
+-          <line>33</line>
+-          <properties />
+-          <option name="timeStamp" value="10" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/main/java/servlets/LoginServlet.java</url>
+-          <line>69</line>
+-          <properties />
+-          <option name="timeStamp" value="11" />
+-        </line-breakpoint>
+-      </breakpoints>
+-      <option name="time" value="12" />
++      <option name="time" value="13" />
+     </breakpoint-manager>
+     <watches-manager />
+   </component>
+@@ -1235,21 +1256,6 @@
+     <option name="FILTER_TARGETS" value="false" />
+   </component>
+   <component name="editorHistoryManager">
+-    <entry file="file://$PROJECT_DIR$/src/test/java/RunCucumberTests.java">
+-      <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="221">
+-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+-          <folding />
+-        </state>
+-      </provider>
+-    </entry>
+-    <entry file="file://$PROJECT_DIR$/src/test/java/cps3222/cucumberDemo/StepDefinitions.java">
+-      <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="527">
+-          <caret line="41" column="9" lean-forward="false" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="97" />
+-        </state>
+-      </provider>
+-    </entry>
+     <entry file="file://$PROJECT_DIR$/src/test/resources/feature/cps3222.feature">
+       <provider selected="true" editor-type-id="text-editor">
+         <state relative-caret-position="204">
+@@ -1480,11 +1486,6 @@
+       <provider selected="true" editor-type-id="text-editor">
+         <state relative-caret-position="918">
+           <caret line="62" column="79" lean-forward="false" selection-start-line="62" selection-start-column="79" selection-end-line="62" selection-end-column="79" />
+-          <folding>
+-            <element signature="imports" expanded="false" />
+-            <element signature="e#4122#4130#0" expanded="false" />
+-            <element signature="e#4777#4785#0" expanded="false" />
+-          </folding>
+         </state>
+       </provider>
+     </entry>
+@@ -1527,78 +1528,123 @@
+     </entry>
+     <entry file="file://$PROJECT_DIR$/src/test/java/cps3222/classes/AffiliateTest.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="466">
++        <state relative-caret-position="731">
+           <caret line="47" column="47" lean-forward="false" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
+-          <folding />
++          <folding>
++            <element signature="imports" expanded="false" />
++          </folding>
+         </state>
+       </provider>
+     </entry>
+     <entry file="file://$PROJECT_DIR$/src/main/java/cps3222/classes/Affiliate.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="313">
++        <state relative-caret-position="408">
+           <caret line="26" column="45" lean-forward="false" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+-          <folding />
++          <folding>
++            <element signature="e#524#525#0" expanded="false" />
++            <element signature="e#549#550#0" expanded="false" />
++            <element signature="e#627#628#0" expanded="false" />
++            <element signature="e#654#655#0" expanded="false" />
++            <element signature="e#694#695#0" expanded="false" />
++            <element signature="e#726#727#0" expanded="false" />
++            <element signature="e#761#762#0" expanded="false" />
++            <element signature="e#792#793#0" expanded="false" />
++            <element signature="e#840#841#0" expanded="false" />
++            <element signature="e#880#881#0" expanded="false" />
++            <element signature="e#918#919#0" expanded="false" />
++            <element signature="e#945#946#0" expanded="false" />
++            <element signature="e#992#993#0" expanded="false" />
++            <element signature="e#1024#1025#0" expanded="false" />
++            <element signature="e#1058#1059#0" expanded="false" />
++            <element signature="e#1088#1089#0" expanded="false" />
++            <element signature="e#1134#1135#0" expanded="false" />
++            <element signature="e#1172#1173#0" expanded="false" />
++          </folding>
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/main/java/cps3222/classes/AdPlatform.java">
++    <entry file="file://$PROJECT_DIR$/src/test/resources/feature/cps3222.feature">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="427">
+-          <caret line="129" column="30" lean-forward="true" selection-start-line="129" selection-start-column="30" selection-end-line="129" selection-end-column="30" />
+-          <folding />
++        <state relative-caret-position="255">
++          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/style.css">
++    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/lang/Integer.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="102">
+-          <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+-          <folding />
++        <state relative-caret-position="113">
++          <caret line="541" column="0" lean-forward="false" selection-start-line="541" selection-start-column="0" selection-end-line="541" selection-end-column="0" />
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/test/resources/feature/cps3222.feature">
++    <entry file="file://$PROJECT_DIR$/src/main/webapp/accountadmin.jsp">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="255">
+-          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
++        <state relative-caret-position="476">
++          <caret line="28" column="19" lean-forward="false" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+           <folding />
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/test/java/cps3222/cucumberDemo/StepDefinitions.java">
++    <entry file="file://$PROJECT_DIR$/src/main/java/cps3222/classes/AdPlatform.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="118">
+-          <caret line="54" column="54" lean-forward="false" selection-start-line="54" selection-start-column="54" selection-end-line="54" selection-end-column="54" />
+-          <folding />
++        <state relative-caret-position="2006">
++          <caret line="128" column="28" lean-forward="false" selection-start-line="128" selection-start-column="28" selection-end-line="128" selection-end-column="28" />
++          <folding>
++            <element signature="imports" expanded="false" />
++            <element signature="e#518#519#0" expanded="false" />
++            <element signature="e#559#560#0" expanded="false" />
++            <element signature="e#767#768#0" expanded="false" />
++            <element signature="e#804#805#0" expanded="false" />
++            <element signature="e#882#883#0" expanded="false" />
++            <element signature="e#934#935#0" expanded="false" />
++            <element signature="e#4609#4610#0" expanded="false" />
++            <element signature="e#4637#4638#0" expanded="false" />
++          </folding>
+         </state>
+       </provider>
+     </entry>
+     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="226">
+-          <caret line="33" column="88" lean-forward="true" selection-start-line="33" selection-start-column="88" selection-end-line="33" selection-end-column="88" />
++        <state relative-caret-position="476">
++          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+           <folding />
+         </state>
+       </provider>
+     </entry>
+     <entry file="file://$PROJECT_DIR$/src/main/java/servlets/LoginServlet.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="214">
+-          <caret line="73" column="13" lean-forward="true" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
+-          <folding>
+-            <element signature="imports" expanded="true" />
+-          </folding>
++        <state relative-caret-position="1088">
++          <caret line="72" column="72" lean-forward="false" selection-start-line="72" selection-start-column="72" selection-end-line="72" selection-end-column="72" />
++          <folding />
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/main/webapp/accountadmin.jsp">
++    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/org/junit/Assert.class">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="-51">
+-          <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
++        <state relative-caret-position="223">
++          <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+           <folding />
+         </state>
+       </provider>
+     </entry>
++    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/style.css">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="75">
++          <caret line="85" column="15" lean-forward="false" selection-start-line="85" selection-start-column="15" selection-end-line="85" selection-end-column="15" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/test/java/cps3222/cucumberDemo/StepDefinitions.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="308">
++          <caret line="111" column="77" lean-forward="true" selection-start-line="111" selection-start-column="77" selection-end-line="111" selection-end-column="77" />
++          <folding>
++            <element signature="imports" expanded="true" />
++          </folding>
++        </state>
++      </provider>
++    </entry>
+   </component>
+   <component name="masterDetails">
+     <states>
+diff --git a/src/main/java/servlets/LoginServlet.java b/src/main/java/servlets/LoginServlet.java
+index 8dcb639..aa409d7 100644
+--- a/src/main/java/servlets/LoginServlet.java
++++ b/src/main/java/servlets/LoginServlet.java
+@@ -21,6 +21,7 @@ public class LoginServlet extends HttpServlet{
+         int errorCode = 0;  // no errors
+         int id = Integer.parseInt(request.getParameter("id"));
+         String pass = request.getParameter("password");
++        String errorMsg = "";
+ 
+         AdPlatform adplatform = new AdPlatform();
+ 
+@@ -60,6 +61,7 @@ public class LoginServlet extends HttpServlet{
+ 
+         if(errorCode == 0){
+             try {
++                errorMsg = "";
+                 response.sendRedirect("accountadmin.jsp");
+             } catch (IOException e) {
+                 e.printStackTrace();
+@@ -67,7 +69,8 @@ public class LoginServlet extends HttpServlet{
+         }
+         else{
+             try {
+-                request.getSession().setAttribute("errormsg", errorCode);
++                errorMsg = "Invalid Credentials!";
++                request.getSession().setAttribute("errormsg", errorMsg);
+                 response.sendRedirect("index.jsp");
+             } catch (IOException e) {
+                 e.printStackTrace();
+diff --git a/src/main/webapp/css/style.css b/src/main/webapp/css/style.css
+index 06a33ae..e081563 100644
+--- a/src/main/webapp/css/style.css
++++ b/src/main/webapp/css/style.css
+@@ -84,7 +84,6 @@ box-shadow: none;
+     background-color: whitesmoke;
+     border-radius: 20px;
+     width: 50%;
+-    height: 20%;
+     margin: auto;
+     margin-bottom: 20px;
+ }
+diff --git a/src/main/webapp/index.jsp b/src/main/webapp/index.jsp
+index 0da0773..6967ac4 100644
+--- a/src/main/webapp/index.jsp
++++ b/src/main/webapp/index.jsp
+@@ -1,9 +1,5 @@
+ <%@ page import="cps3222.classes.*" %>
+-
+-<%
+-    AdPlatform adPlatform = new AdPlatform();
+-    adPlatform.initAffiliates();
+-%>
++<%@ page session="true" %>
+ 
+ 
+ <html>
+@@ -31,10 +27,9 @@
+ 					<input class="btn btn-primary btn-large btn-block" type="submit" value="login"/>
+ 				</form>
+ 
+-                <% if(!request.getSession().getAttribute("errormsg").toString().equals("0")){ %>
+-                        <p>Invalid Credentials!</p>
+-                <% } %>
+-			</div>
++                <p><%= session.getAttribute("errormsg") %></p>
++
++            </div>
+ 
+ 		</div>
+ 	</div>
+diff --git a/src/test/java/cps3222/cucumberDemo/StepDefinitions.java b/src/test/java/cps3222/cucumberDemo/StepDefinitions.java
+index 70c8451..5855d41 100644
+--- a/src/test/java/cps3222/cucumberDemo/StepDefinitions.java
++++ b/src/test/java/cps3222/cucumberDemo/StepDefinitions.java
+@@ -1,11 +1,11 @@
+ package cps3222.cucumberDemo;
+ 
++import cps3222.classes.*;
+ import static org.junit.Assert.*;
+ 
++import cucumber.api.Pending;
+ import cucumber.api.PendingException;
+ import cucumber.api.java.en.*;
+-import org.junit.After;
+-import org.junit.Before;
+ import org.openqa.selenium.*;
+ import org.openqa.selenium.WebDriver;
+ import org.openqa.selenium.chrome.ChromeDriver;
+@@ -18,22 +18,25 @@ import java.util.concurrent.TimeUnit;
+ 
+ public class StepDefinitions {
+ 
+-
+     WebDriver driver;
+ 
++    protected void sleep(int seconds){
++        driver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
++    }
++
+     @Given("^I am an affiliate trying to log in$")
+     public void i_am_an_affiliate_trying_to_log_in() throws Throwable {
+         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+         driver = new ChromeDriver();
+-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
++        sleep(2);
++
+         driver.get("http://localhost:8080/CPS3222_assignment/");
+     }
+ 
+     @When("^I login using valid credentials$")
+     public void i_login_using_valid_credentials() throws Throwable {
+-
+         driver.findElement(By.name("id")).sendKeys("111");
+-        driver.findElement(By.name("pass")).sendKeys("123");
++        driver.findElement(By.name("password")).sendKeys("123");
+         driver.findElement(By.name("submitpls")).submit();
+     }
+ 
+@@ -44,78 +47,75 @@ public class StepDefinitions {
+ 
+     @When("^I login using invalid credentials$")
+     public void i_login_using_invalid_credentials() throws Throwable {
+-        // Write code here that turns the phrase above into concrete actions
+         driver.findElement(By.name("id")).sendKeys("111");
+-        driver.findElement(By.name("pass")).sendKeys("123");
++        driver.findElement(By.name("password")).sendKeys("00000");
+         driver.findElement(By.name("submitpls")).submit();
+     }
+ 
+     @Then("^I should see an error message$")
+     public void i_should_see_an_error_message() throws Throwable {
+-        // Write code here that turns the phrase above into concrete actions
+-        throw new PendingException();
++        assertEquals(1, driver.findElements(By.xpath("//p[text()='Invalid Credentials!']")).size());
+     }
+ 
+     @Then("^I should remain on the login page$")
+     public void i_should_remain_on_the_login_page() throws Throwable {
+-        // Write code here that turns the phrase above into concrete actions
+         assertEquals(1, driver.findElements(By.xpath("//title[text()='Login Form']")).size());
++        // exit existing driver
++        driver.quit();
+     }
+ 
+     @Given("^I am a logged in affiliate$")
+     public void i_am_a_logged_in_affiliate() throws Throwable {
+-        // Write code here that turns the phrase above into concrete actions
+-        throw new PendingException();
++        // create new driver
++        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
++        driver = new ChromeDriver();
++        driver.get("http://localhost:8080/CPS3222_assignment/");
++
++        driver.findElement(By.name("id")).sendKeys("111");
++        driver.findElement(By.name("password")).sendKeys("123");
++        driver.findElement(By.name("submitpls")).submit();
+     }
+ 
+     @When("^I visit my account admin page$")
+     public void i_visit_my_account_admin_page() throws Throwable {
+-        // Write code here that turns the phrase above into concrete actions
+-        throw new PendingException();
++        assertEquals(1, driver.findElements(By.xpath("//title[text()='Admin Account']")).size());
+     }
+ 
+     @Then("^I should see my balance$")
+     public void i_should_see_my_balance() throws Throwable {
+-        // Write code here that turns the phrase above into concrete actions
+-        throw new PendingException();
++        // given balance of user '111' is set to 49.5 euros
++        assertEquals(1, driver.findElements(By.xpath("//p[text()=' 49.5 euros ']")).size());
+     }
+ 
+     @Then("^I should see a button allowing me to withdraw my balance$")
+     public void i_should_see_a_button_allowing_me_to_withdraw_my_balance() throws Throwable {
+-        // Write code here that turns the phrase above into concrete actions
+-        throw new PendingException();
++        assertEquals(1, driver.findElements(By.xpath("//input[@value='withdraw']")).size());
+     }
+ 
+     @Given("^my balance is (\\d+)\\.(\\d+)$")
+     public void my_balance_is(int arg1, int arg2) throws Throwable {
+-        // Write code here that turns the phrase above into concrete actions
++
+         throw new PendingException();
+     }
+ 
+     @When("^I try to withdraw my balance$")
+     public void i_try_to_withdraw_my_balance() throws Throwable {
+-        // Write code here that turns the phrase above into concrete actions
+         throw new PendingException();
+     }
+ 
+     @Then("^I should see a message indicating error$")
+     public void i_should_see_a_message_indicating_error() throws Throwable {
+-        // Write code here that turns the phrase above into concrete actions
+         throw new PendingException();
+     }
+ 
+     @Then("^my new balance will be (\\d+)\\.(\\d+)$")
+     public void my_new_balance_will_be(int arg1, int arg2) throws Throwable {
+-        // Write code here that turns the phrase above into concrete actions
+         throw new PendingException();
+     }
+ 
+     @Then("^I should see a message indicating success$")
+     public void i_should_see_a_message_indicating_success() throws Throwable {
+-        // Write code here that turns the phrase above into concrete actions
+         throw new PendingException();
+     }
+ 
+-
+-
+ }
+diff --git a/target/cucumber-html-report/report.js b/target/cucumber-html-report/report.js
+index 8dbc755..bb65614 100644
+--- a/target/cucumber-html-report/report.js
++++ b/target/cucumber-html-report/report.js
+@@ -32,3 +32,514 @@ formatter.step({
+ formatter.match({
+   "location": "StepDefinitions.i_am_an_affiliate_trying_to_log_in()"
+ });
++formatter.result({
++  "duration": 7508000765,
++  "status": "passed"
++});
++formatter.match({
++  "location": "StepDefinitions.i_login_using_valid_credentials()"
++});
++formatter.result({
++  "duration": 467218825,
++  "status": "passed"
++});
++formatter.match({
++  "location": "StepDefinitions.i_should_be_taken_to_my_account_admin_page()"
++});
++formatter.result({
++  "duration": 50708216,
++  "status": "passed"
++});
++formatter.scenario({
++  "line": 8,
++  "name": "Unsuccessful Affiliate Login",
++  "description": "",
++  "id": "web-application;unsuccessful-affiliate-login",
++  "type": "scenario",
++  "keyword": "Scenario"
++});
++formatter.step({
++  "line": 9,
++  "name": "I am an affiliate trying to log in",
++  "keyword": "Given "
++});
++formatter.step({
++  "line": 10,
++  "name": "I login using invalid credentials",
++  "keyword": "When "
++});
++formatter.step({
++  "line": 11,
++  "name": "I should see an error message",
++  "keyword": "Then "
++});
++formatter.step({
++  "line": 12,
++  "name": "I should remain on the login page",
++  "keyword": "And "
++});
++formatter.match({
++  "location": "StepDefinitions.i_am_an_affiliate_trying_to_log_in()"
++});
++formatter.result({
++  "duration": 3156469186,
++  "status": "passed"
++});
++formatter.match({
++  "location": "StepDefinitions.i_login_using_invalid_credentials()"
++});
++formatter.result({
++  "duration": 466506781,
++  "status": "passed"
++});
++formatter.match({
++  "location": "StepDefinitions.i_should_see_an_error_message()"
++});
++formatter.result({
++  "duration": 49767378,
++  "status": "passed"
++});
++formatter.match({
++  "location": "StepDefinitions.i_should_remain_on_the_login_page()"
++});
++formatter.result({
++  "duration": 1237980891,
++  "status": "passed"
++});
++formatter.scenario({
++  "line": 14,
++  "name": "Account Admin Page Contents",
++  "description": "",
++  "id": "web-application;account-admin-page-contents",
++  "type": "scenario",
++  "keyword": "Scenario"
++});
++formatter.step({
++  "line": 15,
++  "name": "I am a logged in affiliate",
++  "keyword": "Given "
++});
++formatter.step({
++  "line": 16,
++  "name": "I visit my account admin page",
++  "keyword": "When "
++});
++formatter.step({
++  "line": 17,
++  "name": "I should see my balance",
++  "keyword": "Then "
++});
++formatter.step({
++  "line": 18,
++  "name": "I should see a button allowing me to withdraw my balance",
++  "keyword": "And "
++});
++formatter.match({
++  "location": "StepDefinitions.i_am_a_logged_in_affiliate()"
++});
++formatter.result({
++  "duration": 3019717415,
++  "status": "passed"
++});
++formatter.match({
++  "location": "StepDefinitions.i_visit_my_account_admin_page()"
++});
++formatter.result({
++  "duration": 36821864,
++  "status": "passed"
++});
++formatter.match({
++  "location": "StepDefinitions.i_should_see_my_balance()"
++});
++formatter.result({
++  "duration": 27473347,
++  "status": "passed"
++});
++formatter.match({
++  "location": "StepDefinitions.i_should_see_a_button_allowing_me_to_withdraw_my_balance()"
++});
++formatter.result({
++  "duration": 29614184,
++  "status": "passed"
++});
++formatter.scenario({
++  "line": 29,
++  "name": "Withdrawals",
++  "description": "",
++  "id": "web-application;withdrawals;;2",
++  "type": "scenario",
++  "keyword": "Scenario Outline"
++});
++formatter.step({
++  "line": 21,
++  "name": "I am a logged in affiliate",
++  "keyword": "Given "
++});
++formatter.step({
++  "line": 22,
++  "name": "my balance is 4.99",
++  "matchedColumns": [
++    0
++  ],
++  "keyword": "And "
++});
++formatter.step({
++  "line": 23,
++  "name": "I try to withdraw my balance",
++  "keyword": "When "
++});
++formatter.step({
++  "line": 24,
++  "name": "I should see a message indicating error",
++  "matchedColumns": [
++    1
++  ],
++  "keyword": "Then "
++});
++formatter.step({
++  "line": 25,
++  "name": "my new balance will be 4.99",
++  "matchedColumns": [
++    2
++  ],
++  "keyword": "And "
++});
++formatter.match({
++  "location": "StepDefinitions.i_am_a_logged_in_affiliate()"
++});
++formatter.result({
++  "duration": 3024077347,
++  "status": "passed"
++});
++formatter.match({
++  "arguments": [
++    {
++      "val": "4",
++      "offset": 14
++    },
++    {
++      "val": "99",
++      "offset": 16
++    }
++  ],
++  "location": "StepDefinitions.my_balance_is(int,int)"
++});
++formatter.result({
++  "duration": 3207405,
++  "status": "passed"
++});
++formatter.match({
++  "location": "StepDefinitions.i_try_to_withdraw_my_balance()"
++});
++formatter.result({
++  "duration": 26515,
++  "status": "passed"
++});
++formatter.match({
++  "location": "StepDefinitions.i_should_see_a_message_indicating_error()"
++});
++formatter.result({
++  "duration": 29080,
++  "status": "passed"
++});
++formatter.match({
++  "arguments": [
++    {
++      "val": "4",
++      "offset": 23
++    },
++    {
++      "val": "99",
++      "offset": 25
++    }
++  ],
++  "location": "StepDefinitions.my_new_balance_will_be(int,int)"
++});
++formatter.result({
++  "duration": 121881,
++  "status": "passed"
++});
++formatter.scenario({
++  "line": 30,
++  "name": "Withdrawals",
++  "description": "",
++  "id": "web-application;withdrawals;;3",
++  "type": "scenario",
++  "keyword": "Scenario Outline"
++});
++formatter.step({
++  "line": 21,
++  "name": "I am a logged in affiliate",
++  "keyword": "Given "
++});
++formatter.step({
++  "line": 22,
++  "name": "my balance is 5.00",
++  "matchedColumns": [
++    0
++  ],
++  "keyword": "And "
++});
++formatter.step({
++  "line": 23,
++  "name": "I try to withdraw my balance",
++  "keyword": "When "
++});
++formatter.step({
++  "line": 24,
++  "name": "I should see a message indicating success",
++  "matchedColumns": [
++    1
++  ],
++  "keyword": "Then "
++});
++formatter.step({
++  "line": 25,
++  "name": "my new balance will be 0.00",
++  "matchedColumns": [
++    2
++  ],
++  "keyword": "And "
++});
++formatter.match({
++  "location": "StepDefinitions.i_am_a_logged_in_affiliate()"
++});
++formatter.result({
++  "duration": 3343253908,
++  "status": "passed"
++});
++formatter.match({
++  "arguments": [
++    {
++      "val": "5",
++      "offset": 14
++    },
++    {
++      "val": "00",
++      "offset": 16
++    }
++  ],
++  "location": "StepDefinitions.my_balance_is(int,int)"
++});
++formatter.result({
++  "duration": 162937,
++  "status": "passed"
++});
++formatter.match({
++  "location": "StepDefinitions.i_try_to_withdraw_my_balance()"
++});
++formatter.result({
++  "duration": 210406,
++  "status": "passed"
++});
++formatter.match({});
++formatter.result({
++  "status": "undefined"
++});
++formatter.match({
++  "arguments": [
++    {
++      "val": "0",
++      "offset": 23
++    },
++    {
++      "val": "00",
++      "offset": 25
++    }
++  ],
++  "location": "StepDefinitions.my_new_balance_will_be(int,int)"
++});
++formatter.result({
++  "status": "skipped"
++});
++formatter.scenario({
++  "line": 31,
++  "name": "Withdrawals",
++  "description": "",
++  "id": "web-application;withdrawals;;4",
++  "type": "scenario",
++  "keyword": "Scenario Outline"
++});
++formatter.step({
++  "line": 21,
++  "name": "I am a logged in affiliate",
++  "keyword": "Given "
++});
++formatter.step({
++  "line": 22,
++  "name": "my balance is 0.00",
++  "matchedColumns": [
++    0
++  ],
++  "keyword": "And "
++});
++formatter.step({
++  "line": 23,
++  "name": "I try to withdraw my balance",
++  "keyword": "When "
++});
++formatter.step({
++  "line": 24,
++  "name": "I should see a message indicating error",
++  "matchedColumns": [
++    1
++  ],
++  "keyword": "Then "
++});
++formatter.step({
++  "line": 25,
++  "name": "my new balance will be 0.00",
++  "matchedColumns": [
++    2
++  ],
++  "keyword": "And "
++});
++formatter.match({
++  "location": "StepDefinitions.i_am_a_logged_in_affiliate()"
++});
++formatter.result({
++  "duration": 3131787137,
++  "status": "passed"
++});
++formatter.match({
++  "arguments": [
++    {
++      "val": "0",
++      "offset": 14
++    },
++    {
++      "val": "00",
++      "offset": 16
++    }
++  ],
++  "location": "StepDefinitions.my_balance_is(int,int)"
++});
++formatter.result({
++  "duration": 121026,
++  "status": "passed"
++});
++formatter.match({
++  "location": "StepDefinitions.i_try_to_withdraw_my_balance()"
++});
++formatter.result({
++  "duration": 21810,
++  "status": "passed"
++});
++formatter.match({
++  "location": "StepDefinitions.i_should_see_a_message_indicating_error()"
++});
++formatter.result({
++  "duration": 56023,
++  "status": "passed"
++});
++formatter.match({
++  "arguments": [
++    {
++      "val": "0",
++      "offset": 23
++    },
++    {
++      "val": "00",
++      "offset": 25
++    }
++  ],
++  "location": "StepDefinitions.my_new_balance_will_be(int,int)"
++});
++formatter.result({
++  "duration": 459728,
++  "status": "passed"
++});
++formatter.scenario({
++  "line": 32,
++  "name": "Withdrawals",
++  "description": "",
++  "id": "web-application;withdrawals;;5",
++  "type": "scenario",
++  "keyword": "Scenario Outline"
++});
++formatter.step({
++  "line": 21,
++  "name": "I am a logged in affiliate",
++  "keyword": "Given "
++});
++formatter.step({
++  "line": 22,
++  "name": "my balance is 142.12",
++  "matchedColumns": [
++    0
++  ],
++  "keyword": "And "
++});
++formatter.step({
++  "line": 23,
++  "name": "I try to withdraw my balance",
++  "keyword": "When "
++});
++formatter.step({
++  "line": 24,
++  "name": "I should see a message indicating success",
++  "matchedColumns": [
++    1
++  ],
++  "keyword": "Then "
++});
++formatter.step({
++  "line": 25,
++  "name": "my new balance will be 0.00",
++  "matchedColumns": [
++    2
++  ],
++  "keyword": "And "
++});
++formatter.match({
++  "location": "StepDefinitions.i_am_a_logged_in_affiliate()"
++});
++formatter.result({
++  "duration": 3009565337,
++  "status": "passed"
++});
++formatter.match({
++  "arguments": [
++    {
++      "val": "142",
++      "offset": 14
++    },
++    {
++      "val": "12",
++      "offset": 18
++    }
++  ],
++  "location": "StepDefinitions.my_balance_is(int,int)"
++});
++formatter.result({
++  "duration": 241197,
++  "status": "passed"
++});
++formatter.match({
++  "location": "StepDefinitions.i_try_to_withdraw_my_balance()"
++});
++formatter.result({
++  "duration": 47042,
++  "status": "passed"
++});
++formatter.match({});
++formatter.result({
++  "status": "undefined"
++});
++formatter.match({
++  "arguments": [
++    {
++      "val": "0",
++      "offset": 23
++    },
++    {
++      "val": "00",
++      "offset": 25
++    }
++  ],
++  "location": "StepDefinitions.my_new_balance_will_be(int,int)"
++});
++formatter.result({
++  "status": "skipped"
++});
++});
+\ No newline at end of file
+diff --git a/target/test-classes/cps3222/cucumberDemo/StepDefinitions.class b/target/test-classes/cps3222/cucumberDemo/StepDefinitions.class
+index ee639bb0d8ad47f4437667b9b1580b8b6106ea64..b8cce4b8390db6da2bbb8aec247c7b88a287eaa6 100644
+GIT binary patch
+literal 5013
+zcmcIo33n6M8NDMfl4XTZlK>_x0~jnj#DfjAU;@FIB{m8W?BGx^>PULn&zVKcj4)33
+zv^43y@B6-`>uDR@p7sayNA>i+nbBg|LNw<Tjy=o!-gobJzvT`5`#*pG7l2XxF^vPb
+z*@FSx>cu>6_acuE^uR=+7e$m(5GmYAV*!gv$TZTpnWpVh3a=@1D+N0Z2d;W3Cvi6g
+zuNOXo6e=m)OJP|(-A`dfS-q~TKG=&7;lpWs1RqV|V<~(*g*VjuPo(h46dok;sU+Ui
+z&|UK6J>hBClXJZV!z~Nvu4(wf5{|6c#+)de3k^=v^m*yX;IxL0?9g=$os(`!Xm~Ow
+z9dWs07lb!!7A(H$%eh6<x^8+>J;yIQgGK3UIG8Jz{Uc*zV@9!33^$z<wrk7;qI^!=
+zQU0at_yp_nEg{N8$xbP-q%VrDQ=$iLO2a;xH|@OX<jp&Gq$SNj<O6R-It%&0&0Fq5
+zUOF1m=kFIqIrNvrTN?VWRh&TD;=1%Dc}+Nu8<^p;hMl=89m6b3W68W{8p1IyQW{5*
+zxo27xMmBJJN;hrYbo3gq9s%ots}oq4&H$y9iiC9X6<=}UW?9M?Jy8-QU|I~~nT_%0
+z7DKqbgb5w!p#wd1pf@-m#<0x$i*Cg#<qHhnd`&nic6%jn7K<(e&6_2g49eyLdAER@
+zjo=OuF7l-pgdX}*;n*vB>`M=Q>B<+8_pXgjIvd2dzbS&)s40eBwHSOMR62#{xnABD
+zz8})wQzu3PC3|R~#|9CXSOrhmCgXJ}!=i}gkAhcR;_xCP-F0*t#S+I+?TAWB?OYHg
+z7ErymSRQnt@~*aUm07MA09i1Odn~G;mHaA>(4eKJ+tw(-EEY`5bc#$}f1SP3fJup$
+zh<kj^E;C=K1OWvwEz4b2g=e!e-2Ac(7E7MFtk~7uj<0oV>d{`kx|bTO8mR7Fi~B^~
+zQ(iT7S9U6F(oWM`7-h@yGNweUlhviKXK$6B9lA9VUPykYR6X00;BFG+dTSDcO~J=S
+z!OWFpk$uhh!)nnm)EsMU$~0C@qrxJqtqjc(%T=K$o@KGaG#pUTaHT3grLip4FHK>k
+zXWWWc6c?nLgikfiwGlN~GRR^mgM%1M;?o&?2A@yj3mJS7UrypH8GIFAOXBMpd;{Oq
+zux(isq5(ZpT=ZO9j8w<<=IA+I6!%3E-^$?I_>P9bjRtvSZcK(=qLH3~fy0z%F$l`z
+zhGD6xz3BSE`0>NX4;zzLXVjd|o4zj>9Gj!d$l$y9o`!@hCGq_Xet;il@FV<~s)YlS
+z6}vzH)0+`@D<Z7kj?vN4Bz}^?Pw_JisWP1{yIzS$$mrM+4LyFPV9TIv`5F8iL!6w3
+z5y-$2Hv@4$$PS$voKRCtpNMAK;Cu$ZP@uoWuafw62EV~?lXyFW-{JSH!o%th4+q02
+z*Y;0E(@CGKPv5<R^Q^vRpqv`m`UTgs70MqJnH`Oe^rI(6j_IP}xxTI(a8WwtN^tW`
+zcs86GthS0;9C(~VPQ&K9Y*z|Pq8Mn{QhzneR4qp*>aLA4T05F~GTWvTPR!($=)lvE
+znQ|QAO<Gi3utkTmLytb+2jZPP?G8K=t!l`0s?*f11azO8t=$f{MXK5oYF8L;C6JcE
+z<Gon%JXL4P;1zxf@YtU@KY8Wyxf%6&@<>zqI{0YXRa6a|q+PaTk#)8*XDXEG>~tIN
+z?Zm4(Cyj=r&aC)>ur>7hBDm`D)5;50IJL78SlBKzfyYU8a{Zg3^{?193xaf?-oSzS
+zM%ucO0B4EV>6kXB(V>m@ZCDj&R~SeyKgUYvEumUp!+5rpWlL@1y>zvEBWA4Mn)j41
+zoYEz+!cy9qz1a|Y<2X5~g6xh)2HX99*$ft0=nXWvefSYP>lKufen4KE*1n-qzI>fZ
+z@dKA%nVS{sr3wqtm|z!qR3W3<$qUZkt%RR(UD@gB@KgA1MF!Z*5B3B6*w^^O>CWGq
+zdCy_b-@|+|cvWj%!|y=*6K@iDmcP5hms@a%_nF85&tZg5ooYbyjoN&TPYGUk4F3g*
+zRdi@rMJK=P9{d?ytLW~;T-{?jwA_w<{#9PLMmuA#^ud3RjM1-#BP7=m`oGPqA~(>N
+z>`OgF&)o1okiPK_djE>VaM$0EQMi3itYT9Fb)>E6;+|bdVK=s554KZ;{n*zK%Rr2J
+zly;p&IEMG~u9tW3<Iiy)CwLjJ(RhOn6^&d7_vAxtUd4M7==>-8Zgli*nOVhC3507;
+zH?3`LSld=zTg7&*fo>lusNC#ic8)VMmxx=JJ=c=z$%yLnyqv00y%@#=^ru5U{SUEY
+z70)D?mz^3OJjAZLOi@CfqdX%Gc>OK$PDgkz@N%Yx_wJ?H{n*lsQJN!^<|w5()<Ctb
+zG!vwHwnnu{nmui$IYDX08}QmnGfBL2HN4q475k!8=<D!QhE}n+u@*M5;DOTwKEtA&
+zXaL{WE-&W^exU~bc3iSc8+A^-Y5p$-y&Fjeae@7Jk^T1~yKtI1Ucz<cAn{T|P)jX?
+ziu>>)gL<(RR8t1q7x&8)@>&C4>kP)tG)27WR(Si?Ww5!K=7{&|W8uZkbcuMmR(Si{
+z;@u+N{QrXY67eqMN<3a)V476Dt(*IW(5D_P#yL_)$klK{tGkzZmtaS>n4i~ZGE<97
+z9VlvkuEV+0z+G!u3vq5{>Eo65K9?TLXRQBq`kZU8hx@Meh;d$}SU0FZ0`JG?c<tj|
+So~iq6cMt!gZ606h?)fhgxru}T
+
+literal 4817
+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
+F{{j&+aB2Vm
+
+diff --git a/target/tomcat/work/Tomcat/localhost/CPS3222_assignment/org/apache/jsp/index_jsp.class b/target/tomcat/work/Tomcat/localhost/CPS3222_assignment/org/apache/jsp/index_jsp.class
+index ed9a1f66ee73ee372afdb5330470df157c90b943..589f8667ffb3dfed59bf7f6a0f24c380ef0f2259 100644
+GIT binary patch
+delta 1570
+zcmZ`(TU1nK6#h0ab1t00M6eFaa70@If}^+~ISf!LB_iP^1rmh;2AGkXGe~0PXqI$k
+zRexHT6=g+fRzM&^B6Oj$EGw&r*6N|R9=g5MT0Llc&cT9K&CL40{q4Q~z5o6FXU=a+
+z##7Yumq*3`WZ>IAbwHXgqlF;58`_#0^Bk&-T_*E-YE2dt^W^!oTe#&Ux>HojneGmP
+z;&wG$O}LAoI-Tz7mf8+;!##w#io4d=?yPC_1cSLrjV<-Q<|H!~5*Ou#i3bSRD$0x;
+zPr&Q3QVxpQN&($3N|nXbDMCs!Jt%%wO5z?SICv9pb8&66+M{Blx<~w^q>JCxh4i>c
+zh^|;IrqbN5x|TqbnRb{k$N8_1yERY7Q#`0Q5a7IEeKfl9jD(|vM6py#v}rhoXN95}
+zAwQni(1RBUw$^~Jxs4E?yx#9=_qZB8&GoL5YQMLpEhlBGjN=5m+tq3|eVGt9z2`rt
+z?q$8EPw^VdIc=zurn-NtdCEbMSncrTNO)6hair$;Y3RoQ4_fbSTeZ8c&Kub5+v_Dn
+zCZ`mt@MBQJ5Ml|@HH}_Rz{*fjfng12Fe1)6GOu|@Ln200#A8guIgE>l7&pBu@?-j=
+zrJy$$^tCh-oFZLvieF+1MeVFqyM(U@H?TOmD7I+>U9-NYxsiR4p#n5PMidz~GVEkX
+zA~ZW8B&82wTPZI)!b_zQ#cPdW(`|-bx5d^E!S{dAY{gnF2w2c&LAwQeESRdY*J5{D
+zu+N0h)fW3L@4Xh>XTc#09<bn{8L>w!)-@wG)#)+I`Gf^i&L>T#N5vjFgQp`{`saAE
+z(2Fy2UYfyPvDm8?oR|@Nomnr+3|W^a@WxSO>GrT{lZex8LwKtjS{UE%MO3LSO~Ro|
+zx;%u_y>N`8xLlV{WAt1<5<<E(gtNW4&QO?{L|4KA)9gbeG^(N+Owc|$NQY3wyoXNm
+zYatTz_(Ef_n(Zabmcou@P_P^tG7*O?B;ZCk85dzC79$&JFgTjSUN>_2do%J8T8o=d
+z!sb@2!gelJi#6DZ0t9diI&drYV=X#Sh%T(dVQzm6>v0^#IDy;H$2*6yfgj9`n8YSr
+zz-C;+?f4E`@B>%;5vBMQW%vW-xQsi<hHa#wg63d5Ex-;+MrDXxsG=-*C>PbV1~pWK
+zTG|9Jm7|WTP)}YoP!oK#3x3*%oz#g&I)WzZK`ZOfLZ=u9`DHlFIL^nup7p3;9r$6#
+z0wggDTkqk0kZFCuM~%QDa^pjMgis_RX$&9ZJfdKyQG9|=VS~cuF0f^1xd-tXCrW&f
+z9DI(8{7?FVYi@vih3`d{KoY)`czOxl68z?`BJ7;F!rhhsj&n4eQiOz<KcTE+s!4pR
+oOI$btU*j9bGI1b2U(d)kvR0@omKoU@X^hL$RvOuvYHES{7bo9k00000
+
+delta 1905
+zcmZ`)X>=1+7`-1&Gn470KrKr+P)gw(Td1T9O(6{+R79Z2Qk1Py(q@`YOs649OIb7u
+zZXhB!icmpZi3>Xzgesc~7DYi36#+#-)Z-tI|2Q7;OQtO09Fv@P-~G1t-u>Q84(9ze
+zNILfKzWo4-@Y@b)mryOBk<hC)5GpPzDzex5-Jy^YvXAmi_PfJ%jll*98nWX<P(}zD
+zgmhI?!=vizRKMyDD<Kh01kqI=Zt#z=N+RYbnBw*%*aH2m(3ckJ{|Gtsklt4;aYYCg
+zm%aX4z@r2yJKI&$=vk0RSW4(_ae36{?8H`v=lC1Fs+N=RJ+7}3`)55#=wY!W#khlt
+z+Xz{vpA^T?(|Qlf?evU3(xTC``c})N%+&-dCvlpcYbUDddRM81USM~=9+Udhi~1R<
+z%D%26&}EMwJ`wm5p-c8HpEPX1TmdiZ8`E=bB3|J`E5RUVguH2Z4Q~i|osgvmtTrhW
+zQX4fHZ(@_aKFt|<3-1Vcn@jrK&2GEjt$FQ}YJ5s<SjM~9%yq(zmEoYOc?p@hc@;OJ
+z3~QN)tpqBNupK)E>_{qPgvi*1-2}5TugUEX5xV8xR3&08R+cwQM2t{!%ek&oS75|A
+zt=a8YJ=x_!#iM9pm5cRr*#ikp-Y29bskx8)c(b}6aGP%udw-(q+~rK8%?Akr--7t1
+z5pY<qkp~X=SjHzf!t#5S@aU$xIwe@CE>s99xq0Ix`0%NWc73~?Y5q*c=Qyq(lS{gM
+zDI*KVC3M3{8DHURy|dLt-{=+Ao%*2ku>&Rd^=nM%UGe{yyi5<I=kGe2ex7bKr9gxQ
+zpg+iIB4;W&&3apxUJ>&hG0dLM!<_g~9Up3)CY#BbYBObcV^BMw4cg2-2sj0s5W~D=
+z-whTv5}FNYF<_wqiw$_#fR56UM+~~efX9-YPZ;be1C|@G!hn?qtV;4dXRzm!d>t#T
+zF^p>s=rFcMm=4;D^@NO#d+}-~#1PHc62rDu^t^Gb_l%_0q})A8Y_GxE4EQj~cYs+G
+zGveAE!l70;Y^iaHk08?)F~#uFI><K0qfwZq+ssE`wVC58AB)1;hKVz6!XA8aU?+On
+z%rTsZqNh{5Mr`7B`wpbQLd$3cPEnLL(>6?C-cG0ZrI>==-1#hw<@sP{1u&zKZ$k+p
+zUEx3vl%fw~KMchH3_~8A99D*6xR?#+??~K*JGtO!OhY+lVhrZuZg{z%hI`P2aafG;
+zSjrL0QGwN%h_$#E8!-u+Fd17g1-mg7ZK%XyuF#JAa02(^TTGAOJZ9h$m;4j6@Hb}T
+z3aW_k0Ew7Gol#BQF_-$lO#@IvF4R&vJTx8(O@WtYpq{FsQXPEMfCniIKP^H7ErCYM
+z_zz$u0<;G6s1-qqB1GE}rUU$9Z$}I3GM`Q((n9C4fG)7%cPwNTfGXoLVKs7?@dJa?
+zyi-cdzQgzEgnm?yGx&jpOrgs-i*qo+Oc(hm=a9;xU%-#-HDel;;3r&wz#A#U&-eub
+zE^<i~maDvfQ2<2*Y!EP2K$QSr;>QyWxXLXM*l)NwufrL)oVv<8iznaeWLMlc0qIv@
+z8P7}>c(<2$#ZLGYml*?<6Gu&!RL!HbRQp1K!9Kku(_ZLsI*KJne$h~;W0+Jt#5t@q
+czgQ|RaTXR7NW~6@!Z<I@FXibFY2X;?KU{dwk^lez
+
+diff --git a/target/tomcat/work/Tomcat/localhost/CPS3222_assignment/org/apache/jsp/index_jsp.java b/target/tomcat/work/Tomcat/localhost/CPS3222_assignment/org/apache/jsp/index_jsp.java
+index b3f3b4b..64edbce 100644
+--- a/target/tomcat/work/Tomcat/localhost/CPS3222_assignment/org/apache/jsp/index_jsp.java
++++ b/target/tomcat/work/Tomcat/localhost/CPS3222_assignment/org/apache/jsp/index_jsp.java
+@@ -1,7 +1,7 @@
+ /*
+  * Generated by the Jasper component of Apache Tomcat
+  * Version: Apache Tomcat/7.0.47
+- * Generated at: 2016-12-13 01:25:22 UTC
++ * Generated at: 2016-12-13 17:03:16 UTC
+  * Note: The last modified time of this file was set to
+  *       the last modified time of the source file after
+  *       generation to assist with modification tracking.
+@@ -62,11 +62,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+ 
+       out.write("\r\n");
+       out.write("\r\n");
+-
+-    AdPlatform adPlatform = new AdPlatform();
+-    adPlatform.initAffiliates();
+-
+-      out.write("\r\n");
+       out.write("\r\n");
+       out.write("\r\n");
+       out.write("<html>\r\n");
+@@ -94,14 +89,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+       out.write("\t\t\t\t\t<input class=\"btn btn-primary btn-large btn-block\" type=\"submit\" value=\"login\"/>\r\n");
+       out.write("\t\t\t\t</form>\r\n");
+       out.write("\r\n");
+-      out.write("                ");
+- if(!request.getSession().getAttribute("errormsg").toString().equals("0")){ 
+-      out.write("\r\n");
+-      out.write("                        <p>Invalid Credentials!</p>\r\n");
+-      out.write("                ");
+- } 
++      out.write("                <p>");
++      out.print( session.getAttribute("errormsg") );
++      out.write("</p>\r\n");
+       out.write("\r\n");
+-      out.write("\t\t\t</div>\r\n");
++      out.write("            </div>\r\n");
+       out.write("\r\n");
+       out.write("\t\t</div>\r\n");
+       out.write("\t</div>\r\n");
+-- 
+2.8.1.windows.1
+
