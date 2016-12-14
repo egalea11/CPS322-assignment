@@ -130,6 +130,38 @@ public class AdPlatformTest {
         assertEquals(0.0, adPlatform.getAffiliatesDatabase().get(1).getBalance(), 0.01);
     }
 
+    @Test
+    public void settlingSilverAffiliate(){
+        //Setup
+        Affiliate affiliate = new Affiliate(1, "HelpMe", "123");
+        affiliate.setBalance(100.00);
+        affiliate.setCumulativeBalance(100.00);
+        affiliate.setType(AffiliateType.SILVER);
+        adPlatform.registerAffiliate(affiliate);
+
+        //Exercise
+        adPlatform.settleAffiliateBalance(1);
+
+        //Test
+        assertEquals(0.0, adPlatform.getAffiliatesDatabase().get(1).getBalance(), 0.01);
+    }
+
+    @Test
+    public void settlingGoldAffiliate(){
+        //Setup
+        Affiliate affiliate = new Affiliate(1, "HelpMe", "123");
+        affiliate.setBalance(600.00);
+        affiliate.setCumulativeBalance(600.00);
+        affiliate.setType(AffiliateType.GOLD);
+        adPlatform.registerAffiliate(affiliate);
+
+        //Exercise
+        adPlatform.settleAffiliateBalance(1);
+
+        //Test
+        assertEquals(0.0, adPlatform.getAffiliatesDatabase().get(1).getBalance(), 0.01);
+    }
+
 
     @Test
     public void keywordFoundInServeAdvert(){
