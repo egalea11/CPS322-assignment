@@ -2,3 +2,4 @@ servlets\AccountServlet.class
 servlets\LoginServlet.class
 cps3222\classes\Affiliate.class
 cps3222\classes\AdPlatform.class
+servlets\AdvertServlet.class
