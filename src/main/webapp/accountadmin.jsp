@@ -37,6 +37,7 @@
               <input class="btn btn-primary btn-large btn-block" type="submit" value="withdraw">
             </div>
           </form>
+        <p><%= session.getAttribute("transactionMsg") %></p>
       </div>
     </div>
   </div>

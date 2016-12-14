@@ -17,14 +17,15 @@ import java.io.PrintWriter;
 @WebServlet(name = "LoginServlet", urlPatterns= { "/login"})
 public class LoginServlet extends HttpServlet{
 
+    AdPlatform adplatform = new AdPlatform();
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         int errorCode = 0;  // no errors
         int id = Integer.parseInt(request.getParameter("id"));
         String pass = request.getParameter("password");
         String errorMsg = "";
 
-        AdPlatform adplatform = new AdPlatform();
-
+        adplatform.initAffiliates();
 
 
         Affiliate user = adplatform.getAffiliatesDatabase().get(id);

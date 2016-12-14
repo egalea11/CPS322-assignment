@@ -14,7 +14,7 @@
 		<div class="login-screen">
 
 			<div class="area">
-				<form action="login" method="GET" name="submitpls">
+				<form action="login" method="GET" name="loginpls">
 					<div class="control-group">
 						<input type="text" class="login-field" value="" placeholder="username" id="login-name" name="id">
 						<label class="login-field-icon fui-user" for="login-name"></label>

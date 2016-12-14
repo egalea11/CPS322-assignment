@@ -13,22 +13,32 @@ import java.io.IOException;
  */
 
 @WebServlet(name = "AccountServlet", urlPatterns= { "/account"})
-public class AccountServlet extends HttpServlet {
+public class AccountServlet extends LoginServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        
+        Affiliate user = adplatform.getAffiliatesDatabase().get(111);
+        String msg = "";
+        if(adplatform.settleAffiliateBalance(111)){
+            msg = "Balance settled!";
+        }
+        else{
+            msg = "Transaction Invalid!";
+        }
+        request.getSession().setAttribute("transactionMsg", msg);
+        request.getSession().setAttribute("userbalance", user.getBalance());
 
-        String balanceString = (String)request.getSession().getAttribute("userbalance");
-        System.out.print(balanceString);
+        response.sendRedirect("accountadmin.jsp");
 
-        float balance = Float.valueOf(balanceString);
-        System.out.print(balance);
+//        String balanceString = (String)request.getSession().getAttribute("userbalance");
+//        System.out.print(balanceString);
+//
+//        float balance = Float.valueOf(balanceString);
+//        System.out.print(balance);
 
-//        Affiliate user = (Affiliate)request.getSession().getAttribute("user");
 
 
 
