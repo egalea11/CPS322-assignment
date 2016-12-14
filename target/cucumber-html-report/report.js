@@ -6,6 +6,10 @@ formatter.feature({
   "id": "web-application",
   "keyword": "Feature"
 });
+formatter.before({
+  "duration": 4636219984,
+  "status": "passed"
+});
 formatter.scenario({
   "line": 3,
   "name": "Successful Affiliate Login",
@@ -33,21 +37,29 @@ formatter.match({
   "location": "StepDefinitions.i_am_an_affiliate_trying_to_log_in()"
 });
 formatter.result({
-  "duration": 7508000765,
+  "duration": 490510572,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_login_using_valid_credentials()"
 });
 formatter.result({
-  "duration": 467218825,
+  "duration": 230716333,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_should_be_taken_to_my_account_admin_page()"
 });
 formatter.result({
-  "duration": 50708216,
+  "duration": 29659087,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 988753556,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1952768611,
   "status": "passed"
 });
 formatter.scenario({
@@ -82,28 +94,36 @@ formatter.match({
   "location": "StepDefinitions.i_am_an_affiliate_trying_to_log_in()"
 });
 formatter.result({
-  "duration": 3156469186,
+  "duration": 318701010,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_login_using_invalid_credentials()"
 });
 formatter.result({
-  "duration": 466506781,
+  "duration": 220444512,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_should_see_an_error_message()"
 });
 formatter.result({
-  "duration": 49767378,
+  "duration": 25828163,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_should_remain_on_the_login_page()"
 });
 formatter.result({
-  "duration": 1237980891,
+  "duration": 26133080,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 828262283,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1956311296,
   "status": "passed"
 });
 formatter.scenario({
@@ -138,28 +158,36 @@ formatter.match({
   "location": "StepDefinitions.i_am_a_logged_in_affiliate()"
 });
 formatter.result({
-  "duration": 3019717415,
+  "duration": 540338249,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_visit_my_account_admin_page()"
 });
 formatter.result({
-  "duration": 36821864,
+  "duration": 27858664,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_should_see_my_balance()"
 });
 formatter.result({
-  "duration": 27473347,
-  "status": "passed"
+  "duration": 20968730,
+  "error_message": "java.lang.AssertionError: expected:\u003c1\u003e but was:\u003c0\u003e\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat org.junit.Assert.failNotEquals(Assert.java:743)\r\n\tat org.junit.Assert.assertEquals(Assert.java:118)\r\n\tat org.junit.Assert.assertEquals(Assert.java:555)\r\n\tat org.junit.Assert.assertEquals(Assert.java:542)\r\n\tat cps3222.cucumberDemo.StepDefinitions.i_should_see_my_balance(StepDefinitions.java:94)\r\n\tat ✽.Then I should see my balance(feature/cps3222.feature:17)\r\n",
+  "status": "failed"
 });
 formatter.match({
   "location": "StepDefinitions.i_should_see_a_button_allowing_me_to_withdraw_my_balance()"
 });
 formatter.result({
-  "duration": 29614184,
+  "status": "skipped"
+});
+formatter.after({
+  "duration": 807846082,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1976060785,
   "status": "passed"
 });
 formatter.scenario({
@@ -208,7 +236,7 @@ formatter.match({
   "location": "StepDefinitions.i_am_a_logged_in_affiliate()"
 });
 formatter.result({
-  "duration": 3024077347,
+  "duration": 572518356,
   "status": "passed"
 });
 formatter.match({
@@ -225,22 +253,22 @@ formatter.match({
   "location": "StepDefinitions.my_balance_is(int,int)"
 });
 formatter.result({
-  "duration": 3207405,
+  "duration": 3302344,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_try_to_withdraw_my_balance()"
 });
 formatter.result({
-  "duration": 26515,
-  "status": "passed"
+  "duration": 2701918,
+  "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat cps3222.cucumberDemo.StepDefinitions.i_try_to_withdraw_my_balance(StepDefinitions.java:112)\r\n\tat ✽.When I try to withdraw my balance(feature/cps3222.feature:23)\r\n",
+  "status": "pending"
 });
 formatter.match({
   "location": "StepDefinitions.i_should_see_a_message_indicating_error()"
 });
 formatter.result({
-  "duration": 29080,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "arguments": [
@@ -256,7 +284,14 @@ formatter.match({
   "location": "StepDefinitions.my_new_balance_will_be(int,int)"
 });
 formatter.result({
-  "duration": 121881,
+  "status": "skipped"
+});
+formatter.after({
+  "duration": 810044651,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1947404547,
   "status": "passed"
 });
 formatter.scenario({
@@ -305,7 +340,7 @@ formatter.match({
   "location": "StepDefinitions.i_am_a_logged_in_affiliate()"
 });
 formatter.result({
-  "duration": 3343253908,
+  "duration": 542690345,
   "status": "passed"
 });
 formatter.match({
@@ -322,19 +357,22 @@ formatter.match({
   "location": "StepDefinitions.my_balance_is(int,int)"
 });
 formatter.result({
-  "duration": 162937,
+  "duration": 191161,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_try_to_withdraw_my_balance()"
 });
 formatter.result({
-  "duration": 210406,
-  "status": "passed"
+  "duration": 293799,
+  "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat cps3222.cucumberDemo.StepDefinitions.i_try_to_withdraw_my_balance(StepDefinitions.java:112)\r\n\tat ✽.When I try to withdraw my balance(feature/cps3222.feature:23)\r\n",
+  "status": "pending"
 });
-formatter.match({});
+formatter.match({
+  "location": "StepDefinitions.i_should_see_a_message_indicating_success()"
+});
 formatter.result({
-  "status": "undefined"
+  "status": "skipped"
 });
 formatter.match({
   "arguments": [
@@ -351,6 +389,14 @@ formatter.match({
 });
 formatter.result({
   "status": "skipped"
+});
+formatter.after({
+  "duration": 835914297,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1962945920,
+  "status": "passed"
 });
 formatter.scenario({
   "line": 31,
@@ -398,7 +444,7 @@ formatter.match({
   "location": "StepDefinitions.i_am_a_logged_in_affiliate()"
 });
 formatter.result({
-  "duration": 3131787137,
+  "duration": 557635142,
   "status": "passed"
 });
 formatter.match({
@@ -415,22 +461,22 @@ formatter.match({
   "location": "StepDefinitions.my_balance_is(int,int)"
 });
 formatter.result({
-  "duration": 121026,
+  "duration": 179614,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_try_to_withdraw_my_balance()"
 });
 formatter.result({
-  "duration": 21810,
-  "status": "passed"
+  "duration": 192872,
+  "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat cps3222.cucumberDemo.StepDefinitions.i_try_to_withdraw_my_balance(StepDefinitions.java:112)\r\n\tat ✽.When I try to withdraw my balance(feature/cps3222.feature:23)\r\n",
+  "status": "pending"
 });
 formatter.match({
   "location": "StepDefinitions.i_should_see_a_message_indicating_error()"
 });
 formatter.result({
-  "duration": 56023,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "arguments": [
@@ -446,7 +492,14 @@ formatter.match({
   "location": "StepDefinitions.my_new_balance_will_be(int,int)"
 });
 formatter.result({
-  "duration": 459728,
+  "status": "skipped"
+});
+formatter.after({
+  "duration": 832721004,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1958998246,
   "status": "passed"
 });
 formatter.scenario({
@@ -495,7 +548,7 @@ formatter.match({
   "location": "StepDefinitions.i_am_a_logged_in_affiliate()"
 });
 formatter.result({
-  "duration": 3009565337,
+  "duration": 528107344,
   "status": "passed"
 });
 formatter.match({
@@ -512,19 +565,22 @@ formatter.match({
   "location": "StepDefinitions.my_balance_is(int,int)"
 });
 formatter.result({
-  "duration": 241197,
+  "duration": 253599,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinitions.i_try_to_withdraw_my_balance()"
 });
 formatter.result({
-  "duration": 47042,
-  "status": "passed"
+  "duration": 420812,
+  "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat cps3222.cucumberDemo.StepDefinitions.i_try_to_withdraw_my_balance(StepDefinitions.java:112)\r\n\tat ✽.When I try to withdraw my balance(feature/cps3222.feature:23)\r\n",
+  "status": "pending"
 });
-formatter.match({});
+formatter.match({
+  "location": "StepDefinitions.i_should_see_a_message_indicating_success()"
+});
 formatter.result({
-  "status": "undefined"
+  "status": "skipped"
 });
 formatter.match({
   "arguments": [
@@ -541,5 +597,9 @@ formatter.match({
 });
 formatter.result({
   "status": "skipped"
+});
+formatter.after({
+  "duration": 840340087,
+  "status": "passed"
 });
 });

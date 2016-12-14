@@ -1,8 +1,6 @@
 <%-- JSP comment --%>
 <!-- HTML comment -->
 
-<%@ page import="cps3222.classes.*, javax.servlet.*, javax.servlet.http.*, java.io.*" %>
-
 
 <html>
 <head>
@@ -19,17 +17,26 @@
       </div>
 
       <div class="area">
-        <div class="control-group">
-          <label>
-            <b>
-              <p><%=request.getSession().getAttribute("username")%></p>
-            </b>
-          </label>
-          <div class="balance">
-            <p> <%=request.getSession().getAttribute("userbalance")%> euros </p>
-          </div>
-          <input class="btn btn-primary btn-large btn-block" type="submit" value="withdraw">
-        </div>
+
+        <form action="account" method="GET" name="withdrawpls">
+          <div class="control-group">
+            <label>
+              <b>
+                <p><%=request.getSession().getAttribute("username")%></p>
+              </b>
+            </label>
+            <div class="balance">
+              <p>
+                <div name="balance">
+                  <%=request.getSession().getAttribute("userbalance")%>
+                </div>
+                euros
+              </p>
+            </div>
+            <%-- withdraw button --%>
+              <input class="btn btn-primary btn-large btn-block" type="submit" value="withdraw">
+            </div>
+          </form>
       </div>
     </div>
   </div>

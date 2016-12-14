@@ -29,7 +29,7 @@ public class AffiliateModel implements FsmModel {
     private Boolean isWithdrawable = false;
 
     //Test case
-    private Affiliate affiliate = new Affiliate(1,"JetBrains.com");
+    private Affiliate affiliate = new Affiliate(1,"JetBrains.com", "123");
 
     // Method Implementations
     public Object getState() {
