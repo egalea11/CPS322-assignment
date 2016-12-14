@@ -143,7 +143,7 @@ public class AffiliateModel implements FsmModel {
     public boolean withdrawGuard(){return getState().equals(AffiliateState.WITHDRAWABLE_BRONZE) || getState().equals(AffiliateState.WITHDRAWABLE_SILVER) || getState().equals(AffiliateState.WITHDRAWABLE_GOLD);}
     public @Action void withdraw(){
         //Update SUT
-        systemUnderTest.settleAffiliateBalance(affiliate);
+        systemUnderTest.settleAffiliateBalance(affiliate.getId());
 
 
         //Update Model

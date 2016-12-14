@@ -57,4 +57,11 @@ public class AffiliateTest {
 
         assertEquals(553.5, affiliate.getBalance(), 0.01);
     }
+
+    @Test
+    public void getSetTrackedCommission() throws Exception {
+        affiliate.setTrackedCommission(553.5);
+
+        assertEquals(553.5, affiliate.getTrackedCommission(), 0.01);
+    }
 }
