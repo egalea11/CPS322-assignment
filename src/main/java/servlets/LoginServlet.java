@@ -14,7 +14,7 @@ import java.io.PrintWriter;
  * Created by Etienne G on 12/12/2016.
  */
 
-@WebServlet(name = "LoginServlet", urlPatterns= { "/accountadmin"})
+@WebServlet(name = "LoginServlet", urlPatterns= { "/login"})
 public class LoginServlet extends HttpServlet{
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -23,11 +23,8 @@ public class LoginServlet extends HttpServlet{
         String pass = request.getParameter("password");
         String errorMsg = "";
 
+
         AdPlatform adplatform = new AdPlatform();
-
-        PrintWriter writer = response.getWriter();
-
-        // initialise sample affiliate
         adplatform.initAffiliates();
 
 
@@ -42,6 +39,7 @@ public class LoginServlet extends HttpServlet{
                 if (adplatform.getAffiliatesDatabase().get(id).getPassword().equals(pass)){
                     System.out.println("password OK!\nlogging in...");
                     // set session variables
+                    request.getSession().setAttribute("userid", user.getId()); // add to session
                     request.getSession().setAttribute("username", user.getName()); // add to session
                     request.getSession().setAttribute("userbalance", user.getBalance()); // add to session
                 }
@@ -62,6 +60,8 @@ public class LoginServlet extends HttpServlet{
         if(errorCode == 0){
             try {
                 errorMsg = "";
+                request.getSession().setAttribute("adplatform", adplatform);
+                request.getSession().setAttribute("user", user);
                 response.sendRedirect("accountadmin.jsp");
             } catch (IOException e) {
                 e.printStackTrace();

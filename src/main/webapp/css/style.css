@@ -80,6 +80,17 @@ box-shadow: none;
 
 /* --- account.jsp --- */
 
+.balance-screen{
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 5px
+}
+
+
+.advert-screen{
+
+}
+
 .balance{
     background-color: whitesmoke;
     border-radius: 20px;

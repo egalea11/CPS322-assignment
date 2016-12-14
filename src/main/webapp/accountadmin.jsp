@@ -1,8 +1,6 @@
 <%-- JSP comment --%>
 <!-- HTML comment -->
 
-<%@ page import="cps3222.classes.*, javax.servlet.*, javax.servlet.http.*, java.io.*" %>
-
 
 <html>
 <head>
@@ -18,20 +16,54 @@
         <h1>Accounts Page</h1>
       </div>
 
+      <%--withdraw balance--%>
       <div class="area">
-        <div class="control-group">
-          <label>
-            <b>
-              <p><%=request.getSession().getAttribute("username")%></p>
-            </b>
-          </label>
-          <div class="balance">
-            <p> <%=request.getSession().getAttribute("userbalance")%> euros </p>
-          </div>
-          <input class="btn btn-primary btn-large btn-block" type="submit" value="withdraw">
-        </div>
+        <form action="account" method="GET" name="withdrawpls">
+          <div class="control-group">
+            <label>
+              <b>
+                <p><%=request.getSession().getAttribute("username")%></p>
+              </b>
+            </label>
+            <div class="balance">
+              <p>
+                <div name="balance">
+                  <%=request.getSession().getAttribute("userbalance")%>
+                </div>
+                euros
+              </p>
+            </div>
+            <%-- withdraw button --%>
+              <input class="btn btn-primary btn-large btn-block" type="submit" value="withdraw">
+            </div>
+          </form>
+        <p><%= session.getAttribute("transactionMsg") %></p>
       </div>
     </div>
+
+      <br/><br/>
+
+      <div class="login-screen">
+          <div class="app-title">
+              <h1>Advert</h1>
+          </div>
+
+          <%-- advert--%>
+          <div class="area">
+              <form action="advert" method="GET" name="advertpls">
+                  <div class="control-group">
+
+                      <input type="text" placeholder="enter keyword" name="keyword"/>
+
+                      <%-- submit keyword button --%>
+                      <input class="btn btn-primary btn-large btn-block" type="submit" value="submitKeyword">
+                  </div>
+                  <p><%= session.getAttribute("keyword") %></p>
+              </form>
+          </div>
+
+      </div>
+
   </div>
 </body>
 
