@@ -33,7 +33,7 @@ public class StepDefinitions {
         driver = new ChromeDriver();
 
         // initialise sample affiliate
-        adplatform.initAffiliates();    // sample user(id: 111, username: user, pass: 123, balance: 49.5)
+        adplatform.initAffiliates();    // sample user(id: 111, username: JohnDoe, pass: 123, balance: 49.5)
     }
 
     @After
@@ -115,7 +115,7 @@ public class StepDefinitions {
 
     @Then("^I should see a message indicating error$")
     public void i_should_see_a_message_indicating_error() throws Throwable {
-        assertEquals(1, driver.findElements((By.xpath("//p[text()='Transaction Invalid!']"))));
+        assertEquals(1, driver.findElements(By.xpath("//p[text()='Transaction Invalid!']")).size());
         sleep(2);
     }
 
@@ -124,12 +124,15 @@ public class StepDefinitions {
         Affiliate user = adplatform.getAffiliatesDatabase().get(111);
         String bal = "" + Integer.toString(arg1) + "." + Integer.toString(arg2);
         Double balance = Double.parseDouble(bal);
+        user.setBalance(balance);
         sleep(2);
     }
 
     @Then("^I should see a message indicating success$")
     public void i_should_see_a_message_indicating_success() throws Throwable {
-        assertEquals(1, driver.findElements((By.xpath("//p[text()='Balance settled!']"))));
+        assertEquals(1, driver.findElements(By.xpath("//p[text()='Balance settled!']")).size());
+        sleep(2);
+
     }
 
 }
