@@ -54,21 +54,22 @@ public class AdPlatform implements PaymentProvider, AdProvider{
     }
 
     // Settle Balance
-    public boolean settleAffiliateBalance(Affiliate affiliate){
+    public boolean settleAffiliateBalance(int affiliateID){
+        Affiliate affiliate = affiliatesDatabase.get(affiliateID);
         if (affiliate.getBalance() >= 5.0){
             if(affiliate.getType() == AffiliateType.BRONZE){
-                makePayment("AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 10)/ 100)); // adProvider payment
-                makePayment("AdPlatformAccount",(affiliate.getBalance() * 10)/ 100);    // commission
+                makePayment(affiliate.getId(),"AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 10)/ 100)); // adProvider payment
+                makePayment(affiliate.getId(),"AdPlatformAccount",(affiliate.getBalance() * 10)/ 100);    // commission
                 affiliate.setBalance(0.0);
             }
             else if(affiliate.getType() == AffiliateType.SILVER){
-                makePayment("AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 7.5)/ 100)); // adProvider payment
-                makePayment("AdPlatformAccount",(affiliate.getBalance() * 7.5)/ 100);   // commission
+                makePayment(affiliate.getId(),"AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 7.5)/ 100)); // adProvider payment
+                makePayment(affiliate.getId(),"AdPlatformAccount",(affiliate.getBalance() * 7.5)/ 100);   // commission
                 affiliate.setBalance(0.0);
             }
             else if(affiliate.getType() == AffiliateType.GOLD){
-                makePayment("AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 5)/ 100)); // adProvider payment
-                makePayment("AdPlatformAccount",(affiliate.getBalance() * 5)/ 100);     // commission
+                makePayment(affiliate.getId(),"AdProviderAccount",affiliate.getBalance() - ((affiliate.getBalance() * 5)/ 100)); // adProvider payment
+                makePayment(affiliate.getId(),"AdPlatformAccount",(affiliate.getBalance() * 5)/ 100);     // commission
                 affiliate.setBalance(0.0);
             }
             return true;
@@ -119,8 +120,11 @@ public class AdPlatform implements PaymentProvider, AdProvider{
         }
     }
 
-    public boolean makePayment(String bankAccount, Double amount) {
+    public boolean makePayment(int affiliateID, String bankAccount, Double amount) {
         //TODO Track commision gained
+        if(bankAccount.equals("AdProviderAccount")){
+            return true;
+        }
         return false;
 
     }

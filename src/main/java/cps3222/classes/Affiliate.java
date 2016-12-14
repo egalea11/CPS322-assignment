@@ -10,6 +10,7 @@ public class Affiliate {
     private AffiliateType type;
     private double balance;
     private double cumulativeBalance;
+    private double trackedCommission;
 
     //TODO add commission gained
 
@@ -22,6 +23,7 @@ public class Affiliate {
         this.type = AffiliateType.BRONZE;
         this.balance = 0;
         this.cumulativeBalance = 0;
+        this.trackedCommission = 0.0;
     }
 
     // Getters and Setters
@@ -69,5 +71,13 @@ public class Affiliate {
 
     public void setCumulativeBalance(double cumulativeBalance) {
         this.cumulativeBalance = cumulativeBalance;
+    }
+
+    public double getTrackedCommission() {
+        return trackedCommission;
+    }
+
+    public void setTrackedCommission(double trackedCommision) {
+        this.trackedCommission = trackedCommision;
     }
 }

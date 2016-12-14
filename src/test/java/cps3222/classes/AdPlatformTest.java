@@ -109,10 +109,10 @@ public class AdPlatformTest {
         //Exercise
         affiliate.setBalance(4.99);
         adPlatform.registerAffiliate(affiliate);
-        adPlatform.settleAffiliateBalance(affiliate);
+        adPlatform.settleAffiliateBalance(1);
 
         //Test
-        assertEquals(4.99, affiliate.getBalance(), 0.01);
+        assertEquals(4.99, adPlatform.getAffiliatesDatabase().get(1).getBalance(), 0.01);
 
     }
 
@@ -121,40 +121,13 @@ public class AdPlatformTest {
         //Setup
         Affiliate affiliate = new Affiliate(1, "HelpMe", "123");
         affiliate.setBalance(30.00);
+        adPlatform.registerAffiliate(affiliate);
 
         //Exercise
-        adPlatform.settleAffiliateBalance(affiliate);
+        adPlatform.settleAffiliateBalance(1);
 
         //Test
-        assertEquals(0.0, affiliate.getBalance(), 0.01);
-    }
-
-    @Test
-    public void changeInAffiliateTypeSilverToBronze(){
-        //Setup
-        Affiliate affiliate = new Affiliate(1, "HelpMe", "123");
-        affiliate.setBalance(50.00);
-        affiliate.setType(AffiliateType.SILVER);
-
-        //Exercise
-        adPlatform.settleAffiliateBalance(affiliate);
-
-        //Test
-        assertEquals(AffiliateType.BRONZE, affiliate.getType());
-    }
-
-    @Test
-    public void changeInAffiliateTypeGoldToBronze(){
-        //Setup
-        Affiliate affiliate = new Affiliate(1, "HelpMe", "123");
-        affiliate.setBalance(500.0);
-        affiliate.setType(AffiliateType.GOLD);
-
-        //Exercise
-        adPlatform.settleAffiliateBalance(affiliate);
-
-        //Test
-        assertEquals(AffiliateType.BRONZE, affiliate.getType());
+        assertEquals(0.0, adPlatform.getAffiliatesDatabase().get(1).getBalance(), 0.01);
     }
 
 
@@ -221,21 +194,21 @@ public class AdPlatformTest {
     public void adClickedChangeToSilver() {
         //Setup
         Affiliate affiliate = new Affiliate(1, "HelpMe", "123");
-        affiliate.setBalance(49.95);
+        affiliate.setCumulativeBalance(49.95);
         adPlatform.registerAffiliate(affiliate);
 
         //Exercise
         adPlatform.AdClicked(1);
 
         //Test
-        assertEquals(AffiliateType.SILVER, affiliate.getType());
+        assertEquals(AffiliateType.SILVER, adPlatform.getAffiliatesDatabase().get(1).getType());
     }
 
     @Test
     public void adClickedChangeToGold() {
         //Setup
         Affiliate affiliate = new Affiliate(1, "HelpMe", "123");
-        affiliate.setBalance(499.95);
+        affiliate.setCumulativeBalance(499.95);
         affiliate.setType(AffiliateType.SILVER);
         adPlatform.registerAffiliate(affiliate);
 
@@ -243,7 +216,7 @@ public class AdPlatformTest {
         adPlatform.AdClicked(1);
 
         //Test
-        assertEquals(AffiliateType.GOLD, affiliate.getType());
+        assertEquals(AffiliateType.GOLD, adPlatform.getAffiliatesDatabase().get(1).getType());
     }
 
 }
