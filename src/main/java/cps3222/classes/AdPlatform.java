@@ -121,8 +121,8 @@ public class AdPlatform implements PaymentProvider, AdProvider{
     }
 
     public boolean makePayment(int affiliateID, String bankAccount, Double amount) {
-        //TODO Track commision gained
         if(bankAccount.equals("AdProviderAccount")){
+            affiliatesDatabase.get(affiliateID).setTrackedCommission(affiliatesDatabase.get(affiliateID).getTrackedCommission() + amount);
             return true;
         }
         return false;

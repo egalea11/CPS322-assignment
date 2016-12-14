@@ -12,8 +12,6 @@ public class Affiliate {
     private double cumulativeBalance;
     private double trackedCommission;
 
-    //TODO add commission gained
-
 
     // Constructor
     public Affiliate(int id, String name, String password) {
