@@ -1,7 +1,3 @@
-<%-- JSP comment --%>
-<!-- HTML comment -->
-
-
 <html>
 <head>
   <meta charset="UTF-8">

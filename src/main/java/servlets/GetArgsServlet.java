@@ -12,6 +12,8 @@ import java.io.IOException;
 /**
  * Created by Etienne G on 16/12/2016.
  */
+
+// web servlet that gets cucumber scenario test balance and sets them as new balance for the testing affiliate with ID:111
 @WebServlet(name = "GetArgsServlet", urlPatterns = "/getArgs")
 public class GetArgsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
