@@ -1,5 +1,7 @@
 package servlets;
 
+import cps3222.classes.*;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,15 +14,21 @@ import java.io.IOException;
  */
 @WebServlet(name = "AdvertServlet", urlPatterns = "/advert")
 public class AdvertServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        AdPlatform adplatform = (AdPlatform)request.getSession().getAttribute("adplatform");
+
         String advertKeyword = request.getParameter("keyword");
         System.out.println(advertKeyword);
 
-        request.getSession().setAttribute("keyword", advertKeyword);
+        // add new advert
+        Advert ad = adplatform.serveAdvert(new AdDescription(new AdFormat(MediaType.IMAGE, Dimensions.MEDIUM, advertKeyword)));
+
+        request.getSession().setAttribute("advert", ad);
         response.sendRedirect("accountadmin.jsp");
     }
 }

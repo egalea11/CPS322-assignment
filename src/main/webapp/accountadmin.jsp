@@ -54,7 +54,7 @@
                       <%-- submit keyword button --%>
                       <input class="btn btn-primary btn-large btn-block" type="submit" value="submitKeyword">
                   </div>
-                  <p><%= session.getAttribute("keyword") %></p>
+                  <p><%= session.getAttribute("advert") %></p>
               </form>
           </div>
 
