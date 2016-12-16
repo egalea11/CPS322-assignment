@@ -15,6 +15,7 @@ import java.io.IOException;
 
 @WebServlet(name = "AccountServlet", urlPatterns= { "/account"})
 public class AccountServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -22,28 +23,23 @@ public class AccountServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         AdPlatform adplatform = (AdPlatform) request.getSession().getAttribute("adplatform");
-        Affiliate user = adplatform.getAffiliatesDatabase().get(111);
+
         String msg = "";
         if (adplatform.settleAffiliateBalance(111) == true) {
             msg = "Balance settled!";
             System.out.println("Success!");
-            System.out.println("User balance is now: " + user.getBalance());
+            System.out.println("User balance is now: " + adplatform.getAffiliatesDatabase().get(111).getBalance());
         } else if (adplatform.settleAffiliateBalance(111) == false) {
             msg = "Transaction Invalid!";
             System.out.println("Failed!");
-            System.out.println("User balance is still: " + user.getBalance());
+            System.out.println("User balance is still: " + adplatform.getAffiliatesDatabase().get(111).getBalance());
         }
-//        Affiliate testUser = adplatform.getAffiliatesDatabase().get(111);
-//        String bal = "" + Integer.toString(4) + "." + Integer.toString(99);
-//        Double balance = Double.parseDouble(bal);
-//        System.out.println(balance);
-//        testUser.setBalance(balance);
-//        System.out.println(testUser.getBalance());
 
         request.getSession().setAttribute("transactionMsg", msg);
-        request.getSession().setAttribute("userbalance", user.getBalance());
+        request.getSession().setAttribute("userbalance", adplatform.getAffiliatesDatabase().get(111).getBalance());
 
         response.sendRedirect("accountadmin.jsp");
     }
+
 }
 

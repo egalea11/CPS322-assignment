@@ -34,7 +34,7 @@
               </p>
             </div>
             <%-- withdraw button --%>
-              <input class="btn btn-primary btn-large btn-block" type="submit" value="withdraw">
+              <input class="btn btn-primary btn-large btn-block" type="submit" value="withdraw" name="withdraw-btn">
             </div>
           </form>
         <p><%= session.getAttribute("transactionMsg") %></p>

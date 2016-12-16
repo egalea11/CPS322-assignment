@@ -24,7 +24,7 @@
 						<label class="login-field-icon fui-lock" for="login-pass"></label>
 					</div>
 
-					<input class="btn btn-primary btn-large btn-block" type="submit" value="login"/>
+					<input class="btn btn-primary btn-large btn-block" type="submit" value="login" name="login-btn"/>
 				</form>
 
                 <p><%= session.getAttribute("errormsg") %></p>

@@ -10,6 +10,9 @@ import java.util.Random;
  */
 public class AdPlatform implements PaymentProvider, AdProvider{
 
+    public AdPlatform(){
+        initAffiliates();
+    }
 
     // Change from collection to use of HashMap
     private HashMap<Integer, Affiliate> affiliatesDatabase = new HashMap<Integer, Affiliate>();
@@ -132,7 +135,7 @@ public class AdPlatform implements PaymentProvider, AdProvider{
     //create sample affiliates
     public void initAffiliates(){
         Affiliate a1 = new Affiliate(111, "JohnDoe", "123");
-        a1.setBalance(5.00);
+        a1.setBalance(0);
         registerAffiliate(a1);
     }
 }

@@ -1,16 +1,15 @@
 package cps3222.cucumberDemo;
 
-import cps3222.classes.*;
 import static org.junit.Assert.*;
 
-import cucumber.api.Pending;
-import cucumber.api.PendingException;
+import cps3222.classes.AdPlatform;
 import cucumber.api.java.After;
 import cucumber.api.java.en.*;
 import cucumber.api.java.Before;
 import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import servlets.AccountServlet;
 
 import java.util.concurrent.TimeUnit;
 
@@ -31,9 +30,13 @@ public class StepDefinitions {
     public void setup(){
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
+    }
 
-        // initialise sample affiliate
-        adplatform.initAffiliates();    // sample user(id: 111, username: JohnDoe, pass: 123, balance: 49.5)
+    public void login(){
+        driver.get("http://localhost:8080/CPS3222_assignment/");
+        driver.findElement(By.name("id")).sendKeys("111");
+        driver.findElement(By.name("password")).sendKeys("123");
+        driver.findElement(By.name("loginpls")).submit();
     }
 
     @After
@@ -80,7 +83,7 @@ public class StepDefinitions {
         driver.get("http://localhost:8080/CPS3222_assignment/");
         driver.findElement(By.name("id")).sendKeys("111");
         driver.findElement(By.name("password")).sendKeys("123");
-        driver.findElement(By.name("loginpls")).submit();
+        driver.findElement(By.name("login-btn")).click();
     }
 
     @When("^I visit my account admin page$")
@@ -101,15 +104,17 @@ public class StepDefinitions {
 
     @Given("^my balance is (\\d+)\\.(\\d+)$")
     public void my_balance_is(int arg1, int arg2) throws Throwable {
-        Affiliate user = adplatform.getAffiliatesDatabase().get(111);
-        String bal = "" + Integer.toString(arg1) + "." + Integer.toString(arg2);
-        Double balance = Double.parseDouble(bal);
-        user.setBalance(balance);
+        String balance = "arg1=" + Integer.toString(arg1) + "&arg2=" + Integer.toString(arg2);
+        driver.get("http://localhost:8080/CPS3222_assignment/getArgs?" + balance);
+//        login();
+        driver.get("http://localhost:8080/CPS3222_assignment/accountadmin.jsp");
+        sleep(2);
+
     }
 
     @When("^I try to withdraw my balance$")
     public void i_try_to_withdraw_my_balance() throws Throwable {
-        driver.findElement(By.name("withdrawpls")).submit();
+        driver.findElement(By.name("withdraw-btn")).click();
         sleep(2);
     }
 
@@ -121,16 +126,18 @@ public class StepDefinitions {
 
     @Then("^my new balance will be (\\d+)\\.(\\d+)$")
     public void my_new_balance_will_be(int arg1, int arg2) throws Throwable {
-        Affiliate user = adplatform.getAffiliatesDatabase().get(111);
-        String bal = "" + Integer.toString(arg1) + "." + Integer.toString(arg2);
-        Double balance = Double.parseDouble(bal);
-        user.setBalance(balance);
+        String balance = "arg1=" + Integer.toString(arg1) + "&arg2=" + Integer.toString(arg2);
+        driver.get("http://localhost:8080/CPS3222_assignment/getArgs?" + balance);
+//        login();
+        driver.get("http://localhost:8080/CPS3222_assignment/accountadmin.jsp");
+
         sleep(2);
     }
 
     @Then("^I should see a message indicating success$")
     public void i_should_see_a_message_indicating_success() throws Throwable {
         assertEquals(1, driver.findElements(By.xpath("//p[text()='Balance settled!']")).size());
+
         sleep(2);
 
     }

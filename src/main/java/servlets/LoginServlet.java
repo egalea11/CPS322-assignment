@@ -25,11 +25,8 @@ public class LoginServlet extends HttpServlet{
 
 
         AdPlatform adplatform = new AdPlatform();
-        adplatform.initAffiliates();
-
 
         Affiliate user = adplatform.getAffiliatesDatabase().get(id);
-
 
         // if user exists in database
         if (user != null) {
