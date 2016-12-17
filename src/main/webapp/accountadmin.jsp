@@ -1,3 +1,5 @@
+<%@ page import="cps3222.classes.Advert" %>
+
 <html>
 <head>
   <meta charset="UTF-8">
@@ -54,7 +56,7 @@
                       <%-- submit keyword button --%>
                       <input class="btn btn-primary btn-large btn-block" type="submit" value="submitKeyword">
                   </div>
-                  <p><%= session.getAttribute("advert") %></p>
+                  <p> <b>Advert Name</b> <%= session.getAttribute("adName")%></p>
               </form>
           </div>
 
@@ -62,7 +64,6 @@
 
   </div>
 </body>
-
 
 
 </html>

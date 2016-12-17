@@ -25,10 +25,17 @@ public class AdvertServlet extends HttpServlet {
         String advertKeyword = request.getParameter("keyword");
         System.out.println(advertKeyword);
 
+
         // add new advert
-        Advert ad = adplatform.serveAdvert(new AdDescription(new AdFormat(MediaType.IMAGE, Dimensions.MEDIUM, advertKeyword)));
+        String adName ="Clash of Clans";
+        Advert ad = new Advert(001, adName, new AdFormat(MediaType.IMAGE, Dimensions.MEDIUM, advertKeyword));
+//        Advert ad = adplatform.serveAdvert(new AdDescription(new AdFormat(MediaType.IMAGE, Dimensions.MEDIUM, advertKeyword)));
+        adplatform.registerAdvert(ad);
+
+        ad.setName(adName);
 
         request.getSession().setAttribute("advert", ad);
+        request.getSession().setAttribute("adName", adName);
         response.sendRedirect("accountadmin.jsp");
     }
 }
