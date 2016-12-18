@@ -34,9 +34,11 @@ public class LoginServlet extends HttpServlet{
                 if (adplatform.getAffiliatesDatabase().get(id).getPassword().equals(pass)){
                     System.out.println("password OK!\nlogging in...");
                     // set session variables
-                    request.getSession().setAttribute("userid", user.getId()); // add to session
-                    request.getSession().setAttribute("username", user.getName()); // add to session
-                    request.getSession().setAttribute("userbalance", user.getBalance()); // add to session
+                    request.getSession().setAttribute("userid", user.getId());
+                    request.getSession().setAttribute("username", user.getName());
+                    request.getSession().setAttribute("userbalance", user.getBalance());
+                    request.getSession().setAttribute("usertrackedbalance", user.getCumulativeBalance());
+                    request.getSession().setAttribute("affiliatetype", user.getType().name());
                 }
                 else {
                     System.out.println("password mismatch!");

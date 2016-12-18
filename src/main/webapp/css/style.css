@@ -80,6 +80,11 @@ box-shadow: none;
 
 /* --- account.jsp --- */
 
+.column-split{
+    width: 32%;
+    float: left;
+}
+
 .balance-screen{
     background-color: #FFF;
     padding: 20px;
@@ -87,19 +92,40 @@ box-shadow: none;
 }
 
 
-.advert-screen{
-
-}
-
 .balance{
+    float: left;
     background-color: whitesmoke;
     border-radius: 20px;
-    width: 50%;
-    margin: auto;
-    margin-bottom: 20px;
+    width: 60%;
+    margin: auto 5px 10px auto;
+}
+
+.tracked-balance{
+    float: right;
+    color: #8e8e8e;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    width: 35%;
+    margin: auto 5px 10px auto;
 }
 
 .balance p{
     margin: 0 auto;
-    padding: 15px;
+    padding: 18px;
+}
+
+.tracked-balance p{
+    margin: 0 auto;
+    padding: 18px;
+}
+
+.ad{
+    height: 200px;
+    backround: rgb(52, 152, 219);
+    font-size: large;
+    font-weight: 700;
+    border: dashed whitesmoke 2px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
 }
