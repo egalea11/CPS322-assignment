@@ -3,7 +3,7 @@ package cps3222.classes;
 import java.util.ArrayList;
 
 /**
- * Created by Sterling Ryan on 25/11/2016.
+ * Created by Euro Ryan on 25/11/2016.
  */
 
 public class AdDescription {

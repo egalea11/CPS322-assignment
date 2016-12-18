@@ -21,9 +21,7 @@ public class LoginServlet extends HttpServlet{
         int errorCode = 0;  // no errors
         int id = Integer.parseInt(request.getParameter("id"));
         String pass = request.getParameter("password");
-        String errorMsg = "";
-
-
+        String errorMsg = " ";
         AdPlatform adplatform = new AdPlatform();
 
         Affiliate user = adplatform.getAffiliatesDatabase().get(id);
