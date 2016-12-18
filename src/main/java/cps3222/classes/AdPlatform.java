@@ -14,6 +14,7 @@ public class AdPlatform implements PaymentProvider, AdProvider{
         initAffiliates();
     }
 
+
     // Change from collection to use of HashMap
     private HashMap<Integer, Affiliate> affiliatesDatabase = new HashMap<Integer, Affiliate>();
     private HashMap<Integer, Advert> advertDatabase = new HashMap<Integer, Advert>();
@@ -83,16 +84,16 @@ public class AdPlatform implements PaymentProvider, AdProvider{
     }
 
     // Serve an advert according to the description provided by an affiliate
-    public Advert serveAdvert(AdDescription adDescription){
+    public Advert serveAdvert(AdFormat adFormat){
         ArrayList<Advert> potentialAdverts = new ArrayList<Advert>();
 
         // Get a list of potential adverts with matching keywords and format
         for(Advert advert: advertDatabase.values()){
-            if (advert.getAdFormat().getMediaType() != adDescription.getFormat().getMediaType()){
+            if (advert.getAdDescription().getMediaType() != adFormat.getMediaType()){
                 continue;
             }
-            String keywordRequest = advert.getAdFormat().getKeywords();
-            ArrayList<String> keywordList = adDescription.getKeywords();
+            String keywordRequest = adFormat.getKeyword();
+            ArrayList<String> keywordList = advert.getAdDescription().getKeywords();
             for(int i = 0; i < keywordList.size(); i++){
                 if(keywordRequest.equals(keywordList.get(i))){
                     potentialAdverts.add(advert);

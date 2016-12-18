@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Etienne G on 14/12/2016.
@@ -26,9 +27,11 @@ public class AdvertServlet extends HttpServlet {
         System.out.println(advertKeyword);
 
         // add new advert
-        Advert ad = adplatform.serveAdvert(new AdDescription(new AdFormat(MediaType.IMAGE, Dimensions.MEDIUM, advertKeyword)));
+        ArrayList<String> array = new ArrayList<String>();
+        adplatform.registerAdvert(new Advert(1 , "Elon Musk", new AdDescription(array,MediaType.IMAGE,Dimensions.LARGE)));
+        Advert ad = adplatform.serveAdvert(new AdFormat(MediaType.IMAGE,Dimensions.LARGE, advertKeyword));
 
-        request.getSession().setAttribute("advert", ad);
+        request.getSession().setAttribute("adname", ad.getName());
         response.sendRedirect("accountadmin.jsp");
     }
 }
