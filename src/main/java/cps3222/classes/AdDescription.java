@@ -8,11 +8,14 @@ import java.util.ArrayList;
 
 public class AdDescription {
     private ArrayList<String> keywords;
-    private AdFormat format;
+    private MediaType mediaType;
+    private Dimensions dimensions;
 
-    public AdDescription(AdFormat format) {
+    //Constructor
+    public AdDescription(ArrayList<String> keywords, MediaType mediaType, Dimensions dimensions) {
         this.keywords = initList();
-        this.format = format;
+        this.mediaType = mediaType;
+        this.dimensions = dimensions;
     }
 
     // initialization of sample array-list containing a list of keywords
@@ -37,11 +40,19 @@ public class AdDescription {
         this.keywords = keywords;
     }
 
-    public AdFormat getFormat() {
-        return format;
+    public MediaType getMediaType() {
+        return mediaType;
     }
 
-    public void setFormat(AdFormat format) {
-        this.format = format;
+    public void setMediaType(MediaType mediaType) {
+        this.mediaType = mediaType;
+    }
+
+    public Dimensions getDimensions() {
+        return dimensions;
+    }
+
+    public void setDimensions(Dimensions dimensions) {
+        this.dimensions = dimensions;
     }
 }
