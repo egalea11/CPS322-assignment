@@ -1,14 +1,13 @@
 package cps3222.classes;
 
-import cps3222.classes.AdPlatform;
-
-import cps3222.classes.*;
+import static org.hamcrest.CoreMatchers.*;
 import org.junit.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 
 /**
@@ -167,59 +166,59 @@ public class AdPlatformTest {
     public void keywordFoundInServeAdvert(){
 
         //Setup
-        AdFormat adFormat = new AdFormat(MediaType.IMAGE,Dimensions.LARGE,"VideoGame");
-        Advert advert = new Advert(1,"Hello",adFormat);
-        adPlatform.registerAdvert(advert);
         ArrayList<String> keywords = new ArrayList<String>();
         keywords.add("Video");
         keywords.add("VideoGame");
         keywords.add("");
-        AdDescription adDescription = new AdDescription(keywords,adFormat);
-
+        AdFormat adFormat = new AdFormat(MediaType.IMAGE,Dimensions.LARGE, "Video");
+        AdDescription adDescription = new AdDescription(keywords, MediaType.IMAGE, Dimensions.LARGE);
+        Advert advert = new Advert(1,"name", adDescription);
+        adPlatform.registerAdvert(advert);
 
         // Exercise
-        Advert returnedAdvert = adPlatform.serveAdvert(adDescription);
+        Advert returnedAdvert = adPlatform.serveAdvert(adFormat);
 
         // Test
-        assertEquals(returnedAdvert, advert);
+        assertEquals(advert, returnedAdvert);
     }
 
     @Test
     public void keywordNotFoundInServeAdvert(){
 
         //Setup
-        AdFormat adFormat = new AdFormat(MediaType.IMAGE,Dimensions.LARGE,"VideoGame");
-        Advert advert = new Advert(1,"Hello",adFormat);
-        adPlatform.registerAdvert(advert);
         ArrayList<String> keywords = new ArrayList<String>();
         keywords.add("Video");
         keywords.add("Doctor");
         keywords.add("");
-        AdDescription adDescription = new AdDescription(keywords,adFormat);
-
+        AdFormat adFormat = new AdFormat(MediaType.IMAGE,Dimensions.LARGE, "business");
+        AdDescription adDescription = new AdDescription(keywords, MediaType.IMAGE,Dimensions.LARGE);
+        Advert advert = new Advert(1,"name", adDescription);
+        adPlatform.registerAdvert(advert);
 
         // Exercise
-        Advert returnedAdvert = adPlatform.serveAdvert(adDescription);
+        Advert returnedAdvert = adPlatform.serveAdvert(adFormat);
 
         // Test
-        assertEquals(returnedAdvert, null);
+        assertThat(returnedAdvert, is(not(advert)));
+
     }
 
     @Test
     public void AdMediaTypeMismatchInServeAdvert(){
 
         //Setup
-        AdFormat adFormat1 = new AdFormat(MediaType.VIDEO,null,null);
-        AdFormat adFormat2 = new AdFormat(MediaType.IMAGE,null,null);
-        Advert advert = new Advert(1,"Hello",adFormat1);
+        AdFormat adFormat = new AdFormat(MediaType.VIDEO,null,null);
+
+        AdDescription adDesc = new AdDescription(null, MediaType.IMAGE, null);
+
+        Advert advert = new Advert(1,"Hello", adDesc);
         adPlatform.registerAdvert(advert);
-        AdDescription adDescription = new AdDescription(null,adFormat2);
 
         //Exercise
-        Advert returnedAdvert = adPlatform.serveAdvert(adDescription);
+        Advert returnedAdvert = adPlatform.serveAdvert(adFormat);
 
         // Test
-        assertEquals(returnedAdvert, null);
+        assertThat(advert, is(not(returnedAdvert)));
     }
 
     @Test

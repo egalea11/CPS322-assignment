@@ -9,7 +9,6 @@ import cucumber.api.java.Before;
 import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import servlets.AccountServlet;
 
 import java.util.concurrent.TimeUnit;
 
@@ -106,7 +105,6 @@ public class StepDefinitions {
     public void my_balance_is(int arg1, int arg2) throws Throwable {
         String balance = "arg1=" + Integer.toString(arg1) + "&arg2=" + Integer.toString(arg2);
         driver.get("http://localhost:8080/CPS3222_assignment/getArgs?" + balance);
-//        login();
         driver.get("http://localhost:8080/CPS3222_assignment/accountadmin.jsp");
         sleep(2);
 

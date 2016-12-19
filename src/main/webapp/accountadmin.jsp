@@ -37,7 +37,7 @@
                   <%-- tracked total balance --%>
                 <div class="tracked-balance">
                   <p><b>Tracked Balance</b>
-                     <div name="balance">
+                     <div name="tracked-balance">
                        <%=request.getSession().getAttribute("usertrackedbalance")%>
                      </div>
                   euros
@@ -49,7 +49,7 @@
                   <input class="btn btn-primary btn-large btn-block" type="submit" value="withdraw" name="withdraw-btn">
                 </div>
               </form>
-              <p><b><%= session.getAttribute("transactionMsg") %></b></p>
+              <p><%= session.getAttribute("transactionMsg") %></p>
           </div>
         </div>
       </div>

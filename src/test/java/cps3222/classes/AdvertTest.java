@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 /**
@@ -40,10 +42,14 @@ public class AdvertTest {
     }
 
     @Test
-    public void getSetAdFormat() throws Exception {
-        AdFormat newFormat = new AdFormat(MediaType.VIDEO, Dimensions.SMALL, "Games");
-        advert.setAdFormat(newFormat);
+    public void getSetAdDescription() throws Exception{
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Video");
+        list.add("Hospital");
+        AdDescription adDesc = new AdDescription(list, MediaType.VIDEO, Dimensions.SMALL);
 
-        assertEquals(newFormat, advert.getAdFormat());
+        advert.setAdDescription(adDesc);
+
+        assertEquals(adDesc, advert.getAdDescription());
     }
 }

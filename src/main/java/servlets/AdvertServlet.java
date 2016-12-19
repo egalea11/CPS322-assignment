@@ -22,13 +22,13 @@ public class AdvertServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AdPlatform adplatform = (AdPlatform)request.getSession().getAttribute("adplatform");
-        Affiliate adAffiliate = (Affiliate)request.getSession().getAttribute("affiliate");
+        int userID = (Integer) request.getSession().getAttribute("userid");
 
-        adplatform.AdClicked(111);
+        adplatform.AdClicked(userID);
 
-        request.getSession().setAttribute("userbalance", adplatform.getAffiliatesDatabase().get(111).getBalance());
-        request.getSession().setAttribute("usertrackedbalance", adplatform.getAffiliatesDatabase().get(111).getCumulativeBalance());
-        request.getSession().setAttribute("affiliatetype", adplatform.getAffiliatesDatabase().get(111).getType().name());
+        request.getSession().setAttribute("userbalance", adplatform.getAffiliatesDatabase().get(userID).getBalance());
+        request.getSession().setAttribute("usertrackedbalance", adplatform.getAffiliatesDatabase().get(userID).getCumulativeBalance());
+        request.getSession().setAttribute("affiliatetype", adplatform.getAffiliatesDatabase().get(userID).getType().name());
 
         response.sendRedirect("accountadmin.jsp");
 

@@ -13,7 +13,7 @@ import java.io.IOException;
  * Created by Etienne G on 16/12/2016.
  */
 
-// web servlet that gets cucumber scenario test balance and sets them as new balance for the testing affiliate with ID:111
+// web servlet that gets cucumber scenario test balance and sets them as new balance for the testing affiliate
 @WebServlet(name = "GetArgsServlet", urlPatterns = "/getArgs")
 public class GetArgsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,6 +21,8 @@ public class GetArgsServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int userID = (Integer) request.getSession().getAttribute("userid");
+
         // get arguments from url
         String arg1 = request.getParameter("arg1");
         String arg2 = request.getParameter("arg2");
@@ -32,7 +34,7 @@ public class GetArgsServlet extends HttpServlet {
         AdPlatform adplatform = (AdPlatform)request.getSession().getAttribute("adplatform");
 
         // set new balance of test affiliate
-        adplatform.getAffiliatesDatabase().get(111).setBalance(balance);
+        adplatform.getAffiliatesDatabase().get(userID).setBalance(balance);
 
         // set adplatform to current session
         request.getSession().setAttribute("adplatform", adplatform);

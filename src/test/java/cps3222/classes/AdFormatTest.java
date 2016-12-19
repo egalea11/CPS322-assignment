@@ -62,9 +62,9 @@ public class AdFormatTest {
         String string = "string";
 
         // exercise
-        adFormat.setKeywords(string);
+        adFormat.setKeyword(string);
 
         // verify
-        assertEquals("string", adFormat.getKeywords());
+        assertEquals("string", adFormat.getKeyword());
     }
 }
