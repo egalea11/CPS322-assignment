@@ -14,7 +14,7 @@ public class AdDescription {
     //Constructor
     public AdDescription(ArrayList<String> keywords, MediaType mediaType, Dimensions dimensions) {
         initList(); // init array list with sample keywords
-        this.keywords = keywords;
+        setKeywords(keywords);
         this.mediaType = mediaType;
         this.dimensions = dimensions;
     }
