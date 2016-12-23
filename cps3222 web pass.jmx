@@ -52,12 +52,12 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">100</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">5</stringProp>
+        <stringProp name="ThreadGroup.num_threads">500</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">120</stringProp>
         <longProp name="ThreadGroup.start_time">1370726934000</longProp>
         <longProp name="ThreadGroup.end_time">1370726934000</longProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
-        <stringProp name="ThreadGroup.duration">10</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">300</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
@@ -187,127 +187,135 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <RunTime guiclass="RunTimeGui" testclass="RunTime" testname="Runtime Controller" enabled="true">
-            <stringProp name="RunTime.seconds">60</stringProp>
-          </RunTime>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <intProp name="LoopController.loops">-1</intProp>
+          </LoopController>
           <hashTree>
-            <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
-              <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">150</stringProp>
-            </LoopController>
+            <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+              <intProp name="calcMode">0</intProp>
+              <doubleProp>
+                <name>throughput</name>
+                <value>150.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+            </ConstantThroughputTimer>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="serveAdvert()" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="keyword" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">keyword</stringProp>
+                    <stringProp name="Argument.value">gaming</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">192.168.1.76</stringProp>
+              <stringProp name="HTTPSampler.port">8080</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/CPS3222_assignment/advert</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
+            </HTTPSamplerProxy>
             <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="serveAdvert()" enabled="true">
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-                  <collectionProp name="Arguments.arguments">
-                    <elementProp name="keyword" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.name">keyword</stringProp>
-                      <stringProp name="Argument.value">gaming</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                  </collectionProp>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain">192.168.1.76</stringProp>
-                <stringProp name="HTTPSampler.port">8080</stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-                <stringProp name="HTTPSampler.protocol">http</stringProp>
-                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">/CPS3222_assignment/advert</stringProp>
-                <stringProp name="HTTPSampler.method">GET</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <boolProp name="HTTPSampler.monitor">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-                  <collectionProp name="HeaderManager.headers">
-                    <elementProp name="Referer" elementType="Header">
-                      <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">http://localhost:8080/CPS3222_assignment/accountadmin.jsp</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Language" elementType="Header">
-                      <stringProp name="Header.name">Accept-Language</stringProp>
-                      <stringProp name="Header.value">en-GB,en-US;q=0.8,en;q=0.6,mt;q=0.4,tr;q=0.2</stringProp>
-                    </elementProp>
-                    <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
-                      <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
-                      <stringProp name="Header.value">1</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Encoding" elementType="Header">
-                      <stringProp name="Header.name">Accept-Encoding</stringProp>
-                      <stringProp name="Header.value">gzip, deflate, sdch, br</stringProp>
-                    </elementProp>
-                    <elementProp name="User-Agent" elementType="Header">
-                      <stringProp name="Header.name">User-Agent</stringProp>
-                      <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept" elementType="Header">
-                      <stringProp name="Header.name">Accept</stringProp>
-                      <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </HeaderManager>
-                <hashTree/>
-              </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="8 /CPS3222_assignment/accountadmin.jsp" enabled="false">
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-                  <collectionProp name="Arguments.arguments"/>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain">localhost</stringProp>
-                <stringProp name="HTTPSampler.port">8080</stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-                <stringProp name="HTTPSampler.protocol">http</stringProp>
-                <stringProp name="HTTPSampler.contentEncoding">ISO-8859-1</stringProp>
-                <stringProp name="HTTPSampler.path">/CPS3222_assignment/accountadmin.jsp</stringProp>
-                <stringProp name="HTTPSampler.method">GET</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <boolProp name="HTTPSampler.monitor">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="TestPlan.comments">Detected a redirect from the previous sample</stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-                  <collectionProp name="HeaderManager.headers">
-                    <elementProp name="Referer" elementType="Header">
-                      <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">http://localhost:8080/CPS3222_assignment/accountadmin.jsp</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Language" elementType="Header">
-                      <stringProp name="Header.name">Accept-Language</stringProp>
-                      <stringProp name="Header.value">en-GB,en-US;q=0.8,en;q=0.6,mt;q=0.4,tr;q=0.2</stringProp>
-                    </elementProp>
-                    <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
-                      <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
-                      <stringProp name="Header.value">1</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Encoding" elementType="Header">
-                      <stringProp name="Header.name">Accept-Encoding</stringProp>
-                      <stringProp name="Header.value">gzip, deflate, sdch, br</stringProp>
-                    </elementProp>
-                    <elementProp name="User-Agent" elementType="Header">
-                      <stringProp name="Header.name">User-Agent</stringProp>
-                      <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept" elementType="Header">
-                      <stringProp name="Header.name">Accept</stringProp>
-                      <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </HeaderManager>
-                <hashTree/>
-              </hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">http://localhost:8080/CPS3222_assignment/accountadmin.jsp</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-GB,en-US;q=0.8,en;q=0.6,mt;q=0.4,tr;q=0.2</stringProp>
+                  </elementProp>
+                  <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
+                    <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+                    <stringProp name="Header.value">1</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, sdch, br</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="8 /CPS3222_assignment/accountadmin.jsp" enabled="false">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">localhost</stringProp>
+              <stringProp name="HTTPSampler.port">8080</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">ISO-8859-1</stringProp>
+              <stringProp name="HTTPSampler.path">/CPS3222_assignment/accountadmin.jsp</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="TestPlan.comments">Detected a redirect from the previous sample</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">http://localhost:8080/CPS3222_assignment/accountadmin.jsp</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-GB,en-US;q=0.8,en;q=0.6,mt;q=0.4,tr;q=0.2</stringProp>
+                  </elementProp>
+                  <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
+                    <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+                    <stringProp name="Header.value">1</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, sdch, br</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
             </hashTree>
           </hashTree>
+          <RunTime guiclass="RunTimeGui" testclass="RunTime" testname="Runtime Controller" enabled="false">
+            <stringProp name="RunTime.seconds">60</stringProp>
+          </RunTime>
+          <hashTree/>
         </hashTree>
       </hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Users (thread group)" enabled="true">
@@ -316,12 +324,12 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">100</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">5</stringProp>
+        <stringProp name="ThreadGroup.num_threads">50</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">120</stringProp>
         <longProp name="ThreadGroup.start_time">1370726934000</longProp>
         <longProp name="ThreadGroup.end_time">1370726934000</longProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
-        <stringProp name="ThreadGroup.duration">10</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">300</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
@@ -451,119 +459,127 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <RunTime guiclass="RunTimeGui" testclass="RunTime" testname="Runtime Controller" enabled="true">
-            <stringProp name="RunTime.seconds">60</stringProp>
-          </RunTime>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <intProp name="LoopController.loops">-1</intProp>
+          </LoopController>
           <hashTree>
-            <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
-              <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">15</stringProp>
-            </LoopController>
+            <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+              <intProp name="calcMode">0</intProp>
+              <doubleProp>
+                <name>throughput</name>
+                <value>150.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+            </ConstantThroughputTimer>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="adClicked()" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">192.168.1.76</stringProp>
+              <stringProp name="HTTPSampler.port">8080</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/CPS3222_assignment/adclick</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
+            </HTTPSamplerProxy>
             <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="adClicked()" enabled="true">
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-                  <collectionProp name="Arguments.arguments"/>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain">192.168.1.76</stringProp>
-                <stringProp name="HTTPSampler.port">8080</stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-                <stringProp name="HTTPSampler.protocol">http</stringProp>
-                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">/CPS3222_assignment/adclick</stringProp>
-                <stringProp name="HTTPSampler.method">GET</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <boolProp name="HTTPSampler.monitor">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-                  <collectionProp name="HeaderManager.headers">
-                    <elementProp name="Referer" elementType="Header">
-                      <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">http://localhost:8080/CPS3222_assignment/accountadmin.jsp</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Language" elementType="Header">
-                      <stringProp name="Header.name">Accept-Language</stringProp>
-                      <stringProp name="Header.value">en-GB,en-US;q=0.8,en;q=0.6,mt;q=0.4,tr;q=0.2</stringProp>
-                    </elementProp>
-                    <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
-                      <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
-                      <stringProp name="Header.value">1</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Encoding" elementType="Header">
-                      <stringProp name="Header.name">Accept-Encoding</stringProp>
-                      <stringProp name="Header.value">gzip, deflate, sdch, br</stringProp>
-                    </elementProp>
-                    <elementProp name="User-Agent" elementType="Header">
-                      <stringProp name="Header.name">User-Agent</stringProp>
-                      <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept" elementType="Header">
-                      <stringProp name="Header.name">Accept</stringProp>
-                      <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </HeaderManager>
-                <hashTree/>
-              </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="11 /CPS3222_assignment/accountadmin.jsp" enabled="false">
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-                  <collectionProp name="Arguments.arguments"/>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain">localhost</stringProp>
-                <stringProp name="HTTPSampler.port">8080</stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-                <stringProp name="HTTPSampler.protocol">http</stringProp>
-                <stringProp name="HTTPSampler.contentEncoding">ISO-8859-1</stringProp>
-                <stringProp name="HTTPSampler.path">/CPS3222_assignment/accountadmin.jsp</stringProp>
-                <stringProp name="HTTPSampler.method">GET</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <boolProp name="HTTPSampler.monitor">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="TestPlan.comments">Detected a redirect from the previous sample</stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-                  <collectionProp name="HeaderManager.headers">
-                    <elementProp name="Referer" elementType="Header">
-                      <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">http://localhost:8080/CPS3222_assignment/accountadmin.jsp</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Language" elementType="Header">
-                      <stringProp name="Header.name">Accept-Language</stringProp>
-                      <stringProp name="Header.value">en-GB,en-US;q=0.8,en;q=0.6,mt;q=0.4,tr;q=0.2</stringProp>
-                    </elementProp>
-                    <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
-                      <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
-                      <stringProp name="Header.value">1</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Encoding" elementType="Header">
-                      <stringProp name="Header.name">Accept-Encoding</stringProp>
-                      <stringProp name="Header.value">gzip, deflate, sdch, br</stringProp>
-                    </elementProp>
-                    <elementProp name="User-Agent" elementType="Header">
-                      <stringProp name="Header.name">User-Agent</stringProp>
-                      <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept" elementType="Header">
-                      <stringProp name="Header.name">Accept</stringProp>
-                      <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </HeaderManager>
-                <hashTree/>
-              </hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">http://localhost:8080/CPS3222_assignment/accountadmin.jsp</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-GB,en-US;q=0.8,en;q=0.6,mt;q=0.4,tr;q=0.2</stringProp>
+                  </elementProp>
+                  <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
+                    <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+                    <stringProp name="Header.value">1</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, sdch, br</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="11 /CPS3222_assignment/accountadmin.jsp" enabled="false">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">localhost</stringProp>
+              <stringProp name="HTTPSampler.port">8080</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">ISO-8859-1</stringProp>
+              <stringProp name="HTTPSampler.path">/CPS3222_assignment/accountadmin.jsp</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="TestPlan.comments">Detected a redirect from the previous sample</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">http://localhost:8080/CPS3222_assignment/accountadmin.jsp</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-GB,en-US;q=0.8,en;q=0.6,mt;q=0.4,tr;q=0.2</stringProp>
+                  </elementProp>
+                  <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
+                    <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+                    <stringProp name="Header.value">1</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, sdch, br</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
             </hashTree>
           </hashTree>
+          <RunTime guiclass="RunTimeGui" testclass="RunTime" testname="Runtime Controller" enabled="false">
+            <stringProp name="RunTime.seconds">60</stringProp>
+          </RunTime>
+          <hashTree/>
         </hashTree>
       </hashTree>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
