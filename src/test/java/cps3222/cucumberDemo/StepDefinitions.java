@@ -31,7 +31,7 @@ public class StepDefinitions {
         driver = new ChromeDriver();
     }
 
-    public void login(){
+    public void loginSuccessfully(){
         driver.get("http://localhost:8080/CPS3222_assignment/");
         driver.findElement(By.name("id")).sendKeys("111");
         driver.findElement(By.name("password")).sendKeys("123");
@@ -50,9 +50,7 @@ public class StepDefinitions {
 
     @When("^I login using valid credentials$")
     public void i_login_using_valid_credentials() throws Throwable {
-        driver.findElement(By.name("id")).sendKeys("111");
-        driver.findElement(By.name("password")).sendKeys("123");
-        driver.findElement(By.name("loginpls")).submit();
+        loginSuccessfully();
     }
 
     @Then("^I should be taken to my account admin page$")
@@ -79,10 +77,7 @@ public class StepDefinitions {
 
     @Given("^I am a logged in affiliate$")
     public void i_am_a_logged_in_affiliate() throws Throwable {
-        driver.get("http://localhost:8080/CPS3222_assignment/");
-        driver.findElement(By.name("id")).sendKeys("111");
-        driver.findElement(By.name("password")).sendKeys("123");
-        driver.findElement(By.name("login-btn")).click();
+        loginSuccessfully();
     }
 
     @When("^I visit my account admin page$")
@@ -126,7 +121,6 @@ public class StepDefinitions {
     public void my_new_balance_will_be(int arg1, int arg2) throws Throwable {
         String balance = "arg1=" + Integer.toString(arg1) + "&arg2=" + Integer.toString(arg2);
         driver.get("http://localhost:8080/CPS3222_assignment/getArgs?" + balance);
-//        login();
         driver.get("http://localhost:8080/CPS3222_assignment/accountadmin.jsp");
 
         sleep(2);
