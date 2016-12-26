@@ -28,7 +28,7 @@ public class AdvertRequestServlet extends HttpServlet {
 
         // add new advert
         ArrayList<String> array = new ArrayList<String>();
-        array.add(advertKeyword);
+//        array.add(advertKeyword);
         adplatform.registerAdvert(new Advert(1 , "Pampers advert", new AdDescription(array,MediaType.IMAGE,Dimensions.LARGE)));
         Advert ad = adplatform.serveAdvert(new AdFormat(MediaType.IMAGE,Dimensions.LARGE, advertKeyword));
 
