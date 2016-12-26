@@ -48,15 +48,38 @@ public class AffiliateModel implements FsmModel {
             affiliate.setCumulativeBalance(0.0);
             affiliate.setBalance(0.0);
             affiliate.setType(AffiliateType.BRONZE);
+            systemUnderTest.registerAffiliate(affiliate);
         }
         state = AffiliateState.BRONZE;
     }
 
     //Transitions inc. guards
     public boolean changeTypetoSilverGuard(){
-        return getState().equals(AffiliateState.WITHDRAWABLE_BRONZE);
+        return getState().equals(AffiliateState.BRONZE);
     }
     public @Action void changeTypetoSilver(){
+
+        //Updating Sut
+        systemUnderTest.getAffiliatesDatabase().get(1).setBalance(0.0);
+        systemUnderTest.getAffiliatesDatabase().get(1).setCumulativeBalance(49.5);
+        systemUnderTest.AdClicked(1);
+
+        //Updating model
+        state = AffiliateState.SILVER;
+        isAffiliateTypeBronze = false;
+        isAffiliateTypeSilver = true;
+        isWithdrawable = false;
+
+
+        //Checking Correspondence
+        Assert.assertEquals("SUT is withdrawable while model is in state SILVER", true ,systemUnderTest.getAffiliatesDatabase().get(1).getBalance() < 5.0);
+        Assert.assertEquals("SUT's affiliate is not of type SILVER while model is in state SILVER", isAffiliateTypeSilver ,systemUnderTest.getAffiliatesDatabase().get(1).getType() == AffiliateType.SILVER);
+    }
+
+    public boolean changeTypetoWithdrawableSilverGuard(){
+        return getState().equals(AffiliateState.WITHDRAWABLE_BRONZE);
+    }
+    public @Action void changeTypetoWithdrawableSilver(){
 
         //Updating Sut
         if (systemUnderTest.getAffiliatesDatabase().get(1).getCumulativeBalance() < 50.00) {
@@ -76,8 +99,52 @@ public class AffiliateModel implements FsmModel {
         Assert.assertEquals("The SILVER model state does not match with the System under test", isAffiliateTypeSilver,systemUnderTest.getAffiliatesDatabase().get(1).getType() == AffiliateType.SILVER);
     }
 
-    public boolean changeTypetoGoldGuard(){return getState().equals(AffiliateState.WITHDRAWABLE_SILVER);}
+    public boolean changeTypetoWithdrawableSilverFromBronzeGuard(){
+        return getState().equals(AffiliateState.BRONZE);
+    }
+    public @Action void changeTypetoWithdrawableSilverFromBronze(){
+
+        //Updating Sut
+        systemUnderTest.getAffiliatesDatabase().get(1).setBalance(4.5);
+        systemUnderTest.getAffiliatesDatabase().get(1).setCumulativeBalance(49.5);
+        systemUnderTest.AdClicked(1);
+
+        //Updating model
+        state = AffiliateState.WITHDRAWABLE_SILVER;
+        isAffiliateTypeBronze = false;
+        isAffiliateTypeSilver = true;
+        isWithdrawable = true;
+
+
+        //Checking Correspondence
+        Assert.assertEquals("The SILVER model state does not match with the System under test", isAffiliateTypeSilver,systemUnderTest.getAffiliatesDatabase().get(1).getType() == AffiliateType.SILVER);
+        Assert.assertEquals("SUT's affiliate is not withdrawable contrary to the Model", true,systemUnderTest.getAffiliatesDatabase().get(1).getBalance() >= 5.0);
+    }
+
+    public boolean changeTypetoGoldGuard(){
+        return getState().equals(AffiliateState.SILVER);
+    }
     public @Action void changeTypetoGold(){
+
+        //Updating Sut
+        systemUnderTest.getAffiliatesDatabase().get(1).setBalance(0.0);
+        systemUnderTest.getAffiliatesDatabase().get(1).setCumulativeBalance(499.5);
+        systemUnderTest.AdClicked(1);
+
+        //Updating model
+        state = AffiliateState.GOLD;
+        isAffiliateTypeGold = true;
+        isAffiliateTypeSilver = false;
+        isWithdrawable = false;
+
+
+        //Checking Correspondence
+        Assert.assertEquals("SUT is withdrawable while model is in state GOLD", true ,systemUnderTest.getAffiliatesDatabase().get(1).getBalance() < 5.0);
+        Assert.assertEquals("SUT's affiliate is not of type GOLD while model is in state GOLD", isAffiliateTypeGold ,systemUnderTest.getAffiliatesDatabase().get(1).getType() == AffiliateType.GOLD);
+    }
+
+    public boolean changeTypetoWithdrawableGoldGuard(){return getState().equals(AffiliateState.WITHDRAWABLE_SILVER);}
+    public @Action void changeTypetoWithdrawableGold(){
 
         //Updating Sut
         if (systemUnderTest.getAffiliatesDatabase().get(1).getCumulativeBalance() < 500.00) {
@@ -95,6 +162,28 @@ public class AffiliateModel implements FsmModel {
 
         //Checking Correspondence
         Assert.assertEquals("The GOLD model state does not match with the System under test", isAffiliateTypeGold,systemUnderTest.getAffiliatesDatabase().get(1).getType() == AffiliateType.GOLD);
+    }
+
+    public boolean changeTypetoWithdrawableGoldFromSilverGuard(){
+        return getState().equals(AffiliateState.SILVER);
+    }
+    public @Action void changeTypetoWithdrawableGoldFromSilver() {
+
+        //Updating Sut
+        systemUnderTest.getAffiliatesDatabase().get(1).setBalance(4.5);
+        systemUnderTest.getAffiliatesDatabase().get(1).setCumulativeBalance(499.5);
+        systemUnderTest.AdClicked(1);
+
+        //Updating model
+        state = AffiliateState.WITHDRAWABLE_GOLD;
+        isAffiliateTypeSilver = false;
+        isAffiliateTypeGold = true;
+        isWithdrawable = true;
+
+
+        //Checking Correspondence
+        Assert.assertEquals("The GOLD model state does not match with the System under test", isAffiliateTypeGold, systemUnderTest.getAffiliatesDatabase().get(1).getType() == AffiliateType.GOLD);
+        Assert.assertEquals("SUT's affiliate is not withdrawable contrary to the Model", true, systemUnderTest.getAffiliatesDatabase().get(1).getBalance() >= 5.0);
     }
 
     public boolean increaseBalanceGuard(){return getState().equals(AffiliateState.BRONZE) || getState().equals(AffiliateState.SILVER) || getState().equals(AffiliateState.GOLD);}
