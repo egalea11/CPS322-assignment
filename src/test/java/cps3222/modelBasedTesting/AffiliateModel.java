@@ -284,7 +284,7 @@ public class AffiliateModel implements FsmModel {
         tester.addCoverageMetric(new TransitionPairCoverage());
         tester.addCoverageMetric(new StateCoverage());
         tester.addCoverageMetric(new ActionCoverage());
-        tester.generate(250);
+        tester.generate(20000);
         tester.printCoverage();
     }
 }

@@ -19,7 +19,7 @@ public class AdDescriptionTest {
 
     @Before
     public void setUp() throws Exception {
-        adDesc = new AdDescription(null,null, null);
+        adDesc = new AdDescription(new ArrayList<String>(),null, null);
     }
 
     @After

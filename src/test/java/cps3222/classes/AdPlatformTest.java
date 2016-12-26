@@ -190,7 +190,7 @@ public class AdPlatformTest {
         keywords.add("Video");
         keywords.add("Doctor");
         keywords.add("");
-        AdFormat adFormat = new AdFormat(MediaType.IMAGE,Dimensions.LARGE, "business");
+        AdFormat adFormat = new AdFormat(MediaType.IMAGE,Dimensions.LARGE, "anime");
         AdDescription adDescription = new AdDescription(keywords, MediaType.IMAGE,Dimensions.LARGE);
         Advert advert = new Advert(1,"name", adDescription);
         adPlatform.registerAdvert(advert);
@@ -209,7 +209,7 @@ public class AdPlatformTest {
         //Setup
         AdFormat adFormat = new AdFormat(MediaType.VIDEO,null,null);
 
-        AdDescription adDesc = new AdDescription(null, MediaType.IMAGE, null);
+        AdDescription adDesc = new AdDescription(new ArrayList<String>(), MediaType.IMAGE, null);
 
         Advert advert = new Advert(1,"Hello", adDesc);
         adPlatform.registerAdvert(advert);
