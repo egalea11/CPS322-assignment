@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Created by Etienne G on 12/12/2016.
+ * Created by Ettienne G on 12/12/2016.
  */
 
 @WebServlet(name = "LoginServlet", urlPatterns= { "/login"})

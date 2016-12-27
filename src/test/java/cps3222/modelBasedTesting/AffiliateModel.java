@@ -275,8 +275,8 @@ public class AffiliateModel implements FsmModel {
 
     @Test
     public void main() {
-        RandomTester tester = new GreedyTester(new AffiliateModel());
-        tester.setResetProbability(0.01); // long test sequences
+        LookaheadTester tester = new LookaheadTester(new AffiliateModel());
+        //tester.setResetProbability(0.01); // long test sequences
         tester.setRandom(new Random());
         tester.buildGraph();
         tester.addListener(new StopOnFailureListener());
@@ -284,7 +284,7 @@ public class AffiliateModel implements FsmModel {
         tester.addCoverageMetric(new TransitionPairCoverage());
         tester.addCoverageMetric(new StateCoverage());
         tester.addCoverageMetric(new ActionCoverage());
-        tester.generate(20000);
+        tester.generate(9);
         tester.printCoverage();
     }
 }

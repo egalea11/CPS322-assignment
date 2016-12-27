@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 @CucumberOptions(monochrome = true, format = {"html:target/cucumber-html-report"})
 
 /**
- * Created by Etienne G on 05/12/2016.
+ * Created by Ettienne G on 05/12/2016.
  */
 
 public class RunCucumberTests {

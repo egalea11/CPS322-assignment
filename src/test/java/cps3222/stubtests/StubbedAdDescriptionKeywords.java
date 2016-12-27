@@ -6,7 +6,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
- * Created by Etienne G on 02/12/2016.
+ * Created by Ettienne G on 02/12/2016.
  */
 
 public class StubbedAdDescriptionKeywords {

@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by Etienne G on 05/12/2016.
+ * Created by Ettienne G on 05/12/2016.
  */
 
 public class StepDefinitions {
