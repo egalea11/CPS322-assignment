@@ -1,16 +1,6 @@
 package cps3222.classes;
 
-import cps3222.classes.AdDescription;
-import cps3222.classes.AdFormat;
-import cps3222.classes.Dimensions;
-import cps3222.classes.MediaType;
-
-import cps3222.stubtests.StubbedAdDescriptionKeywords;
 import org.junit.*;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
