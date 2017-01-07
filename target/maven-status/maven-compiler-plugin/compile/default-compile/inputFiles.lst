@@ -1,15 +1,15 @@
-C:\Users\Etienne G\Documents\CPS322-assignment\src\main\java\servlets\AccountServlet.java
-C:\Users\Etienne G\Documents\CPS322-assignment\src\main\java\cps3222\classes\Affiliate.java
-C:\Users\Etienne G\Documents\CPS322-assignment\src\main\java\servlets\AdvertRequestServlet.java
-C:\Users\Etienne G\Documents\CPS322-assignment\src\main\java\cps3222\classes\Advert.java
-C:\Users\Etienne G\Documents\CPS322-assignment\src\main\java\cps3222\classes\AdProvider.java
-C:\Users\Etienne G\Documents\CPS322-assignment\src\main\java\cps3222\classes\MediaType.java
-C:\Users\Etienne G\Documents\CPS322-assignment\src\main\java\servlets\AdvertServlet.java
-C:\Users\Etienne G\Documents\CPS322-assignment\src\main\java\servlets\GetArgsServlet.java
-C:\Users\Etienne G\Documents\CPS322-assignment\src\main\java\cps3222\classes\Dimensions.java
-C:\Users\Etienne G\Documents\CPS322-assignment\src\main\java\cps3222\classes\AdPlatform.java
-C:\Users\Etienne G\Documents\CPS322-assignment\src\main\java\cps3222\classes\AdDescription.java
-C:\Users\Etienne G\Documents\CPS322-assignment\src\main\java\servlets\LoginServlet.java
-C:\Users\Etienne G\Documents\CPS322-assignment\src\main\java\cps3222\classes\PaymentProvider.java
-C:\Users\Etienne G\Documents\CPS322-assignment\src\main\java\cps3222\classes\AffiliateType.java
-C:\Users\Etienne G\Documents\CPS322-assignment\src\main\java\cps3222\classes\AdFormat.java
+C:\Users\SterlingRyan\Documents\GitHub\CPS322-assignment\src\main\java\cps3222\classes\AdFormat.java
+C:\Users\SterlingRyan\Documents\GitHub\CPS322-assignment\src\main\java\servlets\AdvertRequestServlet.java
+C:\Users\SterlingRyan\Documents\GitHub\CPS322-assignment\src\main\java\cps3222\classes\AdProvider.java
+C:\Users\SterlingRyan\Documents\GitHub\CPS322-assignment\src\main\java\cps3222\classes\MediaType.java
+C:\Users\SterlingRyan\Documents\GitHub\CPS322-assignment\src\main\java\cps3222\classes\PaymentProvider.java
+C:\Users\SterlingRyan\Documents\GitHub\CPS322-assignment\src\main\java\servlets\GetArgsServlet.java
+C:\Users\SterlingRyan\Documents\GitHub\CPS322-assignment\src\main\java\cps3222\classes\AdPlatform.java
+C:\Users\SterlingRyan\Documents\GitHub\CPS322-assignment\src\main\java\cps3222\classes\Affiliate.java
+C:\Users\SterlingRyan\Documents\GitHub\CPS322-assignment\src\main\java\cps3222\classes\AdDescription.java
+C:\Users\SterlingRyan\Documents\GitHub\CPS322-assignment\src\main\java\cps3222\classes\AffiliateType.java
+C:\Users\SterlingRyan\Documents\GitHub\CPS322-assignment\src\main\java\servlets\LoginServlet.java
+C:\Users\SterlingRyan\Documents\GitHub\CPS322-assignment\src\main\java\cps3222\classes\Advert.java
+C:\Users\SterlingRyan\Documents\GitHub\CPS322-assignment\src\main\java\servlets\AccountServlet.java
+C:\Users\SterlingRyan\Documents\GitHub\CPS322-assignment\src\main\java\servlets\AdvertServlet.java
+C:\Users\SterlingRyan\Documents\GitHub\CPS322-assignment\src\main\java\cps3222\classes\Dimensions.java
