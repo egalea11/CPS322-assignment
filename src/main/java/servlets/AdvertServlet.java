@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by Etienne G on 18/12/2016.
- */
 
 @WebServlet(name = "AdvertServlet", urlPatterns = "/adclick")
 public class AdvertServlet extends HttpServlet {

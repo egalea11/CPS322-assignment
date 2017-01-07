@@ -1,20 +1,12 @@
 package cps3222.cucumberDemo;
 
 import static org.junit.Assert.*;
-
-import cps3222.classes.AdPlatform;
-import cucumber.api.java.After;
+import cucumber.api.java.*;
 import cucumber.api.java.en.*;
-import cucumber.api.java.Before;
 import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.concurrent.TimeUnit;
-
-/**
- * Created by Etienne G on 05/12/2016.
- */
 
 public class StepDefinitions {
 

@@ -1,14 +1,9 @@
 package cps3222.classes;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
+import org.junit.*;
 import static org.junit.Assert.*;
 
-/**
- * Created by Etienne G on 02/12/2016.
- */
+
 public class AffiliateTest {
 
     Affiliate affiliate;

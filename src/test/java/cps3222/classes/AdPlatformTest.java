@@ -2,17 +2,11 @@ package cps3222.classes;
 
 import static org.hamcrest.CoreMatchers.*;
 import org.junit.*;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
-
-/**
- * Created by EuroRyan on 02/12/2016.
- */
 
 public class AdPlatformTest {
     AdPlatform adPlatform;

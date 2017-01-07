@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by Etienne G on 16/12/2016.
- */
 
 // web servlet that gets cucumber scenario test balance and sets them as new balance for the testing the affiliate
 @WebServlet(name = "GetArgsServlet", urlPatterns = "/getArgs")

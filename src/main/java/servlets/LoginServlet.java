@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-/**
- * Created by Ettienne G on 12/12/2016.
- */
 
 @WebServlet(name = "LoginServlet", urlPatterns= { "/login"})
 public class LoginServlet extends HttpServlet{
