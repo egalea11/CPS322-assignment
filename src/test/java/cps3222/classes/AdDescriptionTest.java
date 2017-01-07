@@ -1,17 +1,10 @@
 package cps3222.classes;
 
-import cps3222.classes.AdDescription;
-import cps3222.classes.AdFormat;
 import org.junit.*;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import static org.junit.Assert.*;
 
-/**
- * Created by Etienne G on 02/12/2016.
- */
 
 public class AdDescriptionTest {
 
