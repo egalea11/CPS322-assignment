@@ -10,7 +10,7 @@ import java.util.Arrays;
 import static org.junit.Assert.*;
 
 /**
- * Created by Ettienne G on 02/12/2016.
+ * Created by Etienne G on 02/12/2016.
  */
 
 public class AdDescriptionTest {
@@ -46,7 +46,7 @@ public class AdDescriptionTest {
 
     @Test
     public void getKeywords() throws Exception {
-
+        // exercise
         adDesc.initList();
 
         // verify
@@ -90,7 +90,4 @@ public class AdDescriptionTest {
         // verify
         assertEquals(dimension, adDesc.getDimensions());
     }
-
-
-
 }

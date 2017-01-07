@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Ettienne G on 18/12/2016.
+ * Created by Etienne G on 18/12/2016.
  */
 
 @WebServlet(name = "AdvertServlet", urlPatterns = "/adclick")

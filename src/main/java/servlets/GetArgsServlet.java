@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Ettienne G on 16/12/2016.
+ * Created by Etienne G on 16/12/2016.
  */
 
-// web servlet that gets cucumber scenario test balance and sets them as new balance for the testing affiliate
+// web servlet that gets cucumber scenario test balance and sets them as new balance for the testing the affiliate
 @WebServlet(name = "GetArgsServlet", urlPatterns = "/getArgs")
 public class GetArgsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

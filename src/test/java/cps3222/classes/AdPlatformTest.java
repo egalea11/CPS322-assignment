@@ -11,7 +11,7 @@ import static org.junit.Assert.assertThat;
 
 
 /**
- * Created by SterlingRyan on 02/12/2016.
+ * Created by EuroRyan on 02/12/2016.
  */
 
 public class AdPlatformTest {
@@ -53,7 +53,6 @@ public class AdPlatformTest {
     }
     @Test
     public void simpleRegisterAffiliate() {
-
         // Setup
         Affiliate affiliate = new Affiliate(1,"Hello", "123");
         adPlatform.registerAffiliate(affiliate);
@@ -67,7 +66,6 @@ public class AdPlatformTest {
 
     @Test
     public void insertSameIdAffiliate(){
-
         // Setup
         Affiliate affiliate1 = new Affiliate(1,"Hello", "123");
         Affiliate affiliate2 = new Affiliate(1,"Trump", "123");
@@ -79,12 +77,10 @@ public class AdPlatformTest {
 
         //Test
         assertEquals(returnedAffiliate.getName(),"Hello");
-
     }
 
     @Test
     public void insertSameIdAdvert(){
-
         // Setup
         Advert advert1 = new Advert(1,"Bye",null);
         Advert advert2 = new Advert(1,"Hello",null);
@@ -96,12 +92,10 @@ public class AdPlatformTest {
 
         //Test
         assertEquals(returnedAdvert.getName(),"Bye");
-
     }
 
     @Test
     public void noSettlingOfBalanceBelowFive(){
-
         //Setup
         Affiliate affiliate = new Affiliate(1, "HelpMe", "123");
 
@@ -112,7 +106,6 @@ public class AdPlatformTest {
 
         //Test
         assertEquals(4.99, adPlatform.getAffiliatesDatabase().get(1).getBalance(), 0.01);
-
     }
 
     @Test
@@ -164,7 +157,6 @@ public class AdPlatformTest {
 
     @Test
     public void keywordFoundInServeAdvert(){
-
         //Setup
         ArrayList<String> keywords = new ArrayList<String>();
         keywords.add("Video");
@@ -184,7 +176,6 @@ public class AdPlatformTest {
 
     @Test
     public void keywordNotFoundInServeAdvert(){
-
         //Setup
         ArrayList<String> keywords = new ArrayList<String>();
         keywords.add("Video");
@@ -200,17 +191,13 @@ public class AdPlatformTest {
 
         // Test
         assertThat(returnedAdvert, is(not(advert)));
-
     }
 
     @Test
     public void AdMediaTypeMismatchInServeAdvert(){
-
         //Setup
         AdFormat adFormat = new AdFormat(MediaType.VIDEO,null,null);
-
         AdDescription adDesc = new AdDescription(new ArrayList<String>(), MediaType.IMAGE, null);
-
         Advert advert = new Advert(1,"Hello", adDesc);
         adPlatform.registerAdvert(advert);
 
