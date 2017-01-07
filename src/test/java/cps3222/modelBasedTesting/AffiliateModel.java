@@ -13,7 +13,6 @@ import org.junit.Test;
 
 import java.util.Random;
 
-
 public class AffiliateModel implements FsmModel {
 
     //Linking to the SUT
@@ -282,7 +281,7 @@ public class AffiliateModel implements FsmModel {
         tester.addCoverageMetric(new TransitionPairCoverage());
         tester.addCoverageMetric(new StateCoverage());
         tester.addCoverageMetric(new ActionCoverage());
-        tester.generate(200);
+        tester.generate(20000);
         tester.printCoverage();
     }
 }

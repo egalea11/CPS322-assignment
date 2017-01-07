@@ -1,6 +1,8 @@
 package cps3222.classes;
 
 import static org.hamcrest.CoreMatchers.*;
+
+import cps3222.stubtests.StubbedAdProvider;
 import org.junit.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -152,13 +154,9 @@ public class AdPlatformTest {
     @Test
     public void keywordFoundInServeAdvert(){
         //Setup
-        ArrayList<String> keywords = new ArrayList<String>();
-        keywords.add("Video");
-        keywords.add("VideoGame");
-        keywords.add("");
         AdFormat adFormat = new AdFormat(MediaType.IMAGE,Dimensions.LARGE, "Video");
-        AdDescription adDescription = new AdDescription(keywords, MediaType.IMAGE, Dimensions.LARGE);
-        Advert advert = new Advert(1,"name", adDescription);
+        StubbedAdProvider stubbedAdProvider = new StubbedAdProvider();
+        Advert advert = stubbedAdProvider.serveAdvert(adFormat);
         adPlatform.registerAdvert(advert);
 
         // Exercise

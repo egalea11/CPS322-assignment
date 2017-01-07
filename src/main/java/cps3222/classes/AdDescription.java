@@ -3,6 +3,7 @@ package cps3222.classes;
 import java.util.ArrayList;
 
 
+
 public class AdDescription {
     private ArrayList<String> keywords;
     private MediaType mediaType;
