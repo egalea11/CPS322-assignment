@@ -1,5 +1,5 @@
-# CPS322-assignment
-Fundamentals of Software Testing assignment
+# Software Testing
+CPS3222 Assignment - Fundamentals of Software Testing
 A Java-built implementation of a system including the creation and serving of an advert, affiliates (with balance, account tiers and ability to withdraw their balance) and advert clicking which generate balance per click.
 
 Includes:
