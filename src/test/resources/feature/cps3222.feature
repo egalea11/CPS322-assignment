@@ -26,7 +26,7 @@ And my new balance will be <new-balance>
 
 Examples:
 |balance|message-type|new-balance|
-|4.99 |error |4.99 |
-|5.00 |success |0.00 |
-|0.00 |error |0.00 |
-|142.12 |success |0.00 |
+|4.99   |error       |4.99       |
+|5.00   |success     |0.00       |
+|0.00   |error       |0.00       |
+|142.12 |success     |0.00       |

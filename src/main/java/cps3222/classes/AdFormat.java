@@ -1,17 +1,15 @@
 package cps3222.classes;
 
-/**
- * Created by Euro Ryan on 25/11/2016.
- */
+
 public class AdFormat {
     private MediaType mediaType;
     private Dimensions dimensions;
-    private String keywords;
+    private String keyword;
 
-    public AdFormat(MediaType mediaType, Dimensions dimensions, String keywords) {
+    public AdFormat(MediaType mediaType, Dimensions dimensions, String keyword) {
         this.mediaType = mediaType;
         this.dimensions = dimensions;
-        this.keywords = keywords;
+        this.keyword = keyword;
     }
 
     public MediaType getMediaType() {
@@ -30,11 +28,11 @@ public class AdFormat {
         this.dimensions = dimensions;
     }
 
-    public String getKeywords() {
-        return keywords;
+    public String getKeyword() {
+        return keyword;
     }
 
-    public void setKeywords(String keywords) {
-        this.keywords = keywords;
+    public void setKeyword(String keywords) {
+        this.keyword = keywords;
     }
 }

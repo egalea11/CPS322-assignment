@@ -2,32 +2,53 @@ package cps3222.classes;
 
 import java.util.ArrayList;
 
-/**
- * Created by Sterling Ryan on 25/11/2016.
- */
+
 
 public class AdDescription {
     private ArrayList<String> keywords;
-    private AdFormat format;
+    private MediaType mediaType;
+    private Dimensions dimensions;
 
-    public AdDescription(ArrayList<String> keywords, AdFormat format) {
-        this.keywords = keywords;
-        this.format = format;
+    //Constructor
+    public AdDescription(ArrayList<String> keywords, MediaType mediaType, Dimensions dimensions) {
+        initList(); // init array list with sample keywords
+        setKeywords(keywords);
+        this.mediaType = mediaType;
+        this.dimensions = dimensions;
+    }
+
+    // initialization of sample array-list containing a list of keywords
+    public void initList() {
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("gaming");
+        list.add("business");
+        list.add("sports");
+        this.keywords = list;
     }
 
     public ArrayList<String> getKeywords() {
         return keywords;
     }
 
-    public void setKeywords(ArrayList<String> keywords) {
-        this.keywords = keywords;
+    public void setKeywords(ArrayList<String> list) {
+        for(String x: list) {
+            this.keywords.add(x);
+        }
     }
 
-    public AdFormat getFormat() {
-        return format;
+    public MediaType getMediaType() {
+        return mediaType;
     }
 
-    public void setFormat(AdFormat format) {
-        this.format = format;
+    public void setMediaType(MediaType mediaType) {
+        this.mediaType = mediaType;
+    }
+
+    public Dimensions getDimensions() {
+        return dimensions;
+    }
+
+    public void setDimensions(Dimensions dimensions) {
+        this.dimensions = dimensions;
     }
 }

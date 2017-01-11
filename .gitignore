@@ -9,3 +9,4 @@ buildNumber.properties
 .mvn/timing.properties
 .idea/workspace.xml
 *.iml
+src/main/java/cps3222/classes/AdDescription.java

@@ -1,17 +1,10 @@
 package cps3222.classes;
 
-import cps3222.classes.AdDescription;
-import cps3222.classes.AdFormat;
 import org.junit.*;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import static org.junit.Assert.*;
 
-/**
- * Created by Etienne G on 02/12/2016.
- */
 
 public class AdDescriptionTest {
 
@@ -19,7 +12,7 @@ public class AdDescriptionTest {
 
     @Before
     public void setUp() throws Exception {
-        adDesc = new AdDescription(null, null);
+        adDesc = new AdDescription(new ArrayList<String>(),null, null);
     }
 
     @After
@@ -28,28 +21,66 @@ public class AdDescriptionTest {
     }
 
     @Test
-    public void getSetKeywords() throws Exception {
+    public void testInitList() throws Exception {
         // setup
         ArrayList<String> list = new ArrayList<String>();
 
         // exercise
-        list.add("Business");
-        list.add("Games");
-        adDesc.setKeywords(list);
+        adDesc.initList();
+
+        // add keywords after running method
+        list.add("gaming");
+        list.add("business");
+        list.add("sports");
 
         // verify
-        assertEquals(Arrays.asList("Business", "Games"), adDesc.getKeywords());
+        assertEquals(list, adDesc.getKeywords());
     }
 
     @Test
-    public void getSetFormat() throws Exception {
-        // setup
-        AdFormat adFormat = new AdFormat(MediaType.IMAGE, Dimensions.LARGE, "Business");
+    public void getKeywords() throws Exception {
+        // exercise
+        adDesc.initList();
 
-        adDesc.setFormat(adFormat);
-
-        assertEquals(adFormat, adDesc.getFormat());
+        // verify
+        assertEquals(Arrays.asList("gaming", "business", "sports"), adDesc.getKeywords());
     }
 
+    @Test
+    public void getSetKeywords() throws Exception {
+        // setup
+        adDesc.initList();
+        ArrayList<String> list = new ArrayList<String>();
 
+        // exercise
+        list.add("government");
+        adDesc.setKeywords(list);
+
+        // verify
+        assertEquals(Arrays.asList("gaming", "business", "sports", "government"), adDesc.getKeywords());
+    }
+
+    @Test
+    public void getSetMediaType() throws Exception {
+        // setup
+        MediaType mediatype = MediaType.IMAGE;
+
+        // exercise
+        adDesc.setMediaType(mediatype);
+
+        // verify
+        assertEquals(mediatype, adDesc.getMediaType());
+    }
+
+    @Test
+    public void getSetDimension() throws Exception {
+        // setup
+        Dimensions dimension = Dimensions.LARGE;
+
+        // exercise
+        adDesc.setDimensions(dimension);
+
+        // verify
+        assertEquals(dimension, adDesc.getDimensions());
+    }
 }

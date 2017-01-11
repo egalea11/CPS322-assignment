@@ -1,20 +1,25 @@
 package cps3222.classes;
 
-/**
- * Created by Sterling Ryan on 25/11/2016.
- */
+
 public class Affiliate {
     private int id;
     private String name;
+    private String password;
     private AffiliateType type;
     private double balance;
+    private double cumulativeBalance;
+    private double trackedCommission;
+
 
     // Constructor
-    public Affiliate(int id, String name) {
+    public Affiliate(int id, String name, String password) {
         this.id = id;
         this.name = name;
+        this.password = password;
         this.type = AffiliateType.BRONZE;
         this.balance = 0;
+        this.cumulativeBalance = 0;
+        this.trackedCommission = 0.0;
     }
 
     // Getters and Setters
@@ -32,6 +37,14 @@ public class Affiliate {
         this.name = name;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public AffiliateType getType() {
         return type;
     }
@@ -46,5 +59,21 @@ public class Affiliate {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public double getCumulativeBalance() {
+        return cumulativeBalance;
+    }
+
+    public void setCumulativeBalance(double cumulativeBalance) {
+        this.cumulativeBalance = cumulativeBalance;
+    }
+
+    public double getTrackedCommission() {
+        return trackedCommission;
+    }
+
+    public void setTrackedCommission(double trackedCommision) {
+        this.trackedCommission = trackedCommision;
     }
 }

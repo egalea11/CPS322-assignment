@@ -1,19 +1,16 @@
 package cps3222.classes;
 
-/**
- * Created by Euro Ryan on 25/11/2016.
- */
 
 public class Advert{
     private int id;
     private String name;
-    private AdFormat adFormat;
+    private AdDescription adDescription;
 
     //Constructor
-    public Advert(int id, String name, AdFormat adFormat) {
+    public Advert(int id, String name, AdDescription adDescription) {
         this.id = id;
         this.name = name;
-        this.adFormat = adFormat;
+        this.adDescription = adDescription;
     }
 
     //Getters and Setters
@@ -33,12 +30,11 @@ public class Advert{
         this.name = name;
     }
 
-    public AdFormat getAdFormat() {
-        return adFormat;
+    public AdDescription getAdDescription() {
+        return adDescription;
     }
 
-    public void setAdFormat(AdFormat adFormat) {
-        this.adFormat = adFormat;
+    public void setAdDescription(AdDescription adDescription) {
+        this.adDescription = adDescription;
     }
-
 }
